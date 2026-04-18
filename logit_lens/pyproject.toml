@@ -1,0 +1,11 @@
+[project]
+name = "logit-lens"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "lm-eval>=0.4.11",
+    "matplotlib>=3.10.8",
+    "transformers>=5.5.0",
+]
