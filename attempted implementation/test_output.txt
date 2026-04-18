@@ -1,0 +1,29 @@
+﻿============================================================
+xLSTM Implementation Test
+============================================================
+
+1. Testing sLSTMCell...
+   h_out shape: torch.Size([2, 16])
+uv : Traceback (most recent call last):
+At line:1 char:1
++ uv run python xlstm.py 2>&1 | Out-File -FilePath 
+test_output.txt -Enc ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback  
+   (most recent call last)::String) [], RemoteExceptio  
+  n
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\A_Facultate\Diseration\code\Dissertation-code
+\xlstm.py", line 636, in <module>
+    print("   \u2713 sLSTMCell OK")
+  File "C:\Users\flavi\AppData\Roaming\uv\python\cpython
+-3.11.11-windows-x86_64-none\Lib\encodings\cp1252.py", 
+line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encod
+ing_table)[0]
+           
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode 
+character '\u2713' in position 3: character maps to 
+<undefined>

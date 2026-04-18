@@ -1,0 +1,7 @@
+Review checklist: 
+
+    - slstm cell X
+    - mlstm cell X 
+    - slstm block X
+    - mlstm block X
+    - full architecture X

@@ -10,6 +10,11 @@ dependencies = [
     "torchvision==0.23.0",
     "torchaudio==2.8.0",
     "transformers>=5.2.0",
+    "dacite>=1.9.2",
+    "omegaconf>=2.3.0",
+    "torchmetrics>=1.9.0",
+    "dotenv>=0.9.9",
+    "xlstm>=2.0.5",
 ]
 
 [[tool.uv.index]]
