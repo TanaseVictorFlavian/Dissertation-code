@@ -1,0 +1,30 @@
+"Analysis of the early-layer logits (with bias=False) reveals that the model structurally defaults to isolated 'sink tokens' (e.g., 'ijerph') prior to layer 25. 
+This suggests the xLSTM utilizes a dedicated subspace for intermediate representations before gating mechanisms allow contextual information to coalesce into the vocabulary space."
+
+
+** CKA heatmap ** 
+
+This section should be broken down into specific phenomena observed in the heatmap : 
+A. Late-Stage Task Convergence
+
+What to write: Argue that despite different mathematical pathways, the models are forced to align their representations in the final third of the network.
+
+The evidence: Point to the high CKA similarity scores between Mistral Layers 20-32 and xLSTM Layers 12-32. This proves that the objective function (predicting the next word) heavily dictates the final semantic topology, regardless of the underlying architecture.
+
+B. Intermediate Architectural Divergence
+
+What to write: Contrast the "middle" of the networks. Mistral builds context globally and simultaneously via self-attention heads, while xLSTM builds it sequentially via covariance matrix updates and exponential gating.
+
+The evidence: The distinct lack of correlation (the darker zones) in the early-to-mid layers demonstrates that these two mechanisms create entirely disjointed representational geometries before they eventually converge.
+
+C. Asymmetric Maturation Rates
+
+What to write: Discuss the speed at which each model locks into its final semantic understanding of the sequence.
+
+The evidence: xLSTM achieves high similarity with the final output layers much earlier (around layer 12) and remains stable. Mistral requires significantly more depth (around layer 20) to settle into that same representational space. You can hypothesize that the mLSTM blocks rapidly encode sequence state, whereas Transformers require deeper iterative refinement.
+
+D. The Lexical Retention Effect
+
+What to write: Highlight the anomaly at the bottom of the heatmap.
+
+The evidence: Mistral Layers 0 and 1 (raw word embeddings) maintain a surprisingly high CKA similarity with almost the entire depth of the xLSTM architecture. This suggests xLSTM carries raw, uncontextualized lexical meaning deep into its forward pass, whereas the Transformer rapidly dissolves the raw embeddings into complex contextual vectors.

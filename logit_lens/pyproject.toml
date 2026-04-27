@@ -7,5 +7,6 @@ requires-python = ">=3.11"
 dependencies = [
     "lm-eval>=0.4.11",
     "matplotlib>=3.10.8",
+    "seaborn>=0.13.2",
     "transformers>=5.5.0",
 ]
