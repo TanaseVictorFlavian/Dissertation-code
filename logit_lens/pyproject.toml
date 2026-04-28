@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "ipywidgets>=8.1.8",
     "lm-eval>=0.4.11",
     "matplotlib>=3.10.8",
     "seaborn>=0.13.2",
