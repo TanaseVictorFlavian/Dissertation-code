@@ -1017,6 +1017,7 @@ dependencies = [
     { name = "ipywidgets" },
     { name = "lm-eval" },
     { name = "matplotlib" },
+    { name = "scikit-learn" },
     { name = "seaborn" },
     { name = "transformers" },
 ]
@@ -1026,6 +1027,7 @@ requires-dist = [
     { name = "ipywidgets", specifier = ">=8.1.8" },
     { name = "lm-eval", specifier = ">=0.4.11" },
     { name = "matplotlib", specifier = ">=3.10.8" },
+    { name = "scikit-learn", specifier = ">=1.8.0" },
     { name = "seaborn", specifier = ">=0.13.2" },
     { name = "transformers", specifier = ">=5.5.0" },
 ]

@@ -28,3 +28,15 @@ D. The Lexical Retention Effect
 What to write: Highlight the anomaly at the bottom of the heatmap.
 
 The evidence: Mistral Layers 0 and 1 (raw word embeddings) maintain a surprisingly high CKA similarity with almost the entire depth of the xLSTM architecture. This suggests xLSTM carries raw, uncontextualized lexical meaning deep into its forward pass, whereas the Transformer rapidly dissolves the raw embeddings into complex contextual vectors.
+
+
+
+
+
+Hypthesis: the features get learned progresively, with first layers focusing on syntax and position, while later layers focus on semantics and more high-level features.
+
+
+Experiments:
+- hdbscan clustering on the activations of each layer -> expectation: 3-4 clear clusters 
+- cka similarity between the hidden states of the mode
+- (maybe) train a classifier on top of the highest order layer in each cluster to predict a hypothesised feature
