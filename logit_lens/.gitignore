@@ -5,6 +5,9 @@ build/
 dist/
 wheels/
 *.egg-info
+data/
+model_checkpoints/
+wikitext-103-tokenized/
 
 # Virtual environments
 .venv

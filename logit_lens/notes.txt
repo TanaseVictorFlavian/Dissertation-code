@@ -40,3 +40,11 @@ Experiments:
 - hdbscan clustering on the activations of each layer -> expectation: 3-4 clear clusters 
 - cka similarity between the hidden states of the mode
 - (maybe) train a classifier on top of the highest order layer in each cluster to predict a hypothesised feature
+
+
+
+
+
+
+Mistakes/notes:
+- the hidden state of the cell is different from the activations of each block. QA for every experiment

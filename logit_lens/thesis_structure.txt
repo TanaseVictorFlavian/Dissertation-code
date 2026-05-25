@@ -1,0 +1,41 @@
+Notes:
+
+- zooming in structure: logit lens -> 
+  comparison of hidden states with mistral with CKA -> 
+  Clustering on the hidden states ->  
+  Memory time series -> 
+  Input/Forget gates values per token 
+
+
+Abstract
+
+
+Introduction: 
+ - LLM blackboxes and the need for explanations and how the 
+ - Resurgence of the RNN architectures with Mamba, SSMs, xLSTM 
+ - Explainability studies have been performed on transformers but not on xLSTM
+ - Define the purpose: find possible explanations on how the model learns and stores the information from data 
+
+Related work: 
+ - RNN -> LSTM -> xLSTM
+
+Method: 
+ - Model selection(details), datasets 
+ - The logit lens math and idea, HDBSCAN, KMeans
+ - Measuring the memory and computing the values for the gates 
+
+Experiments:
+ - Benchmark 
+ - Logit lens + clustering
+ - Architectural Comparison(xLSTM vs Mistral) - CKA similarity 
+ - Memory evolution and token effect on gating
+
+Conclusion: 
+ - summary and future work(TBD)
+
+
+
+
+
+
+
