@@ -1,1 +1,34 @@
-Abstract en 
+\begin{center}
+{\Large \textbf{Abstract}}
+\end{center}
+Recent progress in natural language processing has been largely driven by large-scale neural 
+networks. These architectures aim to learn representations of text that capture syntax, 
+semantics, and long-range dependencies in an efficient and scalable way. 
+Despite significant advances in performance, the internal mechanisms by which these models store and manipulate information 
+remain only partially understood. \\ \\
+% 
+This limitation becomes especially relevant in modern architectures that rely on fundamentally 
+different approaches to information storage. Transformer-based models process sequences using 
+self-attention, where information is mixed across tokens at each layer without an explicit notion 
+of persistent state. In contrast, xLSTM introduced by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
+a modern recurrent neural network architecture represents an alternative to the transformer based architectures 
+by incorporating explicit memory that is updated incrementally over time. This allows information to be stored 
+and refined accross consecutive time steps. \\ \\ 
+%
+This work investigates the internal behavior of the xLSTM architecture through a set of interpretability 
+experiments aimed at understanding how information is represented, stored, and transformed inside the 
+model. The analysis spans multiple levels of abstraction, from token-level dynamics to layer-wise 
+representation structure. Specifically, we apply logit lens techniques to study how predictive 
+information emerges across layers, and compare internal representations between xLSTM and a 
+Transformer-based model (Mistral 7B)\cite{jiang2023mistral7b} in order to highlight differences in how 
+semantic structure develops. Furthermore, we analyze the evolution of hidden states using clustering methods 
+to observe how representations reorganize across depth, and quantify memory behavior by tracking the 
+evolution of the cell state over time. In addition, we study input and forget gate activations at the 
+token level to understand how the model selectively retains or discards information during processing. 
+Together, these experiments provide a multi-perspective view into the internal mechanisms of xLSTM, 
+offering interpretable signals about how structured memory evolves in large-scale recurrent architectures.\\ \\
+%
+sdfbnsdbsd;bfsdb ADD RAG EXPERIMENT RESULTS HERE sdkfjsdafgsdahj
+
+
+
