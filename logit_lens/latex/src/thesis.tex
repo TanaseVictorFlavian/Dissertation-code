@@ -1,0 +1,110 @@
+% Sablon pentru realizarea lucrarii de licenta, conform cu recomandarile
+% din ghidul de redactare:
+% - https://fmi.unibuc.ro/finalizare-studii/
+% - https://drive.google.com/file/d/1xj9kZZgTkcKMJkMLRuoYRgLQ1O8CX0mv/view
+
+% Multumiri lui Gabriel Majeri, acest sablon a fost creat pe baza
+% codului sursa a lucrarii sale de licenta. 
+% Codul sursa: https://github.com/GabrielMajeri/bachelors-thesis
+% Website: https://www.gabrielmajeri.ro/
+%
+% Aceast sablon este licentiat sub Creative Commons Attribution 4.0 International License.
+
+\documentclass[12pt, a4paper]{report}
+
+% Utilizează biblatex pentru referințe bibliografice
+\usepackage[
+    backend=biber,
+    maxbibnames=50,
+    sorting=nty
+]{biblatex}
+
+\addbibresource{refs.bib}
+
+% Setează spațiere inter-linie la 1.5
+\usepackage{setspace}
+\onehalfspacing
+
+% Modificarea geometriei paginii
+\usepackage{geometry}
+
+% Include funcțiile de grafică
+\usepackage{graphicx}
+% Încarcă imaginile din directorul `images`
+\graphicspath{{../images/}}
+
+% Listări de cod
+\usepackage{listings}
+
+% Linkuri interactive în PDF
+\usepackage[
+    colorlinks,
+    linkcolor={black},
+    menucolor={black},
+    citecolor={black},
+    urlcolor={blue}
+]{hyperref}
+
+% Comenzi matematice
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[
+    warnings-off={mathtools-colon,mathtools-overbracket}
+]{unicode-math}
+
+% Formule matematice
+\newcommand{\bigO}[1]{\symcal{O}\left(#1\right)}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
+% Suport pentru anexe
+\usepackage{appendix}
+
+\usepackage{titlesec}
+
+\titleformat{\chapter}
+  {\normalfont\LARGE\bfseries}
+  {\thechapter.}
+  {0.5em}
+  {}
+
+% Metadate
+\title{A Post-hoc Interpretability Analysis of xLSTM
+Architectures}
+\author{Tănase Victor-Flavian}
+
+% Generează variabilele cu @
+\makeatletter
+\let\ps@plain\ps@empty
+\makeatother
+
+\begin{document}
+
+% Front matter
+\cleardoublepage
+
+% Pagina de titlu
+\include{Title-en}
+\include{Title-ro}
+\restoregeometry
+\newgeometry{
+    margin=2.5cm
+}
+\addtocounter{page}{1}
+
+% Rezumatul
+\include{Abstract-en}
+\include{Abstract-ro}
+
+\tableofcontents
+
+% Main matter
+\cleardoublepage
+
+\include{Introduction}
+\include{Related Work}
+\include{Method}
+\include{Experiments}
+\include{Conclusion and Future Work}
+\printbibliography[heading=bibintoc]
+
+\end{document}
