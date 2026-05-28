@@ -2,3 +2,37 @@
 {\Large \textbf{Sinopsis}}
 \end{center}
 
+Progresul recent in prelucrarea limbajului natural a fost accelerată de 
+dezvoltarea modelelor lingvistice de mari dimensiuni(LLM). Acest tip de arhitectura 
+are ca scop învățarea unor reprezentări ale limbajului care pot captura proprietăți 
+sintactice, semantice și să modele dependențe între cuvinte îndepărtate într-un mod efficient
+și scalabil. În ciuda îmbunătățirii performanței acestor modele, modul in care ele 
+învață și manipulează informația este doar parțial înțeles. \\ \\
+%
+Această limitare este cu atât mai relevantă în arhitecturile moderne care se bazează pe 
+abordări fundamental diferite de a reprezenta informația. Modelele de tip transformer procesează
+secvențe de text cu ajutorul mecanismului de atenție, care folosește informația din tokeni în fiecare
+strat intern, fără o structură definită pentru memorie. Pe de altă parte, xLSTM o arhitectură de tip 
+recurentă\cite{beck2024xlstmextendedlongshortterm} reprezintă o alternativă la modelele de tip transformer, 
+folosind o structură pentru memorie explicită, care este actualizată incremental pe parcursul procesării
+textului. Acest mecanism are ca avantaj înmagazinarea si rafinarea informației de fiecare dată când un nou 
+token este procesat. \\ \\
+%
+Efortul din această lucrare investighează comportamentul din interiorul arhitecturii xLSTM printr-o 
+serie de experimente de interpretabilitate care au ca scop formarea unei intuiții mai bune despre
+cum informația este reprezentată, înmagazinată și transformată în interiorul modelului. Analiza cuprinde 
+mai multe nivele de abstractizare, pronind de la analiza la nivel de token, ca mai apoi să fie observate reprezentările 
+la nivel de strat. Mai specific, sunt utilizate tehnici de tip logit lens\cite{nostalgebraist2020logitlens}
+\cite{belrose2023tunedlens} pentru a remarca evoluția relației dintre reprezentările intermediare 
+în spațiul de embeddings și spațiul vocabularului. De asemenea, comparăm reprezentările interne ale modelului xLSTM 
+cu cele ale unei arhitecturi comparabile de tip transformer, anume Mistral-7B\cite{jiang2023mistral7b}, cu scopul de 
+observa similaritatea evoluției reprezentărilor semantice în doua arhitecturi diferite. Totodată, analizăm 
+evoluția stărilor interne folosind algoritmi de clustering și observăm modificarea memoriei pe parcursul
+procesării tokenilor, urmărind evoluția memoriei pe parcursul parcurgerii unui text. Mai mult, studiem activările porților
+input și forget la nivel de token pentru a înțelege cum modelul alege sa rețină și să elimine selectiv
+conext pe parcursul procesării informației. Împreună aceste experimente aduc o nouă perspectivă 
+în interpretarea mecanismelor din interiorul arhitecturii xLSTM, oferind indicii despre 
+cum memoria modelului evoluează într-o rețea recurentă de dimensiuni mari. 
+%
+sdfbnsdbsd;bfsdb ADD RAG EXPERIMENT RESULTS HERE sdkfjsdafgsdahj
+
