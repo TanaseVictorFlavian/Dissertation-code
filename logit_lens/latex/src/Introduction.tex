@@ -1,14 +1,88 @@
 \chapter{Introduction}
 \label{ch:introduction}
 
-Recent progress in natural language processing has been largely driven by large-scale neural 
-networks. These architectures aim to learn representations of text that capture syntax, 
-semantics, and long-range dependencies in an efficient and scalable way. 
-Despite significant advances in performance, the internal mechanisms by which these models store and manipulate information 
-remain only partially understood.
+Since the inception of the Transformer \cite{vaswani2017attention}, large architectures utilizing stacked 
+attention mechanisms have dominated the research landscape, exhibiting impressive performance in 
+natural language processing tasks. This architectural paradigm scaled rapidly, progressing from hundreds
+of millions of parameters to billions, and ultimately to trillions for enterprise-scale models. In parallel, 
+with this scaling trend, a significant part of the scientific community focused their efforts on understanding
+the internal mechanisms of these models. However, this intense scientific work has focused
+almost exclusively towards attention-based architectures, leaving non-transformer based models comparatively less explored. \\ \\
+%
+Despite their success, Transformers suffer from a fundamental computational bottleneck: the 
+self-attention mechanism scales quadratically ($\mathcal{O}(N^2)$) with respect to sequence length, making long-context
+processing computationally expensive. This limitation has led to a recent resurgence of interest in recurrent architectures and 
+state-based architectures that aim to achieve linear-time efficiency ($\mathcal{O}(N)$) without sacrificing performance. 
+Key contributions in this direction include: Structured State Space Models (SSMs) like Mamba \cite{gu2024mambalineartimesequencemodeling}, 
+linear transformers such as Receptance Weighted Key Value (RWKV)\cite{peng2023rwkvreinventingrnnstransformer} and 
+Extended Long-Short Term Memory(xLSTM) \cite{beck2024xlstmextendedlongshortterm}. 
+The xLSTM architecture extends the classic LSTM cell \cite{10.5555/2998981.2999048} by 
+introducing exponential gating and matrix-valued memory states with gated updates. These changes look to address the scaling 
+problem of the Transformers and the storage bottlenecks of traditional LSTMs, achieving comparable perfromance while 
+maintaining linear-time inference.  
 
-A common challenge when building and using these deep architectures is the trade-off between 
-performance and interpretability, where internal representations are high-dimensional and distributed
-across many layers and time steps.
+\section{Problem}
 
-The development of sequence modelling architectures has undergone several major phases. 
+Deep architectures have produced tremendous advancements in the field of machine learning over the past decade. 
+Their pattern recognition and information representation capabilities are yet to be completely understood even to this day.
+Post-hoc interpretability in deep neural networks is a challenging problem due to several intrinsic mathematical 
+and structural properties of these models. First, modern architectures operate in high-dimensional representation spaces, 
+where features are typically distributed across multiple dimensions rather than localized to individual neurons. 
+Moreover, multiple concepts may be encoded within overlapping directions of the representation space. 
+Second, neural networks apply a sequence of non-linear transformations, making the relationship between input tokens 
+and internal representations difficult to describe using simple analytical tools. As network depth increases, interactions 
+between representations become progressively more complex. Finally, although the computation of hidden states is fully 
+specified by the model parameters and architecture, the resulting computation graph is generally too complex to provide 
+specific human-interpretable explanations of how particular representations or predictions are produced.
+
+\section{Motivation}
+
+The motivation for this work originates from the recent resurgece of recurrent architectures in large-scale sequence 
+modelling. While analyizing the current state of research on recurrent neural networks, the xLSTM architecture, which 
+Beck et al.\cite{beck2024xlstmextendedlongshortterm} proposed in 2024, became a personal point of interest. As one of the 
+first recurrent architectures in recent years to demonstrate competitive performance at scales traditionally 
+dominated by Transformer-based models, xLSTM represents an important development in the ongoing search for efficient 
+alternatives to self-attention. \\ \\ 
+%
+While the performance of Transformer-based language models has been extensively studied, a substantial body of 
+interpretability research has also emerged to investigate their internal mechanisms. In contrast, the behavior 
+of modern recurrent architectures such as xLSTM remains comparatively underexplored. This observation motivated 
+the present work, which seeks to apply and adapt interpretability techniques inspired by previous studies of 
+neural language models, including the Logit Lens methodology and analyses of recurrent network dynamics. \\ \\
+%
+By investigating how information is represented, stored, and updated within xLSTM, this thesis aims to contribute 
+to a better understanding of the model's memory mechanisms and internal representations. Such insights may help 
+validate architectural design choices, identify limitations, and inform future developments of memory-based language models.
+
+(dsjkghdfjgdjksdagh) ALSO TALK ABOUT HOW WE WANT TO TEST IF THERE ARE PRACTICAL SETUPS WHERE THE XLSTM WOULD WORK -> MY OTHER EXPERIMENT
+
+\section{Contribution}
+
+To address the lack of interpretability data on scalable recurrent architectures, the primary objective of this thesis 
+is to execute a post-hoc evaluation framework on the internal representations and state dynamics of the xLSTM-7B 
+architecture. This work maps the internal mechanics of the model by moving systematically from macro-level validation 
+down to micro-level gating operations. \\ \\ 
+TO BE REVIEWED \\ 
+
+The first phase of the research establishes an empirical baseline by evaluating the xLSTM-7B model across standard 
+downstream zero-shot datasets utilized in the foundational literature, specifically LAMBADA (OpenAI), PIQA, Winogrande, 
+ARC-Challenge, ARC-Easy, and Hellaswag. This behavioral evaluation serves to validate the functional performance 
+limits of the model prior to any internal analysis. Following this behavioral baseline, the second phase adapts 
+the logit lens technique to project intermediate hidden states from the recurrent layers directly onto the vocabulary 
+space. Initial observations from this tracking indicate that vocabulary prediction convergence across intermediate 
+layers follows a trajectory structurally similar to that observed in standard Transformer models.
+
+The third phase implements a technical framework designed to extract and align the geometric hidden representations 
+of xLSTM-7B with a structurally comparable Transformer baseline, specifically Mistral-7B. This comparative pipeline 
+focuses on the technical feasibility of cross-architectural alignment to analyze how information routing paradigms 
+differ between explicit recurrence and self-attention. Moving from cross-model comparisons to internal structural 
+tracking, the fourth phase deploys an unsupervised clustering pipeline across successive blocks to track the spatial 
+evolution of token representations, serving as an exploratory mapping of state transitions through the depth of the network.
+
+The final two phases of the study zoom into the micro-level internal mechanics of the architecture over time. 
+The fifth phase computes the matrix norm of the recurrent memory state as a time-series over long token sequences. 
+The resulting data reveals abrupt spikes and decays, indicating that individual tokens exert a high-magnitude 
+localized impact on the model's internal memory state rather than a uniform, gradual accumulation of context. 
+Concluding the empirical pipeline, the sixth phase isolates the activation values of the input and forget gates 
+at a token-by-token level, tracing the explicit mechanisms used by the network to dynamically retain or discard 
+contextual information across continuous text strings.
