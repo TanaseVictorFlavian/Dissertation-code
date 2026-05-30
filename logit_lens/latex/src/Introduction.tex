@@ -62,27 +62,26 @@ To address the lack of interpretability data on scalable recurrent architectures
 is to execute a post-hoc evaluation framework on the internal representations and state dynamics of the xLSTM-7B 
 architecture. This work maps the internal mechanics of the model by moving systematically from macro-level validation 
 down to micro-level gating operations. \\ \\ 
-TO BE REVIEWED \\ 
+%
+The first phase of the research establishes an empirical baseline by evaluating the pretrained xLSTM-7B model across standard 
+downstream zero-shot datasets utilized in the foundational literature, specifically LAMBADA (OpenAI)\cite{paperno2016lambada}, 
+PIQA\cite{bisk2020piqa}, Winogrande\cite{sakaguchi2021winogrande}, ARC-Challenge\cite{clark2018arc}, ARC-Easy\cite{clark2018arc}, 
+and Hellaswag\cite{zellers2019hellaswag}. This behavioral evaluation serves to validate the functional performance limits of 
+the model prior to any internal analysis. Following this initial baseline, the second phase adapts the logit lens\cite{nostalgebraist2020logitlens}
+\cite{belrose2023tunedlens}
+technique to project intermediate hidden states from the recurrent layers directly onto the vocabulary space. 
+Initial observations from this tracking indicate that vocabulary prediction convergence across intermediate layers 
+follows a trajectory structurally similar to that observed in standard Transformer models. \\ \\
+%
+The third phase compares how hidden representations evolve across the layers of a recurrent network compared to a Transformer, 
+using xLSTM-7B and Mistral-7B. To analyze this evolution further, the fourth phase applies an unsupervised clustering 
+pipeline to the hidden states across successive blocks, mapping how token representations transition through the depth 
+of the network. \\ \\
+%
+The final two phases of the interpretability study focus on the temporal dynamics of the architecture. 
+Specifically, they examine the evolution of the memory state over time and the contribution of individual 
+tokens to long-term memory through the input and forget gates. To analyze these mechanisms, we process long token
+sequences and track the Frobenius norm of the cell state, together with the activations of the input and forget gates. 
+This allows us to observe how information is stored, retained, and updated throughout the sequence. \\ \\ 
+TO ADD LAST EXPERIMENT INFO 
 
-The first phase of the research establishes an empirical baseline by evaluating the xLSTM-7B model across standard 
-downstream zero-shot datasets utilized in the foundational literature, specifically LAMBADA (OpenAI), PIQA, Winogrande, 
-ARC-Challenge, ARC-Easy, and Hellaswag. This behavioral evaluation serves to validate the functional performance 
-limits of the model prior to any internal analysis. Following this behavioral baseline, the second phase adapts 
-the logit lens technique to project intermediate hidden states from the recurrent layers directly onto the vocabulary 
-space. Initial observations from this tracking indicate that vocabulary prediction convergence across intermediate 
-layers follows a trajectory structurally similar to that observed in standard Transformer models.
-
-The third phase implements a technical framework designed to extract and align the geometric hidden representations 
-of xLSTM-7B with a structurally comparable Transformer baseline, specifically Mistral-7B. This comparative pipeline 
-focuses on the technical feasibility of cross-architectural alignment to analyze how information routing paradigms 
-differ between explicit recurrence and self-attention. Moving from cross-model comparisons to internal structural 
-tracking, the fourth phase deploys an unsupervised clustering pipeline across successive blocks to track the spatial 
-evolution of token representations, serving as an exploratory mapping of state transitions through the depth of the network.
-
-The final two phases of the study zoom into the micro-level internal mechanics of the architecture over time. 
-The fifth phase computes the matrix norm of the recurrent memory state as a time-series over long token sequences. 
-The resulting data reveals abrupt spikes and decays, indicating that individual tokens exert a high-magnitude 
-localized impact on the model's internal memory state rather than a uniform, gradual accumulation of context. 
-Concluding the empirical pipeline, the sixth phase isolates the activation values of the input and forget gates 
-at a token-by-token level, tracing the explicit mechanisms used by the network to dynamically retain or discard 
-contextual information across continuous text strings.
