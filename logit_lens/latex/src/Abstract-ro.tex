@@ -17,25 +17,29 @@ folosind o structură pentru memorie explicită, care este actualizată incremen
 textului. Acest mecanism are ca avantaj înmagazinarea si rafinarea informației de fiecare dată când un nou 
 token este procesat. \\ \\
 %
-Efortul din această lucrare investighează comportamentul din interiorul arhitecturii xLSTM printr-o 
-serie de experimente de interpretabilitate care au ca scop formarea unei intuiții mai bune despre
-cum informația este reprezentată, înmagazinată și transformată în interiorul modelului. Analiza cuprinde 
-mai multe nivele de abstractizare, pronind de la analiza la nivel de token, ca mai apoi să fie observate reprezentările 
+Această lucrare investighează comportamentul arhitecturilor xLSTM printr-o 
+serie de experimente care au ca scop să îmbunătățească modul în care sunt interpretate
+reprezentarea, înmagazinarea și transformările datelor în interiorul 
+modelului. Analiza se desfășoară
+pe mai multe nivele de abstractizare, începând de la analiza la nivel 
+de token, ca mai apoi să fie observate reprezentările 
 la nivel de strat. Mai specific, sunt utilizate tehnici de tip logit lens\cite{nostalgebraist2020logitlens}
 \cite{belrose2023tunedlens} pentru a remarca evoluția relației dintre reprezentările intermediare 
-în spațiul de embeddings și spațiul vocabularului. De asemenea, comparăm reprezentările interne ale modelului xLSTM 
-cu cele ale unei arhitecturi comparabile de tip transformer, anume Mistral-7B\cite{jiang2023mistral7b}, cu scopul de 
-observa similaritatea evoluției reprezentărilor semantice în doua arhitecturi diferite. Totodată, analizăm 
-evoluția stărilor interne folosind algoritmi de clustering și observăm modificarea memoriei pe parcursul
-procesării tokenilor, urmărind evoluția memoriei pe parcursul parcurgerii unui text. Mai mult, studiem activările porților
+în spațiul de embeddings și spațiul vocabularului. De asemenea, 
+comparăm reprezentările interne ale modelului xLSTM 
+cu cele ale unei arhitecturi comparabile de tip transformer, 
+anume Mistral-7B\cite{jiang2023mistral7b}. Scopul comparației este de a 
+observa similaritatea evoluției reprezentărilor semantice dintre două arhitecturi diferite. 
+Totodată, analizăm  modificarea memoriei pe parcursul
+procesării tokenilor, urmărind evoluția memoriei pe parcursul parcurgerii unui text. 
+și urmărim activările porților
 input și forget la nivel de token pentru a înțelege cum modelul alege sa rețină și să elimine selectiv
-conext pe parcursul procesării informației. Împreună aceste experimente aduc o nouă perspectivă 
-în interpretarea mecanismelor din interiorul arhitecturii xLSTM, oferind indicii despre 
-cum memoria modelului evoluează într-o rețea recurentă de dimensiuni mari. \\
+conext. Împreună aceste experimente oferă o perspectivă nuanțată
+a interpretării mecanismelor din interiorul arhitecturii xLSTM.\\ \\
 %
 În final, explorăm o utilizare practică a stării de memorie de dimensiune fixă din xLSTM prin memorarea 
 informației contextuale în scenarii care testează abilitatea modelului de a răspunde la întrebări. Această abordare permite 
 îmbunătățirea vitezei de răspuns pe măsură ce dimensiunea contextului crește, deoarece starea de memorie stocată poate fi 
-reutilizată fără a procesa întreaga secvență de intrare de fiecare dată. Comparăm această metodă cu modelul Mistral 7B 
+reutilizată fără a procesa întreaga secvență de intrararăm această metodă cu modelul Mistral 7B 
 și analizăm avantajele și dezavantajele arhitecturilor recurente și celor bazate pe Transformere din perspectiva 
-vitezei și a performanței.
+vitezei și a performanței de fiecare dată. 
