@@ -1,0 +1,1682 @@
+[
+    {
+        "id": "0",
+        "answers": {
+            "text": [
+                "Civil disobedience",
+                "Civil disobedience",
+                "Civil disobedience",
+                "Civil disobedience",
+                "Civil disobedience"
+            ],
+            "answer_start": [
+                130,
+                130,
+                130,
+                130,
+                130
+            ]
+        }
+    },
+    {
+        "id": "1",
+        "answers": {
+            "text": [
+                "apartheid",
+                "fight against apartheid",
+                "the fight against apartheid",
+                "the fight against apartheid",
+                "Singing Revolution to bring independence to the Baltic countries"
+            ],
+            "answer_start": [
+                497,
+                483,
+                479,
+                479,
+                554
+            ]
+        }
+    },
+    {
+        "id": "2",
+        "answers": {
+            "text": [
+                "Singing Revolution",
+                "Singing Revolution",
+                "the Singing Revolution",
+                "Singing Revolution",
+                "Singing Revolution"
+            ],
+            "answer_start": [
+                554,
+                554,
+                550,
+                554,
+                554
+            ]
+        }
+    },
+    {
+        "id": "3",
+        "answers": {
+            "text": [
+                "Ukraine",
+                "Ukraine",
+                "Ukraine",
+                "Ukraine",
+                "Ukraine"
+            ],
+            "answer_start": [
+                726,
+                726,
+                726,
+                726,
+                726
+            ]
+        }
+    },
+    {
+        "id": "4",
+        "answers": {
+            "text": [
+                "Georgia",
+                "Georgia",
+                "Georgia",
+                "Georgia",
+                "Georgia"
+            ],
+            "answer_start": [
+                684,
+                684,
+                684,
+                684,
+                684
+            ]
+        }
+    },
+    {
+        "id": "5",
+        "answers": {
+            "text": [
+                "Egyptians",
+                "Egyptians",
+                "Egyptians",
+                "Egyptians",
+                "India"
+            ],
+            "answer_start": [
+                65,
+                65,
+                65,
+                65,
+                296
+            ]
+        }
+    },
+    {
+        "id": "6",
+        "answers": {
+            "text": [
+                "the British",
+                "British",
+                "Egyptians against the British occupation in the 1919 Revolution.",
+                "British occupation",
+                "communist governments"
+            ],
+            "answer_start": [
+                83,
+                87,
+                65,
+                87,
+                437
+            ]
+        }
+    },
+    {
+        "id": "7",
+        "answers": {
+            "text": [
+                "nonviolent resistance",
+                "unfair laws",
+                "nonviolent resistance movements",
+                "rebelled against what they deem to be unfair"
+            ],
+            "answer_start": [
+                261,
+                223,
+                261,
+                185
+            ]
+        }
+    },
+    {
+        "id": "8",
+        "answers": {
+            "text": [
+                "unfair laws",
+                "unfair laws",
+                "unfair laws.",
+                "unfair laws",
+                "what they deem to be unfair"
+            ],
+            "answer_start": [
+                223,
+                223,
+                223,
+                223,
+                202
+            ]
+        }
+    },
+    {
+        "id": "9",
+        "answers": {
+            "text": [
+                "American Civil Rights Movement",
+                "American Civil Rights Movement",
+                "American Civil Rights Movement",
+                "Civil Rights Movement",
+                "American Civil Rights Movement"
+            ],
+            "answer_start": [
+                515,
+                515,
+                515,
+                524,
+                515
+            ]
+        }
+    },
+    {
+        "id": "10",
+        "answers": {
+            "text": [
+                "1856",
+                "1856",
+                "1856"
+            ],
+            "answer_start": [
+                54,
+                54,
+                54
+            ]
+        }
+    },
+    {
+        "id": "11",
+        "answers": {
+            "text": [
+                "Serbian",
+                "Serbian",
+                "Serbian"
+            ],
+            "answer_start": [
+                14,
+                14,
+                14
+            ]
+        }
+    },
+    {
+        "id": "12",
+        "answers": {
+            "text": [
+                "1943",
+                "1943",
+                "1943"
+            ],
+            "answer_start": [
+                71,
+                71,
+                71
+            ]
+        }
+    },
+    {
+        "id": "13",
+        "answers": {
+            "text": [
+                "1856",
+                "10 July 1856",
+                "1856"
+            ],
+            "answer_start": [
+                54,
+                46,
+                54
+            ]
+        }
+    },
+    {
+        "id": "14",
+        "answers": {
+            "text": [
+                "1943",
+                "1943",
+                "1943"
+            ],
+            "answer_start": [
+                71,
+                71,
+                71
+            ]
+        }
+    },
+    {
+        "id": "15",
+        "answers": {
+            "text": [
+                "Serbian",
+                "Serbian",
+                "Serbian"
+            ],
+            "answer_start": [
+                14,
+                83,
+                14
+            ]
+        }
+    },
+    {
+        "id": "16",
+        "answers": {
+            "text": [
+                "alternating current",
+                "alternating current",
+                "alternating current"
+            ],
+            "answer_start": [
+                237,
+                237,
+                237
+            ]
+        }
+    },
+    {
+        "id": "17",
+        "answers": {
+            "text": [
+                "Latin",
+                "Latin",
+                "Latin",
+                "Latin",
+                "Latin"
+            ],
+            "answer_start": [
+                74,
+                74,
+                74,
+                74,
+                74
+            ]
+        }
+    },
+    {
+        "id": "18",
+        "answers": {
+            "text": [
+                "military force",
+                "colonization, use of military force, or other means",
+                "colonization, use of military force, or other means",
+                "colonization, use of military force, or other",
+                "colonization"
+            ],
+            "answer_start": [
+                240,
+                219,
+                219,
+                219,
+                219
+            ]
+        }
+    },
+    {
+        "id": "19",
+        "answers": {
+            "text": [
+                "Japan",
+                "Japan",
+                "Japanese",
+                "Japanese",
+                "Japan"
+            ],
+            "answer_start": [
+                450,
+                450,
+                450,
+                450,
+                450
+            ]
+        }
+    },
+    {
+        "id": "20",
+        "answers": {
+            "text": [
+                "technologies and ideas",
+                "technologies and ideas",
+                "technologies and ideas",
+                "technologies and ideas",
+                "technologies and ideas."
+            ],
+            "answer_start": [
+                372,
+                372,
+                372,
+                372,
+                372
+            ]
+        }
+    },
+    {
+        "id": "21",
+        "answers": {
+            "text": [
+                "German",
+                "German",
+                "German"
+            ],
+            "answer_start": [
+                39,
+                119,
+                119
+            ]
+        }
+    },
+    {
+        "id": "22",
+        "answers": {
+            "text": [
+                "18 February 1546",
+                "1546",
+                "1546"
+            ],
+            "answer_start": [
+                95,
+                107,
+                107
+            ]
+        }
+    },
+    {
+        "id": "23",
+        "answers": {
+            "text": [
+                "Catholic Church.",
+                "Late Medieval Catholic Church",
+                "Late Medieval Catholic Church"
+            ],
+            "answer_start": [
+                306,
+                292,
+                292
+            ]
+        }
+    },
+    {
+        "id": "24",
+        "answers": {
+            "text": [
+                "God's punishment",
+                "God's punishment for sin",
+                "God's punishment"
+            ],
+            "answer_start": [
+                372,
+                372,
+                372
+            ]
+        }
+    },
+    {
+        "id": "25",
+        "answers": {
+            "text": [
+                "excommunication",
+                "excommunication",
+                "excommunication"
+            ],
+            "answer_start": [
+                702,
+                702,
+                702
+            ]
+        }
+    },
+    {
+        "id": "26",
+        "answers": {
+            "text": [
+                "Fresno",
+                "Fresno",
+                "Fresno"
+            ],
+            "answer_start": [
+                0,
+                0,
+                0
+            ]
+        }
+    },
+    {
+        "id": "27",
+        "answers": {
+            "text": [
+                "220 miles (350 km)",
+                "220 miles (350 km)",
+                "220 miles (350 km)"
+            ],
+            "answer_start": [
+                432,
+                432,
+                432
+            ]
+        }
+    },
+    {
+        "id": "28",
+        "answers": {
+            "text": [
+                "ash tree",
+                "ash tree",
+                "ash tree"
+            ],
+            "answer_start": [
+                605,
+                605,
+                605
+            ]
+        }
+    },
+    {
+        "id": "29",
+        "answers": {
+            "text": [
+                "ash leaf",
+                "ash leaf",
+                "an ash leaf"
+            ],
+            "answer_start": [
+                634,
+                634,
+                631
+            ]
+        }
+    },
+    {
+        "id": "30",
+        "answers": {
+            "text": [
+                "(/\u02c8fr\u025bzno\u028a/ FREZ-noh)",
+                "FREZ-noh",
+                "FREZ-noh"
+            ],
+            "answer_start": [
+                7,
+                19,
+                19
+            ]
+        }
+    },
+    {
+        "id": "31",
+        "answers": {
+            "text": [
+                "Swiss canton",
+                "s in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps,",
+                "Graub\u00fcnden",
+                "Graub\u00fcnden"
+            ],
+            "answer_start": [
+                110,
+                101,
+                126,
+                126
+            ]
+        }
+    },
+    {
+        "id": "32",
+        "answers": {
+            "text": [
+                "North Sea",
+                "the North Sea in the Netherlands",
+                "North Sea",
+                "North Sea"
+            ],
+            "answer_start": [
+                344,
+                340,
+                344,
+                344
+            ]
+        }
+    },
+    {
+        "id": "33",
+        "answers": {
+            "text": [
+                "Cologne, Germany",
+                "Cologne, Germany",
+                "Cologne"
+            ],
+            "answer_start": [
+                413,
+                413,
+                413
+            ]
+        }
+    },
+    {
+        "id": "34",
+        "answers": {
+            "text": [
+                "Danube",
+                "the Danube",
+                "Danube",
+                "Danube"
+            ],
+            "answer_start": [
+                551,
+                547,
+                551,
+                551
+            ]
+        }
+    },
+    {
+        "id": "35",
+        "answers": {
+            "text": [
+                "1,230 km (760 mi)",
+                "1,230 km (760 mi)",
+                "1,230 km",
+                "1,230 km"
+            ],
+            "answer_start": [
+                569,
+                569,
+                569,
+                569
+            ]
+        }
+    },
+    {
+        "id": "36",
+        "answers": {
+            "text": [
+                "Europe",
+                "Central and Western Europe",
+                "Germany",
+                "Germany"
+            ],
+            "answer_start": [
+                533,
+                513,
+                422,
+                422
+            ]
+        }
+    },
+    {
+        "id": "37",
+        "answers": {
+            "text": [
+                "Netherlands",
+                "Germany",
+                "Netherlands",
+                "Netherlands"
+            ],
+            "answer_start": [
+                361,
+                422,
+                361,
+                361
+            ]
+        }
+    },
+    {
+        "id": "38",
+        "answers": {
+            "text": [
+                "1,230 km",
+                "1,230 km (760 mi)",
+                "1,230 km",
+                "1,230 km"
+            ],
+            "answer_start": [
+                569,
+                569,
+                569,
+                569
+            ]
+        }
+    },
+    {
+        "id": "39",
+        "answers": {
+            "text": [
+                "Islamism",
+                "Islamism",
+                "Islamism"
+            ],
+            "answer_start": [
+                0,
+                0,
+                0
+            ]
+        }
+    },
+    {
+        "id": "40",
+        "answers": {
+            "text": [
+                "all spheres of life.",
+                "all spheres of life",
+                "all spheres"
+            ],
+            "answer_start": [
+                211,
+                211,
+                211
+            ]
+        }
+    },
+    {
+        "id": "41",
+        "answers": {
+            "text": [
+                "reordering",
+                "reordering of government and society in accordance with the Shari'a",
+                "reordering"
+            ],
+            "answer_start": [
+                253,
+                253,
+                253
+            ]
+        }
+    },
+    {
+        "id": "42",
+        "answers": {
+            "text": [
+                "poles",
+                "two poles",
+                "poles"
+            ],
+            "answer_start": [
+                403,
+                399,
+                403
+            ]
+        }
+    },
+    {
+        "id": "43",
+        "answers": {
+            "text": [
+                "revolution or invasion",
+                "revolution or invasion",
+                "revolution"
+            ],
+            "answer_start": [
+                493,
+                493,
+                493
+            ]
+        }
+    },
+    {
+        "id": "44",
+        "answers": {
+            "text": [
+                "The Walt Disney Company",
+                "Disney\u2013ABC Television Group",
+                "Disney\u2013ABC Television Group"
+            ],
+            "answer_start": [
+                236,
+                157,
+                157
+            ]
+        }
+    },
+    {
+        "id": "45",
+        "answers": {
+            "text": [
+                "1957",
+                "1957",
+                "1957"
+            ],
+            "answer_start": [
+                75,
+                75,
+                75
+            ]
+        }
+    },
+    {
+        "id": "46",
+        "answers": {
+            "text": [
+                "Manhattan",
+                "Manhattan",
+                "Manhattan"
+            ],
+            "answer_start": [
+                391,
+                391,
+                391
+            ]
+        }
+    },
+    {
+        "id": "47",
+        "answers": {
+            "text": [
+                "Columbus Avenue and West 66th Street",
+                "Columbus Avenue and West 66th Street",
+                "Columbus Avenue and West 66th Street"
+            ],
+            "answer_start": [
+                351,
+                351,
+                351
+            ]
+        }
+    },
+    {
+        "id": "48",
+        "answers": {
+            "text": [
+                "Disney Media Networks",
+                "Disney Media Networks",
+                "Disney Media Networks"
+            ],
+            "answer_start": [
+                202,
+                202,
+                202
+            ]
+        }
+    },
+    {
+        "id": "49",
+        "answers": {
+            "text": [
+                "Paul Baran developed the concept Distributed Adaptive Message Block Switching",
+                "the concept Distributed Adaptive Message Block Switching",
+                "Distributed Adaptive Message Block Switching"
+            ],
+            "answer_start": [
+                56,
+                77,
+                89
+            ]
+        }
+    },
+    {
+        "id": "50",
+        "answers": {
+            "text": [
+                "provide a fault-tolerant, efficient routing method for telecommunication messages",
+                "provide a fault-tolerant, efficient routing method for telecommunication messages",
+                "fault-tolerant, efficient routing method"
+            ],
+            "answer_start": [
+                151,
+                151,
+                161
+            ]
+        }
+    },
+    {
+        "id": "51",
+        "answers": {
+            "text": [
+                "This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth",
+                "theretofore established principles of pre-allocation of network bandwidth",
+                "principles of pre-allocation of network bandwidth"
+            ],
+            "answer_start": [
+                328,
+                373,
+                397
+            ]
+        }
+    },
+    {
+        "id": "52",
+        "answers": {
+            "text": [
+                "Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe",
+                "coining the modern name packet switching and inspiring numerous packet switching networks",
+                "coining the modern name packet switching"
+            ],
+            "answer_start": [
+                715,
+                739,
+                739
+            ]
+        }
+    },
+    {
+        "id": "53",
+        "answers": {
+            "text": [
+                "the concept Distributed Adaptive Message Block Switching",
+                "the concept Distributed Adaptive Message Block Switching",
+                "Distributed Adaptive Message Block Switching"
+            ],
+            "answer_start": [
+                77,
+                77,
+                89
+            ]
+        }
+    },
+    {
+        "id": "54",
+        "answers": {
+            "text": [
+                "to provide a fault-tolerant, efficient routing method for telecommunication messages",
+                "provide a fault-tolerant, efficient routing method for telecommunication messages"
+            ],
+            "answer_start": [
+                148,
+                151
+            ]
+        }
+    },
+    {
+        "id": "55",
+        "answers": {
+            "text": [
+                "Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe",
+                "Donald Davies",
+                "Donald Davies"
+            ],
+            "answer_start": [
+                715,
+                623,
+                623
+            ]
+        }
+    },
+    {
+        "id": "56",
+        "answers": {
+            "text": [
+                "1754\u20131763",
+                "1754\u20131763",
+                "1754\u20131763",
+                "1754\u20131763",
+                "1754\u20131763"
+            ],
+            "answer_start": [
+                27,
+                27,
+                27,
+                27,
+                27
+            ]
+        }
+    },
+    {
+        "id": "57",
+        "answers": {
+            "text": [
+                "colonies of British America and New France",
+                "colonies of British America and New France",
+                "British America and New France",
+                "British America and New France",
+                "the colonies of British America and New France"
+            ],
+            "answer_start": [
+                135,
+                135,
+                147,
+                147,
+                131
+            ]
+        }
+    },
+    {
+        "id": "58",
+        "answers": {
+            "text": [
+                "roughly 60,000 European settlers",
+                "60,000",
+                "60,000",
+                "60,000",
+                "60,000 European settlers"
+            ],
+            "answer_start": [
+                395,
+                403,
+                403,
+                403,
+                403
+            ]
+        }
+    },
+    {
+        "id": "59",
+        "answers": {
+            "text": [
+                "2 million",
+                "2 million",
+                "2 million",
+                "2 million",
+                "2 million"
+            ],
+            "answer_start": [
+                443,
+                443,
+                443,
+                443,
+                443
+            ]
+        }
+    },
+    {
+        "id": "60",
+        "answers": {
+            "text": [
+                "in Africa",
+                "Africa"
+            ],
+            "answer_start": [
+                92,
+                95
+            ]
+        }
+    },
+    {
+        "id": "61",
+        "answers": {
+            "text": [
+                "East African Community",
+                "East African Community",
+                "East African Community"
+            ],
+            "answer_start": [
+                131,
+                131,
+                131
+            ]
+        }
+    },
+    {
+        "id": "62",
+        "answers": {
+            "text": [
+                "Nairobi",
+                "Nairobi",
+                "Nairobi"
+            ],
+            "answer_start": [
+                193,
+                193,
+                193
+            ]
+        }
+    },
+    {
+        "id": "63",
+        "answers": {
+            "text": [
+                "Tanzania",
+                "Tanzania",
+                "Tanzania"
+            ],
+            "answer_start": [
+                464,
+                464,
+                464
+            ]
+        }
+    },
+    {
+        "id": "64",
+        "answers": {
+            "text": [
+                "45 million people",
+                "45 million people",
+                "approximately 45 million"
+            ],
+            "answer_start": [
+                671,
+                671,
+                657
+            ]
+        }
+    },
+    {
+        "id": "65",
+        "answers": {
+            "text": [
+                "Project Mercury",
+                "spacecraft",
+                "Project Mercury",
+                "Apollo",
+                "Project Apollo"
+            ],
+            "answer_start": [
+                361,
+                328,
+                361,
+                4,
+                34
+            ]
+        }
+    },
+    {
+        "id": "66",
+        "answers": {
+            "text": [
+                "National Aeronautics and Space Administration (NASA)",
+                "National Aeronautics and Space Administration (NASA",
+                "Apollo",
+                "Project Mercury",
+                "Apollo program"
+            ],
+            "answer_start": [
+                123,
+                123,
+                4,
+                361,
+                4
+            ]
+        }
+    },
+    {
+        "id": "67",
+        "answers": {
+            "text": [
+                "1968",
+                "1969",
+                "1962",
+                "1968",
+                "1969"
+            ],
+            "answer_start": [
+                752,
+                238,
+                701,
+                752,
+                238
+            ]
+        }
+    },
+    {
+        "id": "68",
+        "answers": {
+            "text": [
+                "Dwight D. Eisenhower",
+                "John F. Kennedy's",
+                "John F. Kennedy's",
+                "Dwight D. Eisenhower",
+                "Dwight D. Eisenhower"
+            ],
+            "answer_start": [
+                275,
+                457,
+                457,
+                275,
+                275
+            ]
+        }
+    },
+    {
+        "id": "69",
+        "answers": {
+            "text": [
+                "two",
+                "rst",
+                "two",
+                "two",
+                "two-man"
+            ],
+            "answer_start": [
+                677,
+                393,
+                677,
+                677,
+                677
+            ]
+        }
+    },
+    {
+        "id": "70",
+        "answers": {
+            "text": [
+                "independent",
+                "independent schools",
+                "independent schools"
+            ],
+            "answer_start": [
+                31,
+                31,
+                31
+            ]
+        }
+    },
+    {
+        "id": "71",
+        "answers": {
+            "text": [
+                "academic",
+                "academic",
+                "academic"
+            ],
+            "answer_start": [
+                538,
+                538,
+                538
+            ]
+        }
+    },
+    {
+        "id": "72",
+        "answers": {
+            "text": [
+                "tuition",
+                "charging their students tuition",
+                "tuition"
+            ],
+            "answer_start": [
+                268,
+                244,
+                268
+            ]
+        }
+    },
+    {
+        "id": "73",
+        "answers": {
+            "text": [
+                "to select their students",
+                "select their students",
+                "select their students"
+            ],
+            "answer_start": [
+                181,
+                184,
+                184
+            ]
+        }
+    },
+    {
+        "id": "74",
+        "answers": {
+            "text": [
+                "BSkyB",
+                "BSkyB",
+                "BSkyB"
+            ],
+            "answer_start": [
+                98,
+                98,
+                98
+            ]
+        }
+    },
+    {
+        "id": "75",
+        "answers": {
+            "text": [
+                "BSkyB",
+                "BSkyB",
+                "BSkyB"
+            ],
+            "answer_start": [
+                98,
+                98,
+                98
+            ]
+        }
+    },
+    {
+        "id": "76",
+        "answers": {
+            "text": [
+                "2014",
+                "2014",
+                "2014"
+            ],
+            "answer_start": [
+                187,
+                187,
+                187
+            ]
+        }
+    },
+    {
+        "id": "77",
+        "answers": {
+            "text": [
+                "Sky plc",
+                "British Sky Broadcasting Group plc",
+                "British Sky Broadcasting Group plc"
+            ],
+            "answer_start": [
+                361,
+                306,
+                306
+            ]
+        }
+    },
+    {
+        "id": "78",
+        "answers": {
+            "text": [
+                "Sky UK Limited",
+                "Sky UK Limited",
+                "Sky UK Limited"
+            ],
+            "answer_start": [
+                471,
+                471,
+                471
+            ]
+        }
+    },
+    {
+        "id": "79",
+        "answers": {
+            "text": [
+                "force",
+                "force",
+                "the concept of force",
+                "the concept of force",
+                "force",
+                "force"
+            ],
+            "answer_start": [
+                46,
+                46,
+                31,
+                31,
+                46,
+                46
+            ]
+        }
+    },
+    {
+        "id": "80",
+        "answers": {
+            "text": [
+                "fundamental error",
+                "A fundamental error",
+                "A fundamental error",
+                "A fundamental error",
+                "A fundamental error",
+                "A fundamental error"
+            ],
+            "answer_start": [
+                387,
+                385,
+                385,
+                385,
+                385,
+                385
+            ]
+        }
+    },
+    {
+        "id": "81",
+        "answers": {
+            "text": [
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton"
+            ],
+            "answer_start": [
+                654,
+                654,
+                654,
+                654,
+                654,
+                654
+            ]
+        }
+    },
+    {
+        "id": "82",
+        "answers": {
+            "text": [
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "three hundred years"
+            ],
+            "answer_start": [
+                727,
+                727,
+                727,
+                727,
+                727,
+                734
+            ]
+        }
+    },
+    {
+        "id": "83",
+        "answers": {
+            "text": [
+                "Einstein",
+                "Einstein",
+                "Einstein",
+                "Einstein",
+                "Einstein",
+                "Einstein"
+            ],
+            "answer_start": [
+                782,
+                782,
+                782,
+                782,
+                782,
+                782
+            ]
+        }
+    },
+    {
+        "id": "84",
+        "answers": {
+            "text": [
+                "France",
+                "France",
+                "France",
+                "France"
+            ],
+            "answer_start": [
+                159,
+                159,
+                159,
+                159
+            ]
+        }
+    },
+    {
+        "id": "85",
+        "answers": {
+            "text": [
+                "10th and 11th centuries",
+                "in the 10th and 11th centuries",
+                "10th and 11th centuries",
+                "10th and 11th centuries"
+            ],
+            "answer_start": [
+                94,
+                87,
+                94,
+                94
+            ]
+        }
+    },
+    {
+        "id": "86",
+        "answers": {
+            "text": [
+                "Denmark, Iceland and Norway",
+                "Denmark, Iceland and Norway",
+                "Denmark, Iceland and Norway",
+                "Denmark, Iceland and Norway"
+            ],
+            "answer_start": [
+                256,
+                256,
+                256,
+                256
+            ]
+        }
+    },
+    {
+        "id": "87",
+        "answers": {
+            "text": [
+                "Rollo",
+                "Rollo",
+                "Rollo",
+                "Rollo"
+            ],
+            "answer_start": [
+                308,
+                308,
+                308,
+                308
+            ]
+        }
+    },
+    {
+        "id": "88",
+        "answers": {
+            "text": [
+                "10th century",
+                "the first half of the 10th century",
+                "10th",
+                "10th"
+            ],
+            "answer_start": [
+                671,
+                649,
+                671,
+                671
+            ]
+        }
+    },
+    {
+        "id": "89",
+        "answers": {
+            "text": [
+                "Computational complexity theory",
+                "Computational complexity theory",
+                "Computational complexity theory"
+            ],
+            "answer_start": [
+                0,
+                0,
+                0
+            ]
+        }
+    },
+    {
+        "id": "90",
+        "answers": {
+            "text": [
+                "inherent difficulty",
+                "their inherent difficulty",
+                "inherent difficulty"
+            ],
+            "answer_start": [
+                175,
+                169,
+                175
+            ]
+        }
+    },
+    {
+        "id": "91",
+        "answers": {
+            "text": [
+                "computational problems",
+                "A computational problem",
+                "computational problem"
+            ],
+            "answer_start": [
+                133,
+                238,
+                240
+            ]
+        }
+    },
+    {
+        "id": "92",
+        "answers": {
+            "text": [
+                "Following a referendum in 1997",
+                "1998",
+                "1998"
+            ],
+            "answer_start": [
+                0,
+                143,
+                143
+            ]
+        }
+    },
+    {
+        "id": "93",
+        "answers": {
+            "text": [
+                "Scotland Act 1998",
+                "Scotland Act 1998",
+                "Scotland Act"
+            ],
+            "answer_start": [
+                130,
+                130,
+                130
+            ]
+        }
+    },
+    {
+        "id": "94",
+        "answers": {
+            "text": [
+                "in which it can make laws",
+                "the areas in which it can make laws",
+                "powers that are \"reserved\" to the Parliament of the United Kingdom"
+            ],
+            "answer_start": [
+                278,
+                268,
+                331
+            ]
+        }
+    },
+    {
+        "id": "95",
+        "answers": {
+            "text": [
+                "Parliament of the United Kingdom",
+                "Parliament of the United Kingdom",
+                "The British Parliament"
+            ],
+            "answer_start": [
+                365,
+                365,
+                512
+            ]
+        }
+    },
+    {
+        "id": "96",
+        "answers": {
+            "text": [
+                "Westminster",
+                "Westminster",
+                "Westminster"
+            ],
+            "answer_start": [
+                499,
+                499,
+                499
+            ]
+        }
+    },
+    {
+        "id": "97",
+        "answers": {
+            "text": [
+                "a private research university",
+                "private research",
+                "private research university",
+                "private research university"
+            ],
+            "answer_start": [
+                60,
+                62,
+                62,
+                62
+            ]
+        }
+    },
+    {
+        "id": "98",
+        "answers": {
+            "text": [
+                "1890",
+                "1890",
+                "1890",
+                "1890"
+            ],
+            "answer_start": [
+                133,
+                133,
+                133,
+                133
+            ]
+        }
+    },
+    {
+        "id": "99",
+        "answers": {
+            "text": [
+                "seven",
+                "seven",
+                "seven",
+                "seven"
+            ],
+            "answer_start": [
+                272,
+                272,
+                272,
+                272
+            ]
+        }
+    },
+    {
+        "id": "100",
+        "answers": {
+            "text": [
+                "four",
+                "four",
+                "four",
+                "four"
+            ],
+            "answer_start": [
+                235,
+                235,
+                235,
+                235
+            ]
+        }
+    },
+    {
+        "id": "101",
+        "answers": {
+            "text": [
+                "5,000",
+                "around 15,000",
+                "15,000",
+                "15,000"
+            ],
+            "answer_start": [
+                728,
+                762,
+                769,
+                769
+            ]
+        }
+    }
+]

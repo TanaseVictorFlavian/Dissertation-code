@@ -1,0 +1,1112 @@
+{
+    "id": {
+        "0": "57271c235951b619008f860b",
+        "1": "57271c235951b619008f860c",
+        "2": "57271c235951b619008f860d",
+        "3": "57271c235951b619008f860e",
+        "4": "57271c235951b619008f860f",
+        "5": "5728d4c03acd2414000dff9f",
+        "6": "5728d4c03acd2414000dffa0",
+        "7": "5728d4c03acd2414000dffa1",
+        "8": "5728d4c03acd2414000dffa2",
+        "9": "5728d4c03acd2414000dffa3",
+        "10": "56df9e2838dc4217001520f6",
+        "11": "56df9e2838dc4217001520f8",
+        "12": "56df9e2838dc4217001520f9",
+        "13": "56e0b94b7aa994140058e6b7",
+        "14": "56e0b94b7aa994140058e6b8",
+        "15": "56e0b94b7aa994140058e6b9",
+        "16": "56e0b94b7aa994140058e6bb",
+        "17": "573060b48ab72b1400f9c4c6",
+        "18": "573060b48ab72b1400f9c4c7",
+        "19": "573060b48ab72b1400f9c4c9",
+        "20": "573060b48ab72b1400f9c4ca",
+        "21": "56f7c651aef2371900625bf5",
+        "22": "56f7c651aef2371900625bf6",
+        "23": "56f7c651aef2371900625bf7",
+        "24": "56f7c651aef2371900625bf8",
+        "25": "56f7c651aef2371900625bf9",
+        "26": "5725ce4d38643c19005acd4d",
+        "27": "5725ce4d38643c19005acd4e",
+        "28": "5725ce4d38643c19005acd4f",
+        "29": "5725ce4d38643c19005acd50",
+        "30": "5725ce4d38643c19005acd51",
+        "31": "572f5533a23a5019007fc55b",
+        "32": "572f5533a23a5019007fc55c",
+        "33": "572f5533a23a5019007fc55d",
+        "34": "572f5533a23a5019007fc55e",
+        "35": "572f5533a23a5019007fc55f",
+        "36": "572fe1d404bcaa1900d76e37",
+        "37": "572fe1d404bcaa1900d76e3a",
+        "38": "572fe1d404bcaa1900d76e3b",
+        "39": "572ff626947a6a140053ce8e",
+        "40": "572ff626947a6a140053ce8f",
+        "41": "572ff626947a6a140053ce90",
+        "42": "572ff626947a6a140053ce91",
+        "43": "572ff626947a6a140053ce92",
+        "44": "57267b755951b619008f7433",
+        "45": "57267b755951b619008f7434",
+        "46": "57267b755951b619008f7435",
+        "47": "57267b755951b619008f7436",
+        "48": "57267b755951b619008f7437",
+        "49": "5725d34089a1e219009abf50",
+        "50": "5725d34089a1e219009abf51",
+        "51": "5725d34089a1e219009abf52",
+        "52": "5725d34089a1e219009abf53",
+        "53": "572632ceec44d21400f3dc2f",
+        "54": "572632ceec44d21400f3dc30",
+        "55": "572632ceec44d21400f3dc31",
+        "56": "5733cf61d058e614000b62e9",
+        "57": "5733cf61d058e614000b62ea",
+        "58": "5733cf61d058e614000b62eb",
+        "59": "5733cf61d058e614000b62ec",
+        "60": "5728dab94b864d1900164f96",
+        "61": "5728dab94b864d1900164f97",
+        "62": "5728dab94b864d1900164f98",
+        "63": "5728dab94b864d1900164f99",
+        "64": "5728dab94b864d1900164f9a",
+        "65": "5725b41838643c19005acb7f",
+        "66": "5725b41838643c19005acb80",
+        "67": "5725b41838643c19005acb81",
+        "68": "5725b41838643c19005acb82",
+        "69": "5725b41838643c19005acb83",
+        "70": "572746addd62a815002e9a5e",
+        "71": "572746addd62a815002e9a5f",
+        "72": "572746addd62a815002e9a60",
+        "73": "572746addd62a815002e9a61",
+        "74": "57092322efce8f15003a7db0",
+        "75": "57092322efce8f15003a7db1",
+        "76": "57092322efce8f15003a7db2",
+        "77": "57092322efce8f15003a7db3",
+        "78": "57092322efce8f15003a7db4",
+        "79": "573735e8c3c5551400e51e71",
+        "80": "573735e8c3c5551400e51e72",
+        "81": "573735e8c3c5551400e51e73",
+        "82": "573735e8c3c5551400e51e74",
+        "83": "573735e8c3c5551400e51e75",
+        "84": "56ddde6b9a695914005b9628",
+        "85": "56ddde6b9a695914005b9629",
+        "86": "56ddde6b9a695914005b962a",
+        "87": "56ddde6b9a695914005b962b",
+        "88": "56ddde6b9a695914005b962c",
+        "89": "56e16182e3433e1400422e28",
+        "90": "56e16182e3433e1400422e29",
+        "91": "56e16182e3433e1400422e2a",
+        "92": "572fac17947a6a140053cb54",
+        "93": "572fac17947a6a140053cb55",
+        "94": "572fac17947a6a140053cb56",
+        "95": "572fac17947a6a140053cb57",
+        "96": "572fac17947a6a140053cb58",
+        "97": "57283c464b864d19001647c8",
+        "98": "57283c464b864d19001647c9",
+        "99": "57283c464b864d19001647ca",
+        "100": "57283c464b864d19001647cb",
+        "101": "57283c464b864d19001647cc"
+    },
+    "title": {
+        "0": "Civil_disobedience",
+        "1": "Civil_disobedience",
+        "2": "Civil_disobedience",
+        "3": "Civil_disobedience",
+        "4": "Civil_disobedience",
+        "5": "Civil_disobedience",
+        "6": "Civil_disobedience",
+        "7": "Civil_disobedience",
+        "8": "Civil_disobedience",
+        "9": "Civil_disobedience",
+        "10": "Nikola_Tesla",
+        "11": "Nikola_Tesla",
+        "12": "Nikola_Tesla",
+        "13": "Nikola_Tesla",
+        "14": "Nikola_Tesla",
+        "15": "Nikola_Tesla",
+        "16": "Nikola_Tesla",
+        "17": "Imperialism",
+        "18": "Imperialism",
+        "19": "Imperialism",
+        "20": "Imperialism",
+        "21": "Martin_Luther",
+        "22": "Martin_Luther",
+        "23": "Martin_Luther",
+        "24": "Martin_Luther",
+        "25": "Martin_Luther",
+        "26": "Fresno,_California",
+        "27": "Fresno,_California",
+        "28": "Fresno,_California",
+        "29": "Fresno,_California",
+        "30": "Fresno,_California",
+        "31": "Rhine",
+        "32": "Rhine",
+        "33": "Rhine",
+        "34": "Rhine",
+        "35": "Rhine",
+        "36": "Rhine",
+        "37": "Rhine",
+        "38": "Rhine",
+        "39": "Islamism",
+        "40": "Islamism",
+        "41": "Islamism",
+        "42": "Islamism",
+        "43": "Islamism",
+        "44": "American_Broadcasting_Company",
+        "45": "American_Broadcasting_Company",
+        "46": "American_Broadcasting_Company",
+        "47": "American_Broadcasting_Company",
+        "48": "American_Broadcasting_Company",
+        "49": "Packet_switching",
+        "50": "Packet_switching",
+        "51": "Packet_switching",
+        "52": "Packet_switching",
+        "53": "Packet_switching",
+        "54": "Packet_switching",
+        "55": "Packet_switching",
+        "56": "French_and_Indian_War",
+        "57": "French_and_Indian_War",
+        "58": "French_and_Indian_War",
+        "59": "French_and_Indian_War",
+        "60": "Kenya",
+        "61": "Kenya",
+        "62": "Kenya",
+        "63": "Kenya",
+        "64": "Kenya",
+        "65": "Apollo_program",
+        "66": "Apollo_program",
+        "67": "Apollo_program",
+        "68": "Apollo_program",
+        "69": "Apollo_program",
+        "70": "Private_school",
+        "71": "Private_school",
+        "72": "Private_school",
+        "73": "Private_school",
+        "74": "Sky_(United_Kingdom)",
+        "75": "Sky_(United_Kingdom)",
+        "76": "Sky_(United_Kingdom)",
+        "77": "Sky_(United_Kingdom)",
+        "78": "Sky_(United_Kingdom)",
+        "79": "Force",
+        "80": "Force",
+        "81": "Force",
+        "82": "Force",
+        "83": "Force",
+        "84": "Normans",
+        "85": "Normans",
+        "86": "Normans",
+        "87": "Normans",
+        "88": "Normans",
+        "89": "Computational_complexity_theory",
+        "90": "Computational_complexity_theory",
+        "91": "Computational_complexity_theory",
+        "92": "Scottish_Parliament",
+        "93": "Scottish_Parliament",
+        "94": "Scottish_Parliament",
+        "95": "Scottish_Parliament",
+        "96": "Scottish_Parliament",
+        "97": "University_of_Chicago",
+        "98": "University_of_Chicago",
+        "99": "University_of_Chicago",
+        "100": "University_of_Chicago",
+        "101": "University_of_Chicago"
+    },
+    "context": {
+        "0": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "1": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "2": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "3": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "4": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "5": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "6": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "7": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "8": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "9": "One of its earliest massive implementations was brought about by Egyptians against the British occupation in the 1919 Revolution. Civil disobedience is one of the many ways people have rebelled against what they deem to be unfair laws. It has been used in many nonviolent resistance movements in India (Gandhi's campaigns for independence from the British Empire), in Czechoslovakia's Velvet Revolution and in East Germany to oust their communist governments, In South Africa in the fight against apartheid, in the American Civil Rights Movement, in the Singing Revolution to bring independence to the Baltic countries from the Soviet Union, recently with the 2003 Rose Revolution in Georgia and the 2004 Orange Revolution in Ukraine, among other various movements worldwide.",
+        "10": "Nikola Tesla (Serbian Cyrillic: \u041d\u0438\u043a\u043e\u043b\u0430 \u0422\u0435\u0441\u043b\u0430; 10 July 1856 \u2013 7 January 1943) was a Serbian American inventor, electrical engineer, mechanical engineer, physicist, and futurist best known for his contributions to the design of the modern alternating current (AC) electricity supply system.",
+        "11": "Nikola Tesla (Serbian Cyrillic: \u041d\u0438\u043a\u043e\u043b\u0430 \u0422\u0435\u0441\u043b\u0430; 10 July 1856 \u2013 7 January 1943) was a Serbian American inventor, electrical engineer, mechanical engineer, physicist, and futurist best known for his contributions to the design of the modern alternating current (AC) electricity supply system.",
+        "12": "Nikola Tesla (Serbian Cyrillic: \u041d\u0438\u043a\u043e\u043b\u0430 \u0422\u0435\u0441\u043b\u0430; 10 July 1856 \u2013 7 January 1943) was a Serbian American inventor, electrical engineer, mechanical engineer, physicist, and futurist best known for his contributions to the design of the modern alternating current (AC) electricity supply system.",
+        "13": "Nikola Tesla (Serbian Cyrillic: \u041d\u0438\u043a\u043e\u043b\u0430 \u0422\u0435\u0441\u043b\u0430; 10 July 1856 \u2013 7 January 1943) was a Serbian American inventor, electrical engineer, mechanical engineer, physicist, and futurist best known for his contributions to the design of the modern alternating current (AC) electricity supply system.",
+        "14": "Nikola Tesla (Serbian Cyrillic: \u041d\u0438\u043a\u043e\u043b\u0430 \u0422\u0435\u0441\u043b\u0430; 10 July 1856 \u2013 7 January 1943) was a Serbian American inventor, electrical engineer, mechanical engineer, physicist, and futurist best known for his contributions to the design of the modern alternating current (AC) electricity supply system.",
+        "15": "Nikola Tesla (Serbian Cyrillic: \u041d\u0438\u043a\u043e\u043b\u0430 \u0422\u0435\u0441\u043b\u0430; 10 July 1856 \u2013 7 January 1943) was a Serbian American inventor, electrical engineer, mechanical engineer, physicist, and futurist best known for his contributions to the design of the modern alternating current (AC) electricity supply system.",
+        "16": "Nikola Tesla (Serbian Cyrillic: \u041d\u0438\u043a\u043e\u043b\u0430 \u0422\u0435\u0441\u043b\u0430; 10 July 1856 \u2013 7 January 1943) was a Serbian American inventor, electrical engineer, mechanical engineer, physicist, and futurist best known for his contributions to the design of the modern alternating current (AC) electricity supply system.",
+        "17": "Imperialism is a type of advocacy of empire. Its name originated from the Latin word \"imperium\", which means to rule over large territories. Imperialism is \"a policy of extending a country's power and influence through colonization, use of military force, or other means\". Imperialism has greatly shaped the contemporary world. It has also allowed for the rapid spread of technologies and ideas. The term imperialism has been applied to Western (and Japanese) political and economic dominance especially in Asia and Africa in the 19th and 20th centuries. Its precise meaning continues to be debated by scholars. Some writers, such as Edward Said, use the term more broadly to describe any system of domination and subordination organised with an imperial center and a periphery.",
+        "18": "Imperialism is a type of advocacy of empire. Its name originated from the Latin word \"imperium\", which means to rule over large territories. Imperialism is \"a policy of extending a country's power and influence through colonization, use of military force, or other means\". Imperialism has greatly shaped the contemporary world. It has also allowed for the rapid spread of technologies and ideas. The term imperialism has been applied to Western (and Japanese) political and economic dominance especially in Asia and Africa in the 19th and 20th centuries. Its precise meaning continues to be debated by scholars. Some writers, such as Edward Said, use the term more broadly to describe any system of domination and subordination organised with an imperial center and a periphery.",
+        "19": "Imperialism is a type of advocacy of empire. Its name originated from the Latin word \"imperium\", which means to rule over large territories. Imperialism is \"a policy of extending a country's power and influence through colonization, use of military force, or other means\". Imperialism has greatly shaped the contemporary world. It has also allowed for the rapid spread of technologies and ideas. The term imperialism has been applied to Western (and Japanese) political and economic dominance especially in Asia and Africa in the 19th and 20th centuries. Its precise meaning continues to be debated by scholars. Some writers, such as Edward Said, use the term more broadly to describe any system of domination and subordination organised with an imperial center and a periphery.",
+        "20": "Imperialism is a type of advocacy of empire. Its name originated from the Latin word \"imperium\", which means to rule over large territories. Imperialism is \"a policy of extending a country's power and influence through colonization, use of military force, or other means\". Imperialism has greatly shaped the contemporary world. It has also allowed for the rapid spread of technologies and ideas. The term imperialism has been applied to Western (and Japanese) political and economic dominance especially in Asia and Africa in the 19th and 20th centuries. Its precise meaning continues to be debated by scholars. Some writers, such as Edward Said, use the term more broadly to describe any system of domination and subordination organised with an imperial center and a periphery.",
+        "21": "Martin Luther (\/\u02c8lu\u02d0\u03b8\u0259r\/ or \/\u02c8lu\u02d0\u00f0\u0259r\/; German: [\u02c8ma\u0250\u032fti\u02d0n \u02c8l\u028at\u0250] ( listen); 10 November 1483 \u2013 18 February 1546) was a German professor of theology, composer, priest, former monk and a seminal figure in the Protestant Reformation. Luther came to reject several teachings and practices of the Late Medieval Catholic Church. He strongly disputed the claim that freedom from God's punishment for sin could be purchased with money. He proposed an academic discussion of the power and usefulness of indulgences in his Ninety-Five Theses of 1517. His refusal to retract all of his writings at the demand of Pope Leo X in 1520 and the Holy Roman Emperor Charles V at the Diet of Worms in 1521 resulted in his excommunication by the Pope and condemnation as an outlaw by the Emperor.",
+        "22": "Martin Luther (\/\u02c8lu\u02d0\u03b8\u0259r\/ or \/\u02c8lu\u02d0\u00f0\u0259r\/; German: [\u02c8ma\u0250\u032fti\u02d0n \u02c8l\u028at\u0250] ( listen); 10 November 1483 \u2013 18 February 1546) was a German professor of theology, composer, priest, former monk and a seminal figure in the Protestant Reformation. Luther came to reject several teachings and practices of the Late Medieval Catholic Church. He strongly disputed the claim that freedom from God's punishment for sin could be purchased with money. He proposed an academic discussion of the power and usefulness of indulgences in his Ninety-Five Theses of 1517. His refusal to retract all of his writings at the demand of Pope Leo X in 1520 and the Holy Roman Emperor Charles V at the Diet of Worms in 1521 resulted in his excommunication by the Pope and condemnation as an outlaw by the Emperor.",
+        "23": "Martin Luther (\/\u02c8lu\u02d0\u03b8\u0259r\/ or \/\u02c8lu\u02d0\u00f0\u0259r\/; German: [\u02c8ma\u0250\u032fti\u02d0n \u02c8l\u028at\u0250] ( listen); 10 November 1483 \u2013 18 February 1546) was a German professor of theology, composer, priest, former monk and a seminal figure in the Protestant Reformation. Luther came to reject several teachings and practices of the Late Medieval Catholic Church. He strongly disputed the claim that freedom from God's punishment for sin could be purchased with money. He proposed an academic discussion of the power and usefulness of indulgences in his Ninety-Five Theses of 1517. His refusal to retract all of his writings at the demand of Pope Leo X in 1520 and the Holy Roman Emperor Charles V at the Diet of Worms in 1521 resulted in his excommunication by the Pope and condemnation as an outlaw by the Emperor.",
+        "24": "Martin Luther (\/\u02c8lu\u02d0\u03b8\u0259r\/ or \/\u02c8lu\u02d0\u00f0\u0259r\/; German: [\u02c8ma\u0250\u032fti\u02d0n \u02c8l\u028at\u0250] ( listen); 10 November 1483 \u2013 18 February 1546) was a German professor of theology, composer, priest, former monk and a seminal figure in the Protestant Reformation. Luther came to reject several teachings and practices of the Late Medieval Catholic Church. He strongly disputed the claim that freedom from God's punishment for sin could be purchased with money. He proposed an academic discussion of the power and usefulness of indulgences in his Ninety-Five Theses of 1517. His refusal to retract all of his writings at the demand of Pope Leo X in 1520 and the Holy Roman Emperor Charles V at the Diet of Worms in 1521 resulted in his excommunication by the Pope and condemnation as an outlaw by the Emperor.",
+        "25": "Martin Luther (\/\u02c8lu\u02d0\u03b8\u0259r\/ or \/\u02c8lu\u02d0\u00f0\u0259r\/; German: [\u02c8ma\u0250\u032fti\u02d0n \u02c8l\u028at\u0250] ( listen); 10 November 1483 \u2013 18 February 1546) was a German professor of theology, composer, priest, former monk and a seminal figure in the Protestant Reformation. Luther came to reject several teachings and practices of the Late Medieval Catholic Church. He strongly disputed the claim that freedom from God's punishment for sin could be purchased with money. He proposed an academic discussion of the power and usefulness of indulgences in his Ninety-Five Theses of 1517. His refusal to retract all of his writings at the demand of Pope Leo X in 1520 and the Holy Roman Emperor Charles V at the Diet of Worms in 1521 resulted in his excommunication by the Pope and condemnation as an outlaw by the Emperor.",
+        "26": "Fresno (\/\u02c8fr\u025bzno\u028a\/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.",
+        "27": "Fresno (\/\u02c8fr\u025bzno\u028a\/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.",
+        "28": "Fresno (\/\u02c8fr\u025bzno\u028a\/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.",
+        "29": "Fresno (\/\u02c8fr\u025bzno\u028a\/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.",
+        "30": "Fresno (\/\u02c8fr\u025bzno\u028a\/ FREZ-noh), the county seat of Fresno County, is a city in the U.S. state of California. As of 2015, the city's population was 520,159, making it the fifth-largest city in California, the largest inland city in California and the 34th-largest in the nation. Fresno is in the center of the San Joaquin Valley and is the largest city in the Central Valley, which contains the San Joaquin Valley. It is approximately 220 miles (350 km) northwest of Los Angeles, 170 miles (270 km) south of the state capital, Sacramento, or 185 miles (300 km) south of San Francisco. The name Fresno means \"ash tree\" in Spanish, and an ash leaf is featured on the city's flag.",
+        "31": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "32": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "33": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "34": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "35": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "36": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "37": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "38": "The Rhine (Romansh: Rein, German: Rhein, French: le Rhin, Dutch: Rijn) is a European river that begins in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps, forms part of the Swiss-Austrian, Swiss-Liechtenstein border, Swiss-German and then the Franco-German border, then flows through the Rhineland and eventually empties into the North Sea in the Netherlands. The biggest city on the river Rhine is Cologne, Germany with a population of more than 1,050,000 people. It is the second-longest river in Central and Western Europe (after the Danube), at about 1,230 km (760 mi),[note 2][note 1] with an average discharge of about 2,900 m3\/s (100,000 cu ft\/s).",
+        "39": "Islamism, also known as Political Islam (Arabic: \u0625\u0633\u0644\u0627\u0645 \u0633\u064a\u0627\u0633\u064a\u200e isl\u0101m siy\u0101s\u012b), is an Islamic revival movement often characterized by moral conservatism, literalism, and the attempt \"to implement Islamic values in all spheres of life.\" Islamism favors the reordering of government and society in accordance with the Shari'a. The different Islamist movements have been described as \"oscillating between two poles\": at one end is a strategy of Islamization of society through state power seized by revolution or invasion; at the other \"reformist\" pole Islamists work to Islamize society gradually \"from the bottom up\". The movements have \"arguably altered the Middle East more than any trend since the modern states gained independence\", redefining \"politics and even borders\" according to one journalist (Robin Wright).",
+        "40": "Islamism, also known as Political Islam (Arabic: \u0625\u0633\u0644\u0627\u0645 \u0633\u064a\u0627\u0633\u064a\u200e isl\u0101m siy\u0101s\u012b), is an Islamic revival movement often characterized by moral conservatism, literalism, and the attempt \"to implement Islamic values in all spheres of life.\" Islamism favors the reordering of government and society in accordance with the Shari'a. The different Islamist movements have been described as \"oscillating between two poles\": at one end is a strategy of Islamization of society through state power seized by revolution or invasion; at the other \"reformist\" pole Islamists work to Islamize society gradually \"from the bottom up\". The movements have \"arguably altered the Middle East more than any trend since the modern states gained independence\", redefining \"politics and even borders\" according to one journalist (Robin Wright).",
+        "41": "Islamism, also known as Political Islam (Arabic: \u0625\u0633\u0644\u0627\u0645 \u0633\u064a\u0627\u0633\u064a\u200e isl\u0101m siy\u0101s\u012b), is an Islamic revival movement often characterized by moral conservatism, literalism, and the attempt \"to implement Islamic values in all spheres of life.\" Islamism favors the reordering of government and society in accordance with the Shari'a. The different Islamist movements have been described as \"oscillating between two poles\": at one end is a strategy of Islamization of society through state power seized by revolution or invasion; at the other \"reformist\" pole Islamists work to Islamize society gradually \"from the bottom up\". The movements have \"arguably altered the Middle East more than any trend since the modern states gained independence\", redefining \"politics and even borders\" according to one journalist (Robin Wright).",
+        "42": "Islamism, also known as Political Islam (Arabic: \u0625\u0633\u0644\u0627\u0645 \u0633\u064a\u0627\u0633\u064a\u200e isl\u0101m siy\u0101s\u012b), is an Islamic revival movement often characterized by moral conservatism, literalism, and the attempt \"to implement Islamic values in all spheres of life.\" Islamism favors the reordering of government and society in accordance with the Shari'a. The different Islamist movements have been described as \"oscillating between two poles\": at one end is a strategy of Islamization of society through state power seized by revolution or invasion; at the other \"reformist\" pole Islamists work to Islamize society gradually \"from the bottom up\". The movements have \"arguably altered the Middle East more than any trend since the modern states gained independence\", redefining \"politics and even borders\" according to one journalist (Robin Wright).",
+        "43": "Islamism, also known as Political Islam (Arabic: \u0625\u0633\u0644\u0627\u0645 \u0633\u064a\u0627\u0633\u064a\u200e isl\u0101m siy\u0101s\u012b), is an Islamic revival movement often characterized by moral conservatism, literalism, and the attempt \"to implement Islamic values in all spheres of life.\" Islamism favors the reordering of government and society in accordance with the Shari'a. The different Islamist movements have been described as \"oscillating between two poles\": at one end is a strategy of Islamization of society through state power seized by revolution or invasion; at the other \"reformist\" pole Islamists work to Islamize society gradually \"from the bottom up\". The movements have \"arguably altered the Middle East more than any trend since the modern states gained independence\", redefining \"politics and even borders\" according to one journalist (Robin Wright).",
+        "44": "The American Broadcasting Company (ABC) (stylized in its logo as abc since 1957) is an American commercial broadcast television network that is owned by the Disney\u2013ABC Television Group, a subsidiary of Disney Media Networks division of The Walt Disney Company. The network is part of the Big Three television networks. The network is headquartered on Columbus Avenue and West 66th Street in Manhattan, with additional major offices and production facilities in New York City, Los Angeles and Burbank, California.",
+        "45": "The American Broadcasting Company (ABC) (stylized in its logo as abc since 1957) is an American commercial broadcast television network that is owned by the Disney\u2013ABC Television Group, a subsidiary of Disney Media Networks division of The Walt Disney Company. The network is part of the Big Three television networks. The network is headquartered on Columbus Avenue and West 66th Street in Manhattan, with additional major offices and production facilities in New York City, Los Angeles and Burbank, California.",
+        "46": "The American Broadcasting Company (ABC) (stylized in its logo as abc since 1957) is an American commercial broadcast television network that is owned by the Disney\u2013ABC Television Group, a subsidiary of Disney Media Networks division of The Walt Disney Company. The network is part of the Big Three television networks. The network is headquartered on Columbus Avenue and West 66th Street in Manhattan, with additional major offices and production facilities in New York City, Los Angeles and Burbank, California.",
+        "47": "The American Broadcasting Company (ABC) (stylized in its logo as abc since 1957) is an American commercial broadcast television network that is owned by the Disney\u2013ABC Television Group, a subsidiary of Disney Media Networks division of The Walt Disney Company. The network is part of the Big Three television networks. The network is headquartered on Columbus Avenue and West 66th Street in Manhattan, with additional major offices and production facilities in New York City, Los Angeles and Burbank, California.",
+        "48": "The American Broadcasting Company (ABC) (stylized in its logo as abc since 1957) is an American commercial broadcast television network that is owned by the Disney\u2013ABC Television Group, a subsidiary of Disney Media Networks division of The Walt Disney Company. The network is part of the Big Three television networks. The network is headquartered on Columbus Avenue and West 66th Street in Manhattan, with additional major offices and production facilities in New York City, Los Angeles and Burbank, California.",
+        "49": "Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States.",
+        "50": "Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States.",
+        "51": "Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States.",
+        "52": "Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States.",
+        "53": "Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States.",
+        "54": "Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States.",
+        "55": "Starting in the late 1950s, American computer scientist Paul Baran developed the concept Distributed Adaptive Message Block Switching with the goal to provide a fault-tolerant, efficient routing method for telecommunication messages as part of a research program at the RAND Corporation, funded by the US Department of Defense. This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth, largely fortified by the development of telecommunications in the Bell System. The new concept found little resonance among network implementers until the independent work of Donald Davies at the National Physical Laboratory (United Kingdom) (NPL) in the late 1960s. Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe in the decade following, including the incorporation of the concept in the early ARPANET in the United States.",
+        "56": "The French and Indian War (1754\u20131763) was the North American theater of the worldwide Seven Years' War. The war was fought between the colonies of British America and New France, with both sides supported by military units from their parent countries of Great Britain and France, as well as Native American allies. At the start of the war, the French North American colonies had a population of roughly 60,000 European settlers, compared with 2 million in the British North American colonies. The outnumbered French particularly depended on the Indians. Long in conflict, the metropole nations declared war on each other in 1756, escalating the war from a regional affair into an intercontinental conflict.",
+        "57": "The French and Indian War (1754\u20131763) was the North American theater of the worldwide Seven Years' War. The war was fought between the colonies of British America and New France, with both sides supported by military units from their parent countries of Great Britain and France, as well as Native American allies. At the start of the war, the French North American colonies had a population of roughly 60,000 European settlers, compared with 2 million in the British North American colonies. The outnumbered French particularly depended on the Indians. Long in conflict, the metropole nations declared war on each other in 1756, escalating the war from a regional affair into an intercontinental conflict.",
+        "58": "The French and Indian War (1754\u20131763) was the North American theater of the worldwide Seven Years' War. The war was fought between the colonies of British America and New France, with both sides supported by military units from their parent countries of Great Britain and France, as well as Native American allies. At the start of the war, the French North American colonies had a population of roughly 60,000 European settlers, compared with 2 million in the British North American colonies. The outnumbered French particularly depended on the Indians. Long in conflict, the metropole nations declared war on each other in 1756, escalating the war from a regional affair into an intercontinental conflict.",
+        "59": "The French and Indian War (1754\u20131763) was the North American theater of the worldwide Seven Years' War. The war was fought between the colonies of British America and New France, with both sides supported by military units from their parent countries of Great Britain and France, as well as Native American allies. At the start of the war, the French North American colonies had a population of roughly 60,000 European settlers, compared with 2 million in the British North American colonies. The outnumbered French particularly depended on the Indians. Long in conflict, the metropole nations declared war on each other in 1756, escalating the war from a regional affair into an intercontinental conflict.",
+        "60": "Kenya (\/\u02c8k\u025bnj\u0259\/; locally [\u02c8k\u025b\u0272a] ( listen)), officially the Republic of Kenya, is a country in Africa and a founding member of the East African Community (EAC). Its capital and largest city is Nairobi. Kenya's territory lies on the equator and overlies the East African Rift covering a diverse and expansive terrain that extends roughly from Lake Victoria to Lake Turkana (formerly called Lake Rudolf) and further south-east to the Indian Ocean. It is bordered by Tanzania to the south, Uganda to the west, South Sudan to the north-west, Ethiopia to the north and Somalia to the north-east. Kenya covers 581,309 km2 (224,445 sq mi), and had a population of approximately 45 million people in July 2014.",
+        "61": "Kenya (\/\u02c8k\u025bnj\u0259\/; locally [\u02c8k\u025b\u0272a] ( listen)), officially the Republic of Kenya, is a country in Africa and a founding member of the East African Community (EAC). Its capital and largest city is Nairobi. Kenya's territory lies on the equator and overlies the East African Rift covering a diverse and expansive terrain that extends roughly from Lake Victoria to Lake Turkana (formerly called Lake Rudolf) and further south-east to the Indian Ocean. It is bordered by Tanzania to the south, Uganda to the west, South Sudan to the north-west, Ethiopia to the north and Somalia to the north-east. Kenya covers 581,309 km2 (224,445 sq mi), and had a population of approximately 45 million people in July 2014.",
+        "62": "Kenya (\/\u02c8k\u025bnj\u0259\/; locally [\u02c8k\u025b\u0272a] ( listen)), officially the Republic of Kenya, is a country in Africa and a founding member of the East African Community (EAC). Its capital and largest city is Nairobi. Kenya's territory lies on the equator and overlies the East African Rift covering a diverse and expansive terrain that extends roughly from Lake Victoria to Lake Turkana (formerly called Lake Rudolf) and further south-east to the Indian Ocean. It is bordered by Tanzania to the south, Uganda to the west, South Sudan to the north-west, Ethiopia to the north and Somalia to the north-east. Kenya covers 581,309 km2 (224,445 sq mi), and had a population of approximately 45 million people in July 2014.",
+        "63": "Kenya (\/\u02c8k\u025bnj\u0259\/; locally [\u02c8k\u025b\u0272a] ( listen)), officially the Republic of Kenya, is a country in Africa and a founding member of the East African Community (EAC). Its capital and largest city is Nairobi. Kenya's territory lies on the equator and overlies the East African Rift covering a diverse and expansive terrain that extends roughly from Lake Victoria to Lake Turkana (formerly called Lake Rudolf) and further south-east to the Indian Ocean. It is bordered by Tanzania to the south, Uganda to the west, South Sudan to the north-west, Ethiopia to the north and Somalia to the north-east. Kenya covers 581,309 km2 (224,445 sq mi), and had a population of approximately 45 million people in July 2014.",
+        "64": "Kenya (\/\u02c8k\u025bnj\u0259\/; locally [\u02c8k\u025b\u0272a] ( listen)), officially the Republic of Kenya, is a country in Africa and a founding member of the East African Community (EAC). Its capital and largest city is Nairobi. Kenya's territory lies on the equator and overlies the East African Rift covering a diverse and expansive terrain that extends roughly from Lake Victoria to Lake Turkana (formerly called Lake Rudolf) and further south-east to the Indian Ocean. It is bordered by Tanzania to the south, Uganda to the west, South Sudan to the north-west, Ethiopia to the north and Somalia to the north-east. Kenya covers 581,309 km2 (224,445 sq mi), and had a population of approximately 45 million people in July 2014.",
+        "65": "The Apollo program, also known as Project Apollo, was the third United States human spaceflight program carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the first humans on the Moon from 1969 to 1972. First conceived during Dwight D. Eisenhower's administration as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space, Apollo was later dedicated to President John F. Kennedy's national goal of \"landing a man on the Moon and returning him safely to the Earth\" by the end of the 1960s, which he proposed in a May 25, 1961, address to Congress. Project Mercury was followed by the two-man Project Gemini (1962\u201366). The first manned flight of Apollo was in 1968.",
+        "66": "The Apollo program, also known as Project Apollo, was the third United States human spaceflight program carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the first humans on the Moon from 1969 to 1972. First conceived during Dwight D. Eisenhower's administration as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space, Apollo was later dedicated to President John F. Kennedy's national goal of \"landing a man on the Moon and returning him safely to the Earth\" by the end of the 1960s, which he proposed in a May 25, 1961, address to Congress. Project Mercury was followed by the two-man Project Gemini (1962\u201366). The first manned flight of Apollo was in 1968.",
+        "67": "The Apollo program, also known as Project Apollo, was the third United States human spaceflight program carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the first humans on the Moon from 1969 to 1972. First conceived during Dwight D. Eisenhower's administration as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space, Apollo was later dedicated to President John F. Kennedy's national goal of \"landing a man on the Moon and returning him safely to the Earth\" by the end of the 1960s, which he proposed in a May 25, 1961, address to Congress. Project Mercury was followed by the two-man Project Gemini (1962\u201366). The first manned flight of Apollo was in 1968.",
+        "68": "The Apollo program, also known as Project Apollo, was the third United States human spaceflight program carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the first humans on the Moon from 1969 to 1972. First conceived during Dwight D. Eisenhower's administration as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space, Apollo was later dedicated to President John F. Kennedy's national goal of \"landing a man on the Moon and returning him safely to the Earth\" by the end of the 1960s, which he proposed in a May 25, 1961, address to Congress. Project Mercury was followed by the two-man Project Gemini (1962\u201366). The first manned flight of Apollo was in 1968.",
+        "69": "The Apollo program, also known as Project Apollo, was the third United States human spaceflight program carried out by the National Aeronautics and Space Administration (NASA), which accomplished landing the first humans on the Moon from 1969 to 1972. First conceived during Dwight D. Eisenhower's administration as a three-man spacecraft to follow the one-man Project Mercury which put the first Americans in space, Apollo was later dedicated to President John F. Kennedy's national goal of \"landing a man on the Moon and returning him safely to the Earth\" by the end of the 1960s, which he proposed in a May 25, 1961, address to Congress. Project Mercury was followed by the two-man Project Gemini (1962\u201366). The first manned flight of Apollo was in 1968.",
+        "70": "Private schools, also known as independent schools, non-governmental, or nonstate schools, are not administered by local, state or national governments; thus, they retain the right to select their students and are funded in whole or in part by charging their students tuition, rather than relying on mandatory taxation through public (government) funding; at some private schools students may be able to get a scholarship, which makes the cost cheaper, depending on a talent the student may have (e.g. sport scholarship, art scholarship, academic scholarship), financial need, or tax credit scholarships that might be available.",
+        "71": "Private schools, also known as independent schools, non-governmental, or nonstate schools, are not administered by local, state or national governments; thus, they retain the right to select their students and are funded in whole or in part by charging their students tuition, rather than relying on mandatory taxation through public (government) funding; at some private schools students may be able to get a scholarship, which makes the cost cheaper, depending on a talent the student may have (e.g. sport scholarship, art scholarship, academic scholarship), financial need, or tax credit scholarships that might be available.",
+        "72": "Private schools, also known as independent schools, non-governmental, or nonstate schools, are not administered by local, state or national governments; thus, they retain the right to select their students and are funded in whole or in part by charging their students tuition, rather than relying on mandatory taxation through public (government) funding; at some private schools students may be able to get a scholarship, which makes the cost cheaper, depending on a talent the student may have (e.g. sport scholarship, art scholarship, academic scholarship), financial need, or tax credit scholarships that might be available.",
+        "73": "Private schools, also known as independent schools, non-governmental, or nonstate schools, are not administered by local, state or national governments; thus, they retain the right to select their students and are funded in whole or in part by charging their students tuition, rather than relying on mandatory taxation through public (government) funding; at some private schools students may be able to get a scholarship, which makes the cost cheaper, depending on a talent the student may have (e.g. sport scholarship, art scholarship, academic scholarship), financial need, or tax credit scholarships that might be available.",
+        "74": "Formed in November 1990 by the equal merger of Sky Television and British Satellite Broadcasting, BSkyB became the UK's largest digital subscription television company. Following BSkyB's 2014 acquisition of Sky Italia and a majority 90.04% interest in Sky Deutschland in November 2014, its holding company British Sky Broadcasting Group plc changed its name to Sky plc. The United Kingdom operations also changed the company name from British Sky Broadcasting Limited to Sky UK Limited, still trading as Sky.",
+        "75": "Formed in November 1990 by the equal merger of Sky Television and British Satellite Broadcasting, BSkyB became the UK's largest digital subscription television company. Following BSkyB's 2014 acquisition of Sky Italia and a majority 90.04% interest in Sky Deutschland in November 2014, its holding company British Sky Broadcasting Group plc changed its name to Sky plc. The United Kingdom operations also changed the company name from British Sky Broadcasting Limited to Sky UK Limited, still trading as Sky.",
+        "76": "Formed in November 1990 by the equal merger of Sky Television and British Satellite Broadcasting, BSkyB became the UK's largest digital subscription television company. Following BSkyB's 2014 acquisition of Sky Italia and a majority 90.04% interest in Sky Deutschland in November 2014, its holding company British Sky Broadcasting Group plc changed its name to Sky plc. The United Kingdom operations also changed the company name from British Sky Broadcasting Limited to Sky UK Limited, still trading as Sky.",
+        "77": "Formed in November 1990 by the equal merger of Sky Television and British Satellite Broadcasting, BSkyB became the UK's largest digital subscription television company. Following BSkyB's 2014 acquisition of Sky Italia and a majority 90.04% interest in Sky Deutschland in November 2014, its holding company British Sky Broadcasting Group plc changed its name to Sky plc. The United Kingdom operations also changed the company name from British Sky Broadcasting Limited to Sky UK Limited, still trading as Sky.",
+        "78": "Formed in November 1990 by the equal merger of Sky Television and British Satellite Broadcasting, BSkyB became the UK's largest digital subscription television company. Following BSkyB's 2014 acquisition of Sky Italia and a majority 90.04% interest in Sky Deutschland in November 2014, its holding company British Sky Broadcasting Group plc changed its name to Sky plc. The United Kingdom operations also changed the company name from British Sky Broadcasting Limited to Sky UK Limited, still trading as Sky.",
+        "79": "Philosophers in antiquity used the concept of force in the study of stationary and moving objects and simple machines, but thinkers such as Aristotle and Archimedes retained fundamental errors in understanding force. In part this was due to an incomplete understanding of the sometimes non-obvious force of friction, and a consequently inadequate view of the nature of natural motion. A fundamental error was the belief that a force is required to maintain motion, even at a constant velocity. Most of the previous misunderstandings about motion and force were eventually corrected by Galileo Galilei and Sir Isaac Newton. With his mathematical insight, Sir Isaac Newton formulated laws of motion that were not improved-on for nearly three hundred years. By the early 20th century, Einstein developed a theory of relativity that correctly predicted the action of forces on objects with increasing momenta near the speed of light, and also provided insight into the forces produced by gravitation and inertia.",
+        "80": "Philosophers in antiquity used the concept of force in the study of stationary and moving objects and simple machines, but thinkers such as Aristotle and Archimedes retained fundamental errors in understanding force. In part this was due to an incomplete understanding of the sometimes non-obvious force of friction, and a consequently inadequate view of the nature of natural motion. A fundamental error was the belief that a force is required to maintain motion, even at a constant velocity. Most of the previous misunderstandings about motion and force were eventually corrected by Galileo Galilei and Sir Isaac Newton. With his mathematical insight, Sir Isaac Newton formulated laws of motion that were not improved-on for nearly three hundred years. By the early 20th century, Einstein developed a theory of relativity that correctly predicted the action of forces on objects with increasing momenta near the speed of light, and also provided insight into the forces produced by gravitation and inertia.",
+        "81": "Philosophers in antiquity used the concept of force in the study of stationary and moving objects and simple machines, but thinkers such as Aristotle and Archimedes retained fundamental errors in understanding force. In part this was due to an incomplete understanding of the sometimes non-obvious force of friction, and a consequently inadequate view of the nature of natural motion. A fundamental error was the belief that a force is required to maintain motion, even at a constant velocity. Most of the previous misunderstandings about motion and force were eventually corrected by Galileo Galilei and Sir Isaac Newton. With his mathematical insight, Sir Isaac Newton formulated laws of motion that were not improved-on for nearly three hundred years. By the early 20th century, Einstein developed a theory of relativity that correctly predicted the action of forces on objects with increasing momenta near the speed of light, and also provided insight into the forces produced by gravitation and inertia.",
+        "82": "Philosophers in antiquity used the concept of force in the study of stationary and moving objects and simple machines, but thinkers such as Aristotle and Archimedes retained fundamental errors in understanding force. In part this was due to an incomplete understanding of the sometimes non-obvious force of friction, and a consequently inadequate view of the nature of natural motion. A fundamental error was the belief that a force is required to maintain motion, even at a constant velocity. Most of the previous misunderstandings about motion and force were eventually corrected by Galileo Galilei and Sir Isaac Newton. With his mathematical insight, Sir Isaac Newton formulated laws of motion that were not improved-on for nearly three hundred years. By the early 20th century, Einstein developed a theory of relativity that correctly predicted the action of forces on objects with increasing momenta near the speed of light, and also provided insight into the forces produced by gravitation and inertia.",
+        "83": "Philosophers in antiquity used the concept of force in the study of stationary and moving objects and simple machines, but thinkers such as Aristotle and Archimedes retained fundamental errors in understanding force. In part this was due to an incomplete understanding of the sometimes non-obvious force of friction, and a consequently inadequate view of the nature of natural motion. A fundamental error was the belief that a force is required to maintain motion, even at a constant velocity. Most of the previous misunderstandings about motion and force were eventually corrected by Galileo Galilei and Sir Isaac Newton. With his mathematical insight, Sir Isaac Newton formulated laws of motion that were not improved-on for nearly three hundred years. By the early 20th century, Einstein developed a theory of relativity that correctly predicted the action of forces on objects with increasing momenta near the speed of light, and also provided insight into the forces produced by gravitation and inertia.",
+        "84": "The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.",
+        "85": "The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.",
+        "86": "The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.",
+        "87": "The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.",
+        "88": "The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\"Norman\" comes from \"Norseman\") raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.",
+        "89": "Computational complexity theory is a branch of the theory of computation in theoretical computer science that focuses on classifying computational problems according to their inherent difficulty, and relating those classes to each other. A computational problem is understood to be a task that is in principle amenable to being solved by a computer, which is equivalent to stating that the problem may be solved by mechanical application of mathematical steps, such as an algorithm.",
+        "90": "Computational complexity theory is a branch of the theory of computation in theoretical computer science that focuses on classifying computational problems according to their inherent difficulty, and relating those classes to each other. A computational problem is understood to be a task that is in principle amenable to being solved by a computer, which is equivalent to stating that the problem may be solved by mechanical application of mathematical steps, such as an algorithm.",
+        "91": "Computational complexity theory is a branch of the theory of computation in theoretical computer science that focuses on classifying computational problems according to their inherent difficulty, and relating those classes to each other. A computational problem is understood to be a task that is in principle amenable to being solved by a computer, which is equivalent to stating that the problem may be solved by mechanical application of mathematical steps, such as an algorithm.",
+        "92": "Following a referendum in 1997, in which the Scottish electorate voted for devolution, the current Parliament was convened by the Scotland Act 1998, which sets out its powers as a devolved legislature. The Act delineates the legislative competence of the Parliament \u2013 the areas in which it can make laws \u2013 by explicitly specifying powers that are \"reserved\" to the Parliament of the United Kingdom. The Scottish Parliament has the power to legislate in all areas that are not explicitly reserved to Westminster. The British Parliament retains the ability to amend the terms of reference of the Scottish Parliament, and can extend or reduce the areas in which it can make laws. The first meeting of the new Parliament took place on 12 May 1999.",
+        "93": "Following a referendum in 1997, in which the Scottish electorate voted for devolution, the current Parliament was convened by the Scotland Act 1998, which sets out its powers as a devolved legislature. The Act delineates the legislative competence of the Parliament \u2013 the areas in which it can make laws \u2013 by explicitly specifying powers that are \"reserved\" to the Parliament of the United Kingdom. The Scottish Parliament has the power to legislate in all areas that are not explicitly reserved to Westminster. The British Parliament retains the ability to amend the terms of reference of the Scottish Parliament, and can extend or reduce the areas in which it can make laws. The first meeting of the new Parliament took place on 12 May 1999.",
+        "94": "Following a referendum in 1997, in which the Scottish electorate voted for devolution, the current Parliament was convened by the Scotland Act 1998, which sets out its powers as a devolved legislature. The Act delineates the legislative competence of the Parliament \u2013 the areas in which it can make laws \u2013 by explicitly specifying powers that are \"reserved\" to the Parliament of the United Kingdom. The Scottish Parliament has the power to legislate in all areas that are not explicitly reserved to Westminster. The British Parliament retains the ability to amend the terms of reference of the Scottish Parliament, and can extend or reduce the areas in which it can make laws. The first meeting of the new Parliament took place on 12 May 1999.",
+        "95": "Following a referendum in 1997, in which the Scottish electorate voted for devolution, the current Parliament was convened by the Scotland Act 1998, which sets out its powers as a devolved legislature. The Act delineates the legislative competence of the Parliament \u2013 the areas in which it can make laws \u2013 by explicitly specifying powers that are \"reserved\" to the Parliament of the United Kingdom. The Scottish Parliament has the power to legislate in all areas that are not explicitly reserved to Westminster. The British Parliament retains the ability to amend the terms of reference of the Scottish Parliament, and can extend or reduce the areas in which it can make laws. The first meeting of the new Parliament took place on 12 May 1999.",
+        "96": "Following a referendum in 1997, in which the Scottish electorate voted for devolution, the current Parliament was convened by the Scotland Act 1998, which sets out its powers as a devolved legislature. The Act delineates the legislative competence of the Parliament \u2013 the areas in which it can make laws \u2013 by explicitly specifying powers that are \"reserved\" to the Parliament of the United Kingdom. The Scottish Parliament has the power to legislate in all areas that are not explicitly reserved to Westminster. The British Parliament retains the ability to amend the terms of reference of the Scottish Parliament, and can extend or reduce the areas in which it can make laws. The first meeting of the new Parliament took place on 12 May 1999.",
+        "97": "The University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890, consists of The College, various graduate programs, interdisciplinary committees organized into four academic research divisions and seven professional schools. Beyond the arts and sciences, Chicago is also well known for its professional schools, which include the Pritzker School of Medicine, the University of Chicago Booth School of Business, the Law School, the School of Social Service Administration, the Harris School of Public Policy Studies, the Graham School of Continuing Liberal and Professional Studies and the Divinity School. The university currently enrolls approximately 5,000 students in the College and around 15,000 students overall.",
+        "98": "The University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890, consists of The College, various graduate programs, interdisciplinary committees organized into four academic research divisions and seven professional schools. Beyond the arts and sciences, Chicago is also well known for its professional schools, which include the Pritzker School of Medicine, the University of Chicago Booth School of Business, the Law School, the School of Social Service Administration, the Harris School of Public Policy Studies, the Graham School of Continuing Liberal and Professional Studies and the Divinity School. The university currently enrolls approximately 5,000 students in the College and around 15,000 students overall.",
+        "99": "The University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890, consists of The College, various graduate programs, interdisciplinary committees organized into four academic research divisions and seven professional schools. Beyond the arts and sciences, Chicago is also well known for its professional schools, which include the Pritzker School of Medicine, the University of Chicago Booth School of Business, the Law School, the School of Social Service Administration, the Harris School of Public Policy Studies, the Graham School of Continuing Liberal and Professional Studies and the Divinity School. The university currently enrolls approximately 5,000 students in the College and around 15,000 students overall.",
+        "100": "The University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890, consists of The College, various graduate programs, interdisciplinary committees organized into four academic research divisions and seven professional schools. Beyond the arts and sciences, Chicago is also well known for its professional schools, which include the Pritzker School of Medicine, the University of Chicago Booth School of Business, the Law School, the School of Social Service Administration, the Harris School of Public Policy Studies, the Graham School of Continuing Liberal and Professional Studies and the Divinity School. The university currently enrolls approximately 5,000 students in the College and around 15,000 students overall.",
+        "101": "The University of Chicago (UChicago, Chicago, or U of C) is a private research university in Chicago. The university, established in 1890, consists of The College, various graduate programs, interdisciplinary committees organized into four academic research divisions and seven professional schools. Beyond the arts and sciences, Chicago is also well known for its professional schools, which include the Pritzker School of Medicine, the University of Chicago Booth School of Business, the Law School, the School of Social Service Administration, the Harris School of Public Policy Studies, the Graham School of Continuing Liberal and Professional Studies and the Divinity School. The university currently enrolls approximately 5,000 students in the College and around 15,000 students overall."
+    },
+    "question": {
+        "0": "What is it called when people in society rebel against laws they think are unfair?",
+        "1": "What is an example of major civil disobedience in South Africa?",
+        "2": "What was the the movement called that brought Baltic countries independence from the Soviet Union?",
+        "3": "In 2004 the Orange revolution occurred in what country?",
+        "4": "Where was the location of the 2003 Rose revolution?",
+        "5": "Which people brought forward one of the earliest examples of Civil Disobedience?",
+        "6": "Who was one of the earliest examples of Civil Disobedience against?",
+        "7": "Why do people chose civil disobedience to protest?",
+        "8": "What does civil disobedience protest against?",
+        "9": "What civil rights movement in the US was known for it's disobedience?",
+        "10": "In what year was Nikola Tesla born? ",
+        "11": "What was Nikola Tesla's ethnicity?",
+        "12": "In what year did Tesla die? ",
+        "13": "When was Nikola Tesla born?",
+        "14": "In what year did Tesla die?",
+        "15": "What is Tesla's home country?",
+        "16": "What does AC stand for?",
+        "17": "The word imperialism has it's origins in which ancient language? ",
+        "18": "By what means is imperialism usually administered?",
+        "19": "The term imperialism has been applied to western countries, and which eastern county?",
+        "20": "Imperialism is responsible for the rapid spread of what?",
+        "21": "Of what nationality was Martin Luther?",
+        "22": "When did Martin Luther die?",
+        "23": "What organization's teaching did Luther reject?",
+        "24": "What did the Church claim could be avoided with money?",
+        "25": "What did the Church do when Luther refused to retract his writings?",
+        "26": "Which city is the fifth-largest city in California?",
+        "27": "How far is Fresno from Los Angeles?",
+        "28": "What does the name Fresno mean in Spanish?",
+        "29": "What is featured on the city of Fresno's city flag?",
+        "30": "How do you pronounce Fresno?",
+        "31": "Where does the Rhine begin? ",
+        "32": "Where does the Rhine empty?",
+        "33": "What is the largest city the Rhine runs through? ",
+        "34": "What river is larger than the Rhine?",
+        "35": "How long is the Rhine?",
+        "36": "Where is the Rhine? ",
+        "37": "What country does the Rhine empty?",
+        "38": "How long is the Rhine? ",
+        "39": "What is an Islamic revival movement?",
+        "40": "What aspects of life does Islamism seek to integrate itself into?",
+        "41": "What goal does Islamism have when it comes to society and government?",
+        "42": "What have the two different Islamist movements been described as oscillating between?",
+        "43": "One strategy of Islamization is to seize power by what methods?",
+        "44": "What company owns the American Broadcasting Company?",
+        "45": "In what year did ABC stylize it's logo as abc?",
+        "46": "In what borough of New York City is ABC headquartered?",
+        "47": "On what streets is the ABC headquarters located",
+        "48": "Disney-ABC Television Group is a subsidiary of what division of the Walt Disney Company?",
+        "49": "What did Paul Baran develop ",
+        "50": "What did Distributed Adaptive Message Block Switching do",
+        "51": "What did this concept contradict ",
+        "52": "What is Donald Davies credited with ",
+        "53": "What did Paul Baran develop in the late 1950's",
+        "54": "What was the goal of the system ",
+        "55": "Who is credited with the modern name for this system ",
+        "56": "When was the French and Indian War?",
+        "57": "Who fought in the French and Indian war?",
+        "58": "How many people were in French North American Colonies?",
+        "59": "How many people were in British North American Colonies?",
+        "60": "Where is Kenya located?",
+        "61": "What is Kenya a founding member of?",
+        "62": "What is the capitol of Kenya?",
+        "63": "What country boarders the south of Kenya?",
+        "64": "What was the population of Kenya in 2014?",
+        "65": "What project put the first Americans into space?",
+        "66": "What program was created to carry out these projects and missions?",
+        "67": "What year did the first manned Apollo flight occur?",
+        "68": "What President is credited with the original notion of putting Americans in space?",
+        "69": "How many people were on the project that followed Project Mercury?",
+        "70": "Along with non-governmental and nonstate schools, what is another name for private schools?",
+        "71": "Along with sport and art, what is a type of talent scholarship?",
+        "72": "Rather than taxation, what are private schools largely funded by?",
+        "73": "What right do private schools have that public schools don't?",
+        "74": "What company was formed by the merger of Sky Television and British Satellite Broadcasting?",
+        "75": "Who is the UK's largest digital subscription television company?",
+        "76": "What year did BSkyB acquire Sky Italia?",
+        "77": "What is the name of the holding company for BSkyB?",
+        "78": "What is the name of the United Kingdom operation for BSkyB?",
+        "79": "What concept did philosophers in antiquity use to study simple machines?",
+        "80": "What was the belief that maintaining motion required force?",
+        "81": "Who had mathmatical insite?",
+        "82": "How long did it take to improve on Sir Isaac Newton's laws of motion?",
+        "83": "Who develped the theory of relativity?",
+        "84": "In what country is Normandy located?",
+        "85": "When were the Normans in Normandy?",
+        "86": "From which countries did the Norse originate?",
+        "87": "Who was the Norse leader?",
+        "88": "What century did the Normans first gain their separate identity?",
+        "89": "What branch of theoretical computer science deals with broadly classifying computational problems by difficulty and class of relationship?",
+        "90": "By what main attribute are computational problems classified utilizing computational complexity theory? ",
+        "91": "What is the term for a task that generally lends itself to being solved by a computer?",
+        "92": "When was the current parliament of Scotland convened?",
+        "93": "What act set out the Parliament's powers as a devolved legislature?",
+        "94": "The legislative competence of the Parliament species what areas?",
+        "95": "To what body are certain powers explicitly specified as being reserved for?",
+        "96": "The Scottish Parliament may legislate as it pleases as long as the powers aren't already reserved by where?",
+        "97": "What kind of university is the University of Chicago?",
+        "98": "When was the University of Chicago established?",
+        "99": "How many professional schools does the University of Chicago have?",
+        "100": "How many academic research divisions does the University of Chicago have?",
+        "101": "How many students does the University of Chicago have enlisted?"
+    },
+    "answers": {
+        "0": {
+            "text": [
+                "Civil disobedience",
+                "Civil disobedience",
+                "Civil disobedience",
+                "Civil disobedience",
+                "Civil disobedience"
+            ],
+            "answer_start": [130, 130, 130, 130, 130]
+        },
+        "1": {
+            "text": [
+                "apartheid",
+                "fight against apartheid",
+                "the fight against apartheid",
+                "the fight against apartheid",
+                "Singing Revolution to bring independence to the Baltic countries"
+            ],
+            "answer_start": [497, 483, 479, 479, 554]
+        },
+        "2": {
+            "text": [
+                "Singing Revolution",
+                "Singing Revolution",
+                "the Singing Revolution",
+                "Singing Revolution",
+                "Singing Revolution"
+            ],
+            "answer_start": [554, 554, 550, 554, 554]
+        },
+        "3": {
+            "text": ["Ukraine", "Ukraine", "Ukraine", "Ukraine", "Ukraine"],
+            "answer_start": [726, 726, 726, 726, 726]
+        },
+        "4": {
+            "text": ["Georgia", "Georgia", "Georgia", "Georgia", "Georgia"],
+            "answer_start": [684, 684, 684, 684, 684]
+        },
+        "5": {
+            "text": [
+                "Egyptians",
+                "Egyptians",
+                "Egyptians",
+                "Egyptians",
+                "India"
+            ],
+            "answer_start": [65, 65, 65, 65, 296]
+        },
+        "6": {
+            "text": [
+                "the British",
+                "British",
+                "Egyptians against the British occupation in the 1919 Revolution.",
+                "British occupation",
+                "communist governments"
+            ],
+            "answer_start": [83, 87, 65, 87, 437]
+        },
+        "7": {
+            "text": [
+                "nonviolent resistance",
+                "unfair laws",
+                "nonviolent resistance movements",
+                "rebelled against what they deem to be unfair"
+            ],
+            "answer_start": [261, 223, 261, 185]
+        },
+        "8": {
+            "text": [
+                "unfair laws",
+                "unfair laws",
+                "unfair laws.",
+                "unfair laws",
+                "what they deem to be unfair"
+            ],
+            "answer_start": [223, 223, 223, 223, 202]
+        },
+        "9": {
+            "text": [
+                "American Civil Rights Movement",
+                "American Civil Rights Movement",
+                "American Civil Rights Movement",
+                "Civil Rights Movement",
+                "American Civil Rights Movement"
+            ],
+            "answer_start": [515, 515, 515, 524, 515]
+        },
+        "10": {
+            "text": ["1856", "1856", "1856"],
+            "answer_start": [54, 54, 54]
+        },
+        "11": {
+            "text": ["Serbian", "Serbian", "Serbian"],
+            "answer_start": [14, 14, 14]
+        },
+        "12": {
+            "text": ["1943", "1943", "1943"],
+            "answer_start": [71, 71, 71]
+        },
+        "13": {
+            "text": ["1856", "10 July 1856", "1856"],
+            "answer_start": [54, 46, 54]
+        },
+        "14": {
+            "text": ["1943", "1943", "1943"],
+            "answer_start": [71, 71, 71]
+        },
+        "15": {
+            "text": ["Serbian", "Serbian", "Serbian"],
+            "answer_start": [14, 83, 14]
+        },
+        "16": {
+            "text": [
+                "alternating current",
+                "alternating current",
+                "alternating current"
+            ],
+            "answer_start": [237, 237, 237]
+        },
+        "17": {
+            "text": ["Latin", "Latin", "Latin", "Latin", "Latin"],
+            "answer_start": [74, 74, 74, 74, 74]
+        },
+        "18": {
+            "text": [
+                "military force",
+                "colonization, use of military force, or other means",
+                "colonization, use of military force, or other means",
+                "colonization, use of military force, or other",
+                "colonization"
+            ],
+            "answer_start": [240, 219, 219, 219, 219]
+        },
+        "19": {
+            "text": ["Japan", "Japan", "Japanese", "Japanese", "Japan"],
+            "answer_start": [450, 450, 450, 450, 450]
+        },
+        "20": {
+            "text": [
+                "technologies and ideas",
+                "technologies and ideas",
+                "technologies and ideas",
+                "technologies and ideas",
+                "technologies and ideas."
+            ],
+            "answer_start": [372, 372, 372, 372, 372]
+        },
+        "21": {
+            "text": ["German", "German", "German"],
+            "answer_start": [39, 119, 119]
+        },
+        "22": {
+            "text": ["18 February 1546", "1546", "1546"],
+            "answer_start": [95, 107, 107]
+        },
+        "23": {
+            "text": [
+                "Catholic Church.",
+                "Late Medieval Catholic Church",
+                "Late Medieval Catholic Church"
+            ],
+            "answer_start": [306, 292, 292]
+        },
+        "24": {
+            "text": [
+                "God's punishment",
+                "God's punishment for sin",
+                "God's punishment"
+            ],
+            "answer_start": [372, 372, 372]
+        },
+        "25": {
+            "text": ["excommunication", "excommunication", "excommunication"],
+            "answer_start": [702, 702, 702]
+        },
+        "26": {
+            "text": ["Fresno", "Fresno", "Fresno"],
+            "answer_start": [0, 0, 0]
+        },
+        "27": {
+            "text": [
+                "220 miles (350 km)",
+                "220 miles (350 km)",
+                "220 miles (350 km)"
+            ],
+            "answer_start": [432, 432, 432]
+        },
+        "28": {
+            "text": ["ash tree", "ash tree", "ash tree"],
+            "answer_start": [605, 605, 605]
+        },
+        "29": {
+            "text": ["ash leaf", "ash leaf", "an ash leaf"],
+            "answer_start": [634, 634, 631]
+        },
+        "30": {
+            "text": [
+                "(\/\u02c8fr\u025bzno\u028a\/ FREZ-noh)",
+                "FREZ-noh",
+                "FREZ-noh"
+            ],
+            "answer_start": [7, 19, 19]
+        },
+        "31": {
+            "text": [
+                "Swiss canton",
+                "s in the Swiss canton of Graub\u00fcnden in the southeastern Swiss Alps,",
+                "Graub\u00fcnden",
+                "Graub\u00fcnden"
+            ],
+            "answer_start": [110, 101, 126, 126]
+        },
+        "32": {
+            "text": [
+                "North Sea",
+                "the North Sea in the Netherlands",
+                "North Sea",
+                "North Sea"
+            ],
+            "answer_start": [344, 340, 344, 344]
+        },
+        "33": {
+            "text": ["Cologne, Germany", "Cologne, Germany", "Cologne"],
+            "answer_start": [413, 413, 413]
+        },
+        "34": {
+            "text": ["Danube", "the Danube", "Danube", "Danube"],
+            "answer_start": [551, 547, 551, 551]
+        },
+        "35": {
+            "text": [
+                "1,230 km (760 mi)",
+                "1,230 km (760 mi)",
+                "1,230 km",
+                "1,230 km"
+            ],
+            "answer_start": [569, 569, 569, 569]
+        },
+        "36": {
+            "text": [
+                "Europe",
+                "Central and Western Europe",
+                "Germany",
+                "Germany"
+            ],
+            "answer_start": [533, 513, 422, 422]
+        },
+        "37": {
+            "text": ["Netherlands", "Germany", "Netherlands", "Netherlands"],
+            "answer_start": [361, 422, 361, 361]
+        },
+        "38": {
+            "text": ["1,230 km", "1,230 km (760 mi)", "1,230 km", "1,230 km"],
+            "answer_start": [569, 569, 569, 569]
+        },
+        "39": {
+            "text": ["Islamism", "Islamism", "Islamism"],
+            "answer_start": [0, 0, 0]
+        },
+        "40": {
+            "text": [
+                "all spheres of life.",
+                "all spheres of life",
+                "all spheres"
+            ],
+            "answer_start": [211, 211, 211]
+        },
+        "41": {
+            "text": [
+                "reordering",
+                "reordering of government and society in accordance with the Shari'a",
+                "reordering"
+            ],
+            "answer_start": [253, 253, 253]
+        },
+        "42": {
+            "text": ["poles", "two poles", "poles"],
+            "answer_start": [403, 399, 403]
+        },
+        "43": {
+            "text": [
+                "revolution or invasion",
+                "revolution or invasion",
+                "revolution"
+            ],
+            "answer_start": [493, 493, 493]
+        },
+        "44": {
+            "text": [
+                "The Walt Disney Company",
+                "Disney\u2013ABC Television Group",
+                "Disney\u2013ABC Television Group"
+            ],
+            "answer_start": [236, 157, 157]
+        },
+        "45": {
+            "text": ["1957", "1957", "1957"],
+            "answer_start": [75, 75, 75]
+        },
+        "46": {
+            "text": ["Manhattan", "Manhattan", "Manhattan"],
+            "answer_start": [391, 391, 391]
+        },
+        "47": {
+            "text": [
+                "Columbus Avenue and West 66th Street",
+                "Columbus Avenue and West 66th Street",
+                "Columbus Avenue and West 66th Street"
+            ],
+            "answer_start": [351, 351, 351]
+        },
+        "48": {
+            "text": [
+                "Disney Media Networks",
+                "Disney Media Networks",
+                "Disney Media Networks"
+            ],
+            "answer_start": [202, 202, 202]
+        },
+        "49": {
+            "text": [
+                "Paul Baran developed the concept Distributed Adaptive Message Block Switching",
+                "the concept Distributed Adaptive Message Block Switching",
+                "Distributed Adaptive Message Block Switching"
+            ],
+            "answer_start": [56, 77, 89]
+        },
+        "50": {
+            "text": [
+                "provide a fault-tolerant, efficient routing method for telecommunication messages",
+                "provide a fault-tolerant, efficient routing method for telecommunication messages",
+                "fault-tolerant, efficient routing method"
+            ],
+            "answer_start": [151, 151, 161]
+        },
+        "51": {
+            "text": [
+                "This concept contrasted and contradicted the theretofore established principles of pre-allocation of network bandwidth",
+                "theretofore established principles of pre-allocation of network bandwidth",
+                "principles of pre-allocation of network bandwidth"
+            ],
+            "answer_start": [328, 373, 397]
+        },
+        "52": {
+            "text": [
+                "Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe",
+                "coining the modern name packet switching and inspiring numerous packet switching networks",
+                "coining the modern name packet switching"
+            ],
+            "answer_start": [715, 739, 739]
+        },
+        "53": {
+            "text": [
+                "the concept Distributed Adaptive Message Block Switching",
+                "the concept Distributed Adaptive Message Block Switching",
+                "Distributed Adaptive Message Block Switching"
+            ],
+            "answer_start": [77, 77, 89]
+        },
+        "54": {
+            "text": [
+                "to provide a fault-tolerant, efficient routing method for telecommunication messages",
+                "provide a fault-tolerant, efficient routing method for telecommunication messages"
+            ],
+            "answer_start": [148, 151]
+        },
+        "55": {
+            "text": [
+                "Davies is credited with coining the modern name packet switching and inspiring numerous packet switching networks in Europe",
+                "Donald Davies",
+                "Donald Davies"
+            ],
+            "answer_start": [715, 623, 623]
+        },
+        "56": {
+            "text": [
+                "1754\u20131763",
+                "1754\u20131763",
+                "1754\u20131763",
+                "1754\u20131763",
+                "1754\u20131763"
+            ],
+            "answer_start": [27, 27, 27, 27, 27]
+        },
+        "57": {
+            "text": [
+                "colonies of British America and New France",
+                "colonies of British America and New France",
+                "British America and New France",
+                "British America and New France",
+                "the colonies of British America and New France"
+            ],
+            "answer_start": [135, 135, 147, 147, 131]
+        },
+        "58": {
+            "text": [
+                "roughly 60,000 European settlers",
+                "60,000",
+                "60,000",
+                "60,000",
+                "60,000 European settlers"
+            ],
+            "answer_start": [395, 403, 403, 403, 403]
+        },
+        "59": {
+            "text": [
+                "2 million",
+                "2 million",
+                "2 million",
+                "2 million",
+                "2 million"
+            ],
+            "answer_start": [443, 443, 443, 443, 443]
+        },
+        "60": { "text": ["in Africa", "Africa"], "answer_start": [92, 95] },
+        "61": {
+            "text": [
+                "East African Community",
+                "East African Community",
+                "East African Community"
+            ],
+            "answer_start": [131, 131, 131]
+        },
+        "62": {
+            "text": ["Nairobi", "Nairobi", "Nairobi"],
+            "answer_start": [193, 193, 193]
+        },
+        "63": {
+            "text": ["Tanzania", "Tanzania", "Tanzania"],
+            "answer_start": [464, 464, 464]
+        },
+        "64": {
+            "text": [
+                "45 million people",
+                "45 million people",
+                "approximately 45 million"
+            ],
+            "answer_start": [671, 671, 657]
+        },
+        "65": {
+            "text": [
+                "Project Mercury",
+                "spacecraft",
+                "Project Mercury",
+                "Apollo",
+                "Project Apollo"
+            ],
+            "answer_start": [361, 328, 361, 4, 34]
+        },
+        "66": {
+            "text": [
+                "National Aeronautics and Space Administration (NASA)",
+                "National Aeronautics and Space Administration (NASA",
+                "Apollo",
+                "Project Mercury",
+                "Apollo program"
+            ],
+            "answer_start": [123, 123, 4, 361, 4]
+        },
+        "67": {
+            "text": ["1968", "1969", "1962", "1968", "1969"],
+            "answer_start": [752, 238, 701, 752, 238]
+        },
+        "68": {
+            "text": [
+                "Dwight D. Eisenhower",
+                "John F. Kennedy's",
+                "John F. Kennedy's",
+                "Dwight D. Eisenhower",
+                "Dwight D. Eisenhower"
+            ],
+            "answer_start": [275, 457, 457, 275, 275]
+        },
+        "69": {
+            "text": ["two", "rst", "two", "two", "two-man"],
+            "answer_start": [677, 393, 677, 677, 677]
+        },
+        "70": {
+            "text": [
+                "independent",
+                "independent schools",
+                "independent schools"
+            ],
+            "answer_start": [31, 31, 31]
+        },
+        "71": {
+            "text": ["academic", "academic", "academic"],
+            "answer_start": [538, 538, 538]
+        },
+        "72": {
+            "text": ["tuition", "charging their students tuition", "tuition"],
+            "answer_start": [268, 244, 268]
+        },
+        "73": {
+            "text": [
+                "to select their students",
+                "select their students",
+                "select their students"
+            ],
+            "answer_start": [181, 184, 184]
+        },
+        "74": {
+            "text": ["BSkyB", "BSkyB", "BSkyB"],
+            "answer_start": [98, 98, 98]
+        },
+        "75": {
+            "text": ["BSkyB", "BSkyB", "BSkyB"],
+            "answer_start": [98, 98, 98]
+        },
+        "76": {
+            "text": ["2014", "2014", "2014"],
+            "answer_start": [187, 187, 187]
+        },
+        "77": {
+            "text": [
+                "Sky plc",
+                "British Sky Broadcasting Group plc",
+                "British Sky Broadcasting Group plc"
+            ],
+            "answer_start": [361, 306, 306]
+        },
+        "78": {
+            "text": ["Sky UK Limited", "Sky UK Limited", "Sky UK Limited"],
+            "answer_start": [471, 471, 471]
+        },
+        "79": {
+            "text": [
+                "force",
+                "force",
+                "the concept of force",
+                "the concept of force",
+                "force",
+                "force"
+            ],
+            "answer_start": [46, 46, 31, 31, 46, 46]
+        },
+        "80": {
+            "text": [
+                "fundamental error",
+                "A fundamental error",
+                "A fundamental error",
+                "A fundamental error",
+                "A fundamental error",
+                "A fundamental error"
+            ],
+            "answer_start": [387, 385, 385, 385, 385, 385]
+        },
+        "81": {
+            "text": [
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton",
+                "Sir Isaac Newton"
+            ],
+            "answer_start": [654, 654, 654, 654, 654, 654]
+        },
+        "82": {
+            "text": [
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "nearly three hundred years",
+                "three hundred years"
+            ],
+            "answer_start": [727, 727, 727, 727, 727, 734]
+        },
+        "83": {
+            "text": [
+                "Einstein",
+                "Einstein",
+                "Einstein",
+                "Einstein",
+                "Einstein",
+                "Einstein"
+            ],
+            "answer_start": [782, 782, 782, 782, 782, 782]
+        },
+        "84": {
+            "text": ["France", "France", "France", "France"],
+            "answer_start": [159, 159, 159, 159]
+        },
+        "85": {
+            "text": [
+                "10th and 11th centuries",
+                "in the 10th and 11th centuries",
+                "10th and 11th centuries",
+                "10th and 11th centuries"
+            ],
+            "answer_start": [94, 87, 94, 94]
+        },
+        "86": {
+            "text": [
+                "Denmark, Iceland and Norway",
+                "Denmark, Iceland and Norway",
+                "Denmark, Iceland and Norway",
+                "Denmark, Iceland and Norway"
+            ],
+            "answer_start": [256, 256, 256, 256]
+        },
+        "87": {
+            "text": ["Rollo", "Rollo", "Rollo", "Rollo"],
+            "answer_start": [308, 308, 308, 308]
+        },
+        "88": {
+            "text": [
+                "10th century",
+                "the first half of the 10th century",
+                "10th",
+                "10th"
+            ],
+            "answer_start": [671, 649, 671, 671]
+        },
+        "89": {
+            "text": [
+                "Computational complexity theory",
+                "Computational complexity theory",
+                "Computational complexity theory"
+            ],
+            "answer_start": [0, 0, 0]
+        },
+        "90": {
+            "text": [
+                "inherent difficulty",
+                "their inherent difficulty",
+                "inherent difficulty"
+            ],
+            "answer_start": [175, 169, 175]
+        },
+        "91": {
+            "text": [
+                "computational problems",
+                "A computational problem",
+                "computational problem"
+            ],
+            "answer_start": [133, 238, 240]
+        },
+        "92": {
+            "text": ["Following a referendum in 1997", "1998", "1998"],
+            "answer_start": [0, 143, 143]
+        },
+        "93": {
+            "text": ["Scotland Act 1998", "Scotland Act 1998", "Scotland Act"],
+            "answer_start": [130, 130, 130]
+        },
+        "94": {
+            "text": [
+                "in which it can make laws",
+                "the areas in which it can make laws",
+                "powers that are \"reserved\" to the Parliament of the United Kingdom"
+            ],
+            "answer_start": [278, 268, 331]
+        },
+        "95": {
+            "text": [
+                "Parliament of the United Kingdom",
+                "Parliament of the United Kingdom",
+                "The British Parliament"
+            ],
+            "answer_start": [365, 365, 512]
+        },
+        "96": {
+            "text": ["Westminster", "Westminster", "Westminster"],
+            "answer_start": [499, 499, 499]
+        },
+        "97": {
+            "text": [
+                "a private research university",
+                "private research",
+                "private research university",
+                "private research university"
+            ],
+            "answer_start": [60, 62, 62, 62]
+        },
+        "98": {
+            "text": ["1890", "1890", "1890", "1890"],
+            "answer_start": [133, 133, 133, 133]
+        },
+        "99": {
+            "text": ["seven", "seven", "seven", "seven"],
+            "answer_start": [272, 272, 272, 272]
+        },
+        "100": {
+            "text": ["four", "four", "four", "four"],
+            "answer_start": [235, 235, 235, 235]
+        },
+        "101": {
+            "text": ["5,000", "around 15,000", "15,000", "15,000"],
+            "answer_start": [728, 762, 769, 769]
+        }
+    }
+}
