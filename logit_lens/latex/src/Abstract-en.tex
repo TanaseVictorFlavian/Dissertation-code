@@ -17,19 +17,22 @@ and refined accross consecutive time steps. \\ \\
 %
 This work investigates the internal behavior of the xLSTM architecture through a set of interpretability 
 experiments aimed at understanding how information is represented, stored, and transformed inside the 
-model. The analysis spans multiple levels of abstraction, from token-level dynamics to layer-wise 
+model. The analysis explores multiple levels of abstraction, from token-level dynamics to layer-wise 
 representation structure. Specifically, we apply logit lens\cite{nostalgebraist2020logitlens} 
 \cite{belrose2023tunedlens} to observe the relationship between the internal representations in the embedding 
 space and their mapping into the vocabulary space. Moreover, we compare the hidden states of xLSTM and a comparable 
 Transformer-based model (Mistral 7B) \cite{jiang2023mistral7b} to assess how similarly semantic representations evolve 
 in the two models. Furthermore, we analyze the evolution of hidden states using clustering 
-methods to observe how representations reorganize across depth, and quantify memory behavior by tracking the 
+methods to observe reorganization of the representations across depth, and quantify memory behavior by tracking the 
 evolution of the cell state over time. In addition, we study input and forget gate activations at the 
 token level to understand how the model selectively retains or discards information during processing. 
 Together, these experiments provide a multi-perspective view into the internal mechanisms of modern recurrent 
 neural networks, offering interpretable signals about how structured memory evolves in large-scale recurrent architectures.\\ \\
 %
-sdfbnsdbsd;bfsdb ADD RAG EXPERIMENT RESULTS HERE sdkfjsdafgsdahj
-
+Finally, we investigate a practical application of xLSTM's fixed-size memory state by caching contextual 
+information for question-answering tasks. This approach enables inference speedups that increase with context
+ length, as the cached memory can be reused without reprocessing the entire input sequence. 
+ We evaluate the method against Mistral 7B and analyze the trade-offs between recurrent and Transformer-based 
+ architectures with respect to inference speed and task performance.
 
 
