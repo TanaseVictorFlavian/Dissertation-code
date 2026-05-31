@@ -52,10 +52,12 @@ neural language models, including the Logit Lens methodology and analyses of rec
 %
 By investigating how information is represented, stored, and updated within xLSTM, this thesis aims to contribute 
 to a better understanding of the model's memory mechanisms and internal representations. Such insights may help 
-validate architectural design choices, identify limitations, and inform future developments of memory-based language models.
-
-(dsjkghdfjgdjksdagh) ALSO TALK ABOUT HOW WE WANT TO TEST IF THERE ARE PRACTICAL SETUPS WHERE THE XLSTM WOULD WORK -> MY OTHER EXPERIMENT
-
+validate architectural design choices, identify limitations, and inform future developments of memory-based language models.\\ \\
+%
+Another question to be answered is if an alternative option to the transformer models like the xLSTM architecture
+can operate in a practical environment. In parallel, it remains to be understood how competing architectures 
+can displace Transformers, which are widely adopted in modern infrastructure through highly optimized hardware
+acceleration, making them exceptionally difficult to replace in production workflows.
 \section{Contribution}
 
 To address the lack of interpretability data on scalable recurrent architectures, the primary objective of this thesis 
@@ -74,15 +76,16 @@ Initial observations from this tracking indicate that vocabulary prediction conv
 follows a trajectory structurally similar to that observed in standard Transformer models. \\ \\
 %
 The third phase compares how hidden representations evolve across the layers of a recurrent network compared to a Transformer, 
-using xLSTM-7B and Mistral-7B. To analyze this evolution further, the fourth phase applies an unsupervised clustering 
-pipeline to the hidden states across successive blocks, mapping how token representations transition through the depth 
-of the network. \\ \\
-%
-The final two phases of the interpretability study focus on the temporal dynamics of the architecture. 
+using xLSTM-7B and Mistral-7B. The final two phases of the interpretability study focus on the temporal dynamics of the architecture. 
 Specifically, they examine the evolution of the memory state over time and the contribution of individual 
 tokens to long-term memory through the input and forget gates. To analyze these mechanisms, we process long token
 sequences and track the Frobenius norm of the cell state, together with the activations of the input and forget gates. 
 This allows us to observe how information is stored, retained, and updated throughout the sequence. \\ \\ 
-TO ADD LAST EXPERIMENT INFO 
+%
+On top of the interpretability experiments, we evaluate the practical utility of the xLSTM model in a 
+question answering setting. We leverage the constant-size memory state of the model and explore caching 
+it when processing context that is later reused for answering questions. This approach enables an inference 
+speedup that increases with the size of the context, as the stored memory can be reused without recomputing 
+the full sequence.
 
 \section{Outline}
