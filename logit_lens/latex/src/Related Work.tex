@@ -23,8 +23,8 @@ recognition, machine translation, and time-series forecasting.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{RNN.png}
-    \caption{RNN: compressed (left) and unfolded(right) CITE THE BLOG GUY}
+    \includegraphics[width=\textwidth]{RNN.png}
+    \caption{RNN: compressed (left) and unfolded(right), diagram inspired by \cite{olah2015lstm}}
     \label{fig:RNNd iagram}
 \end{figure}
 \noindent The operation of a standard RNN can be formally described through its hidden state update (equation \ref{eq:vanilla-rnn-equation}).
@@ -65,13 +65,65 @@ These issues significantly limit the ability of standard RNNs to capture long-ra
 To address the exploding gradient problem, Pascanu et al. \cite{pascanu2013difficulty} introduced \textit{gradient clipping}, 
 a technique that limits the magnitude of gradients during training and improves optimization stability. Nevertheless, 
 the difficulty of preserving information over long sequences remained a fundamental challenge, motivating the development 
-of more advanced recurrent architectures such as Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs).
+of more advanced recurrent architectures such as Long Short-Term Memory (LSTM)\cite{10.5555/2998981.2999048} networks 
+and Gated Recurrent Units (GRUs)\cite{cho2014learningphraserepresentationsusing}\cite{chung2014empiricalevaluationgatedrecurrent}.
 
 \section{Long-Short Term Memory}
 
-\section{Extended Long-Short Term Memory}
-% -talk about what rnns were trying to be used for(equations) \\
-% -limiations and architectural designs over time \\
+The \textbf{Long Short-Term Memory (LSTM)} architecture, introduced by Hochreiter and Schmidhuber \cite{10.5555/2998981.2999048} in the 1990s,
+was proposed to address the limitations of standard RNNs when learning long-range dependencies. The key innovation of the architecture is the 
+introduction of a dedicated memory state that can preserve information across many time steps. Instead of relying solely on the hidden state, 
+the LSTM uses a set of gating mechanisms to control how information is written to, stored in, and retrieved from memory. 
+This allows the model to memorize relevant information over longer sequences while reducing the impact of the vanishing gradient problem 
+encountered in traditional recurrent networks. \\ \\
+%
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{LSTM.png}
+    \caption{The LSTM cell, figure inspired by \cite{olah2015lstm}}
+    \label{fig:LSTM}
+\end{figure}
+
+\noindent The standard LSTM cell maintains an internal cell state, $c_t$(\ref{eq:lstm_cell_state}), which acts as a long-term memory buffer, 
+and a hidden state, $h_t$(\ref{eq:lstm_hidden_state}), 
+which serves as the short-term working memory routed to subsequent layers. The flow of information inside the cell is controlled by 
+three gates with different scopes. The forget gate(\ref{eq:lstm_forget_gate}) manages what proportion of the historical cell state to discard by analyzing the 
+current input and the previous hidden state. The input gate(\ref{eq:lstm_input_gate}) controls how much new information, computed from the current input and 
+previous hidden state, is incorporated into the cell state. Finally, the output gate(\ref{eq:lstm_output_gate}) determines which information stored in the 
+updated cell state is propagated as the next hidden state.
+
+\begin{equation}
+f_t = \sigma(W_f x_t + R_f h_{t-1} + b_f)
+\label{eq:lstm_forget_gate}
+\end{equation}
+
+\begin{equation}
+i_t = \sigma(W_i x_t + R_i h_{t-1} + b_i)
+\label{eq:lstm_input_gate}
+\end{equation}
+
+\begin{equation}
+\tilde{c}_t = \tanh(W_c x_t + R_c h{t-1} + b_c)
+\label{eq:lstm_candidate_state}
+\end{equation}
+
+\begin{equation}
+c_t = f_t \odot c_{t-1} + i_t \odot \tilde{c}_t
+\label{eq:lstm_cell_state}
+\end{equation}
+
+\begin{equation}
+o_t = \sigma(W_o x_t + R_o h_{t-1} + b_o)
+\label{eq:lstm_output_gate}
+\end{equation}
+
+\begin{equation}
+h_t = o_t \odot \tanh(c_t)
+\label{eq:lstm_hidden_state}
+\end{equation}
+
+% -talk about what rnns were trying to be used for(equations) \\ X 
+% -limiations and architectural designs over time \\ X
 % -the of the lstm(equations) as the response to the exploding/vanishing gradient \\
 % -xlstm improvements(equations)
 % -the mlstm block(figure)
