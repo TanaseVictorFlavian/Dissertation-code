@@ -1,2 +1,80 @@
-\chapter{Related Work}
+\chapter{Preliminaries and Related Work}
 \label{ch:related work}
+
+To provide the necessary background for the evaluation of the xLSTM-7B architecture,
+this chapter presents the theoretical concepts and related work relevant to this study.
+The first section reviews the evolution of recurrent neural networks, from classical RNNs
+to the modern architecture proposed by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
+that incorporate gating mechanisms and matrix-based memory structures. \\ \\
+%
+\section{Recurrent Neural Networks}
+Recurrent Neural Networks (RNNs) represent one of the earliest neural architectures specifically 
+designed for sequence modeling tasks. Their foundations can be traced to the work of Rumelhart et al. 
+\cite{rumelhart1986learning}, who introduced the backpropagation algorithm and discussed neural networks 
+with recurrent connections. Unlike feedforward neural networks, which process each input independently, 
+RNNs maintain a hidden state that evolves over time, allowing information from previous inputs to influence 
+future predictions. \\ \\
+%
+The key idea behind recurrent architectures is the reuse of the same set of parameters at every time step. 
+Given an input sequence, the hidden state is updated recursively based on both the current input and the 
+previous hidden state, enabling the network to capture temporal dependencies within the data. This property 
+made RNNs a natural choice for tasks involving sequential information, such as language modeling, speech 
+recognition, machine translation, and time-series forecasting.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{RNN.png}
+    \caption{RNN: compressed (left) and unfolded(right) CITE THE BLOG GUY}
+    \label{fig:RNNd iagram}
+\end{figure}
+\noindent The operation of a standard RNN can be formally described through its hidden state update (equation \ref{eq:vanilla-rnn-equation}).
+At a given timestamp $t = \overline{1, T}$, for an input $x_t$, the hidden state $h_t$ is computed as: 
+\begin{equation}
+h_t = \phi(W_{xh}x_t + W_{hh}h_{t-1} + b_h),
+\label{eq:vanilla-rnn-equation}
+\end{equation}
+
+where $W_{xh}$ and $W_{hh}$ are learnable weight matrices, $b_h$ is a bias term, and $\phi(\cdot)$ 
+denotes a non-linear activation function such as $\tanh$ or sigmoid. The hidden state is then used to 
+produce the output $y_t$: 
+
+\begin{equation}
+y_t = W_{hy}h_t + b_y,
+\label{eq:y_t RNN}
+\end{equation}
+
+where $W_{hy}$ and $b_y$ are the output weight matrix and bias, respectively. Through the recurrent 
+connection involving $h_{t-1}$, the network is able to propagate information across time steps, 
+allowing previous inputs to influence future predictions.\\ \\ 
+%
+Training recurrent neural networks requires propagating gradients not only through the layers of the network but also 
+through time. This is typically achieved using \textit{Backpropagation Through Time} (BPTT), 
+introduced by Werbos et al.\cite{werbos1990backpropagation}. BPTT unfolds the recurrent network across the input sequence, 
+transforming it into an equivalent deep feedforward network with shared parameters at each time step. Gradients
+are then computed by applying the backpropagation algorithm to the unfolded computational graph and accumulated 
+across all time steps before updating the model parameters. \\ \\ 
+%
+While this training procedure allows RNNs to learn temporal dependencies, it also exposes a major limitation of the 
+architecture. During BPTT, gradients are propagated backward through all previous time steps of the sequence. 
+At each step, the gradient is repeatedly multiplied by the same recurrent transformation, as it is passed through the 
+unfolded network in time. As a result, the gradient magnitude may gradually decrease or increase with each multiplication.
+When it becomes too small, the network struggles to learn from earlier time steps, a phenomenon known as the \textit{vanishing gradient problem}. 
+Conversely, when it grows too large, training becomes unstable, leading to the \textit{exploding gradient problem} \cite{bengio1994learning}.\\ \\ 
+%
+These issues significantly limit the ability of standard RNNs to capture long-range dependencies in sequential data. 
+To address the exploding gradient problem, Pascanu et al. \cite{pascanu2013difficulty} introduced \textit{gradient clipping}, 
+a technique that limits the magnitude of gradients during training and improves optimization stability. Nevertheless, 
+the difficulty of preserving information over long sequences remained a fundamental challenge, motivating the development 
+of more advanced recurrent architectures such as Long Short-Term Memory (LSTM) networks and Gated Recurrent Units (GRUs).
+
+\section{Long-Short Term Memory}
+
+\section{Extended Long-Short Term Memory}
+% -talk about what rnns were trying to be used for(equations) \\
+% -limiations and architectural designs over time \\
+% -the of the lstm(equations) as the response to the exploding/vanishing gradient \\
+% -xlstm improvements(equations)
+% -the mlstm block(figure)
+% -the mlstm architecture used in this work
+
+
