@@ -190,54 +190,58 @@ This modification allows the model to control its storage more effectively:
 \noindent To prevent the numerical overflows specific to the exponential function, a normalizer 
 state ($n_t$) and stabilization states are utilised:
 \begin{align}
-    m_t &= \max \left( \log(f_t) + m_{t-1}, \log(i_t) \right) && \text{stabilizer state} \\
+    m_t &= \max \left( \log(f_t) + m_{t-1}, \log(i_t) \right) && \text{stabilizer state} \label{eq:stabilizer-state}\\
     i'_t &= \exp \left( \log(i_t) - m_t \right) = \exp(\tilde{\imath}_t - m_t) && \text{stabil. input gate} \\
     f'_t &= \exp \left( \log(f_t) + m_{t-1} - m_t \right) && \text{stabil. forget gate}
 \end{align}
 
 \noindent Despite these changes, because it retains hidden-hidden recurrent connections, 
-the sLSTM doesn't improve the sequential processing 
-bottleneck of the classic LSTM. 
+the sLSTM doesn't improve the sequential processing bottleneck of the classic LSTM.
+For the scope of this work, the architecture used in the experiments solely relies on mLSTM cells. 
 
-% \subsection{mLSTM}
-% The mLSTM (matrix LSTM) fundamentally shifts the LSTM paradigm to solve both the storage capacity and parallelization bottlenecks [5]. To overcome the limited capacity of scalar states, the mLSTM expands the memory cell into a matrix $C \in \mathbb{R}^{d \times d}$ [11]. Crucially, to achieve this efficiency, the mLSTM entirely abandons memory mixing (the hidden-hidden recurrent connections), rendering the architecture fully parallelizable [5]. 
+\subsubsection{mLSTM}
+The mLSTM fundamentally shifts the LSTM paradigm to solve both the storage capacity 
+and parallelization bottlenecks. To overcome the limited capacity of scalar states, the mLSTM 
+expands the memory cell into a matrix $C \in \mathbb{R}^{d \times d}$ where $d$ represents the embedding dimension of $x_{t}$. Crucially, to achieve 
+this efficiency, the mLSTM entirely abandons memory mixing (the hidden-hidden recurrent connections) allowing parallelization. \\ \\ 
+%
+Relying on Bidirectional Associative Memory (BAM)\cite{kosko1987adaptive} principles and Transformer terminology,
+the mLSTM stores information as key-value pairs ($k_t$, $v_t$) using a covariance (outer product) 
+update rule, and retrieves it using a query vector ($q_t$). The mLSTM cell also uses the stabilizer state introduced in the sLSTM equations(\ref{eq:stabilizer-state})
+%
+\begin{align}
+    \boldsymbol{C}_t &= \mathrm{f}_t \boldsymbol{C}_{t-1} + \mathrm{i}_t \boldsymbol{v}_t \boldsymbol{k}_t^\top && && \text{cell state} \\
+    \boldsymbol{n}_t &= \mathrm{f}_t \boldsymbol{n}_{t-1} + \mathrm{i}_t \boldsymbol{k}_t && && \text{norm. state} \\
+    \boldsymbol{h}_t &= \mathbf{o}_t \odot \tilde{\boldsymbol{h}}_t, & \tilde{\boldsymbol{h}}_t &= \boldsymbol{C}_t \boldsymbol{q}_t / \max \left\{ \left| \boldsymbol{n}_t^\top \boldsymbol{q}_t \right|, 1 \right\} && \text{hidden state} \\
+    \boldsymbol{q}_t &= \boldsymbol{W}_q \boldsymbol{x}_t + \boldsymbol{b}_q && && \text{query input} \\
+    \boldsymbol{k}_t &= \frac{1}{\sqrt{d}} \boldsymbol{W}_k \boldsymbol{x}_t + \boldsymbol{b}_k && && \text{key input} \\
+    \boldsymbol{v}_t &= \boldsymbol{W}_v \boldsymbol{x}_t + \boldsymbol{b}_v && && \text{value input} \\
+    \mathrm{i'}_t &= \exp(\tilde{i}_t - m_t), & \tilde{i}_t &= \boldsymbol{w}_{\mathrm{i}}^\top \boldsymbol{x}_t + b_{\mathrm{i}} && \text{input gate} \\
+    \mathrm{f'}_t &= \exp \left( \log(\sigma(\tilde{f_t})) + m_{t-1} - m_t \right), & \tilde{f}_t &= \boldsymbol{w}_{\mathrm{f}}^\top \boldsymbol{x}_t + b_{\mathrm{f}} && \text{forget gate} \\
+    \mathbf{o}_t &= \sigma(\tilde{\mathbf{o}}_t), & \tilde{\mathbf{o}}_t &= \boldsymbol{W}_{\mathbf{o}} \boldsymbol{x}_t + \boldsymbol{b}_{\mathbf{o}} && \text{output gate}
+\end{align}
 
-% Drawing heavily on Bidirectional Associative Memory (BAM) principles and Transformer terminology, the mLSTM stores information as key-value pairs ($k_t$, $v_t$) using a covariance (outer product) update rule, and retrieves it using a query vector ($q_t$) [11]. 
+\subsection{The xLSTM Block}
 
-% \subsubsection{Forward Pass and Update Rules}
-% At any given time step $t$, the inputs are linearly projected into queries, keys, and values [12]:
-% \begin{align}
-%     q_t &= W_q x_t + b_q \\
-%     k_t &= \frac{1}{\sqrt{d}} W_k x_t + b_k \\
-%     v_t &= W_v x_t + b_v
-% \end{align}
-
-% The mLSTM retains the core gating mechanisms but uses exponential activations for the input gate and either a logistic sigmoid or exponential activation for the forget gate [12]:
-% \begin{align}
-%     i_t &= \exp(w_i^\top x_t + b_i) \\
-%     f_t &= \sigma(w_f^\top x_t + b_f) \quad \text{OR} \quad \exp(w_f^\top x_t + b_f) \\
-%     o_t &= \sigma(W_o x_t + b_o)
-% \end{align}
-
-% Instead of a scalar addition, the memory cell state $C_t$ is updated via a covariance update rule, where the forget gate acts as a decay rate and the input gate acts as a learning rate scaling the outer product of the value and key vectors [8, 12, 13]:
-% \begin{equation}
-%     C_t = f_t C_{t-1} + i_t v_t k_t^\top
-% \end{equation}
-
-% Because exponential gates can yield large values, the mLSTM maintains a normalizer state $n_t$ that tracks the weighted sum of key vectors, effectively keeping a record of the strength of the gates [8, 12]:
-% \begin{equation}
-%     n_t = f_t n_{t-1} + i_t k_t
-% \end{equation}
-
-% Finally, information retrieval is performed by multiplying the memory matrix $C_t$ with the query $q_t$ [11, 12]. To ensure stability, this result is normalized by the absolute projection of the query onto the normalizer state (bounded by 1 to prevent division by zero), and then gated by the output gate [8, 12]:
-% \begin{align}
-%     \tilde{h}_t &= \frac{C_t q_t}{\max\{|n_t^\top q_t|, 1\}} \\
-%     h_t &= o_t \odot \tilde{h}_t
-% \end{align}
-
-% % -talk about what rnns were trying to be used for(equations) \\ X 
-% % -limiations and architectural designs over time \\ X
-% % -the of the lstm(equations) as the response to the exploding/vanishing gradient \\ X
-% % -xlstm improvements(equations) 
-% % -the mlstm block(figure)
-% % -the mlstm architecture used in this work
+The xLSTM block leveages the mLSTM as a multi-head sequence-mixing layer. First, the input token 
+representation $x_t$ is normalized with RMSNorm. The normalized vector is then linearly projected into several heads.
+Each head receives its own projected query, key, value, and gate information, and each head runs an independent mLSTM cell. 
+Therefore, the recurrent state is also stored separately for each head. The outputs of the heads, written as $h_1$, $h_2$, ..., 
+$h_N$, are then normalized per head, gated, concatenated, and passed through a shared output linear layer. This produces a vector 
+with the same hidden dimension as the original input, so it can be added back through a residual connection. \\ \\ 
+%
+After the mLSTM sub-layer, the block applies a second pre-RMSNorm residual sub-layer: a SwiGLU feed-forward network. 
+This layer does not mix information across time. Instead, it processes each token representation independently. 
+The final output of the block is obtained by adding the FFN output back to the result of the mLSTM residual branch. \\ \\
+%
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{mlstm-block.drawio.png}
+    \caption{mLSTM Block}
+    \label{fig:mLSTM-block}
+\end{figure}
+\noindent This block structure is the one used in the available pre-trained xLSTM-7b model. It differs from the original 
+xLSTM paper, where the mLSTM block used a more specialized structure with an up-projection, causal convolution,
+block-diagonal query/key projections, and an internal skip connection. In the pre-trained model, the block is 
+simpler and closer to a standard transformer block: a multi-head mLSTM sequence-mixing layer followed by a 
+SwiGLU feed-forward layer. For the scope of this study, we'll refer to this version of the xLSTM layer.
