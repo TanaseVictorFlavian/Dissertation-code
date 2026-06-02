@@ -1,4 +1,4 @@
-\chapter{Introduction}
+\section{Introduction}
 \label{ch:introduction}
 
 Since the inception of the Transformer \cite{vaswani2017attention}, large architectures utilizing stacked 
@@ -21,7 +21,7 @@ introducing exponential gating and matrix-valued memory states with gated update
 problem of the Transformers and the storage bottlenecks of traditional LSTMs, achieving comparable perfromance while 
 maintaining linear-time inference.  
 
-\section{Problem}
+\subsection{Problem}
 
 Deep architectures have produced tremendous advancements in the field of machine learning over the past decade. 
 Their pattern recognition and information representation capabilities are yet to be completely understood even to this day.
@@ -35,7 +35,7 @@ between representations become progressively more complex. Finally, although the
 specified by the model parameters and architecture, the resulting computation graph is generally too complex to provide 
 specific human-interpretable explanations of how particular representations or predictions are produced.
 
-\section{Motivation}
+\subsection{Motivation}
 
 The motivation for this work originates from the recent resurgece of recurrent architectures in large-scale sequence 
 modelling. While analyizing the current state of research on recurrent neural networks, the xLSTM architecture, which 
@@ -58,7 +58,7 @@ Another question to be answered is if an alternative option to the transformer m
 can operate in a practical environment. In parallel, it remains to be understood how competing architectures 
 can displace Transformers, which are widely adopted in modern infrastructure through highly optimized hardware
 acceleration, making them exceptionally difficult to replace in production workflows.
-\section{Contribution}
+\subsection{Contribution}
 
 To address the lack of interpretability data on scalable recurrent architectures, the primary objective of this thesis 
 is to execute a post-hoc evaluation framework on the internal representations and state dynamics of the xLSTM-7B 
@@ -88,4 +88,4 @@ it when processing context that is later reused for answering questions. This ap
 speedup that increases with the size of the context, as the stored memory can be reused without recomputing 
 the full sequence.
 
-\section{Outline}
+\subsection{Outline}

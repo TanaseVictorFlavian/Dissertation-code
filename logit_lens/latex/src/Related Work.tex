@@ -1,5 +1,5 @@
-\chapter{Preliminaries and Related Work}
-\label{ch:related work}
+\section{Preliminaries and Related Work}
+\label{ch:related-work}
 
 To provide the necessary background for the evaluation of the xLSTM-7B architecture,
 this chapter presents the theoretical concepts and related work relevant to this study.
@@ -7,7 +7,7 @@ The first section reviews the evolution of recurrent neural networks, from class
 to the modern architecture proposed by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
 that incorporate gating mechanisms and matrix-based memory structures. \\ \\
 %
-\section{Recurrent Neural Networks}
+\subsection{Recurrent Neural Networks}
 Recurrent Neural Networks (RNNs) represent one of the earliest neural architectures specifically 
 designed for sequence modeling tasks. Their foundations can be traced to the work of Rumelhart et al. 
 \cite{rumelhart1986learning}, who introduced the backpropagation algorithm and discussed neural networks 
@@ -25,7 +25,7 @@ recognition, machine translation, and time-series forecasting.
     \centering
     \includegraphics[width=\textwidth]{RNN.png}
     \caption{RNN: compressed (left) and unfolded(right), diagram inspired by \cite{olah2015lstm}}
-    \label{fig:RNNd iagram}
+    \label{fig:RNN-diagram}
 \end{figure}
 \noindent The operation of a standard RNN can be formally described through its hidden state update (equation \ref{eq:vanilla-rnn-equation}).
 At a given timestamp $t = \overline{1, T}$, for an input $x_t$, the hidden state $h_t$ is computed as: 
@@ -68,7 +68,7 @@ the difficulty of preserving information over long sequences remained a fundamen
 of more advanced recurrent architectures such as Long Short-Term Memory (LSTM)\cite{10.5555/2998981.2999048} networks 
 and Gated Recurrent Units (GRUs)\cite{cho2014learningphraserepresentationsusing}\cite{chung2014empiricalevaluationgatedrecurrent}.
 
-\section{Long-Short Term Memory}
+\subsection{Long-Short Term Memory}
 
 The \textbf{Long Short-Term Memory (LSTM)} architecture, introduced by Hochreiter and Schmidhuber \cite{10.5555/2998981.2999048} in the 1990s,
 was proposed to address the limitations of standard RNNs when learning long-range dependencies. The key innovation of the architecture is the 
@@ -140,13 +140,13 @@ In this broader context, recent work has revisited recurrent memory mechanisms a
 architectures such as xLSTM, which aim to combine the efficiency of structured recurrence with improved 
 scalability and expressive memory modeling. \\ \\ 
 
-\section{Extended Long-Short Term Memory}
+\subsection{Extended Long-Short Term Memory}
 
 The extended LSTM (xLSTM) architecture was introduced by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
 to overcome these bottlenecks by leveraging modern techniques 
 while fundamentally modifying the LSTM memory structure. 
 
-\subsection{Addressing Classic LSTM Limitations}
+\subsubsection{Addressing Classic LSTM Limitations}
 To understand the architectural shifts in the xLSTM, it is necessary to outline the 
 three main bottlenecks of the classic LSTM:
 \begin{enumerate}
@@ -172,7 +172,7 @@ resulting in two distinct recurrent building blocks: the \textit{scalar LSTM (sL
 improved gating and memory management, mLSTM introduces a matrix-based memory structure capable of 
 storing richer associations between tokens.
 
-\subsection{sLSTM}
+\subsubsection{sLSTM}
 The sLSTM (scalar LSTM) remains structurally closer to the classic architecture but 
 introduces exponential activation functions for the input and forget gates. 
 This modification allows the model to control its storage more effectively:

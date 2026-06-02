@@ -10,7 +10,17 @@
 %
 % Aceast sablon este licentiat sub Creative Commons Attribution 4.0 International License.
 
-\documentclass[12pt, a4paper]{report}
+\documentclass[12pt, a4paper]{article} % Changed from report to article
+
+% Setează fontul Times
+\usepackage{times}
+
+% Modificarea geometriei paginii (Margini setate la 2.5cm)
+\usepackage[margin=2.5cm]{geometry}
+
+% Setează spațiere inter-linie la dublu
+\usepackage{setspace}
+\doublespacing
 
 % Utilizează biblatex pentru referințe bibliografice
 \usepackage[
@@ -18,15 +28,7 @@
     maxbibnames=50,
     sorting=nty
 ]{biblatex}
-
 \addbibresource{refs.bib}
-
-% Setează spațiere inter-linie la 1.5
-\usepackage{setspace}
-\onehalfspacing
-
-% Modificarea geometriei paginii
-\usepackage{geometry}
 
 % Include funcțiile de grafică
 \usepackage{graphicx}
@@ -58,7 +60,6 @@
 
 % Suport pentru anexe
 \usepackage{appendix}
-
 \usepackage{titlesec}
 
 \titleformat{\chapter}
