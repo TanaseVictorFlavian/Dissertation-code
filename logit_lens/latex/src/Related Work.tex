@@ -122,11 +122,122 @@ h_t = o_t \odot \tanh(c_t)
 \label{eq:lstm_hidden_state}
 \end{equation}
 
-% -talk about what rnns were trying to be used for(equations) \\ X 
-% -limiations and architectural designs over time \\ X
-% -the of the lstm(equations) as the response to the exploding/vanishing gradient \\
-% -xlstm improvements(equations)
-% -the mlstm block(figure)
-% -the mlstm architecture used in this work
+\noindent Overall, the introduction of a dedicated memory cell and gating mechanisms 
+allows LSTMs to address the limitations of standard RNNs in capturing long-range dependencies. 
+However, the sequential processing over the time dimension still limits parallelization and makes them 
+computationally expensive for long sequences. Several architectural extensions were later 
+proposed to improve their effectiveness in different settings. Bidirectional recurrent networks \cite{schuster1997bidirectional} 
+improved contextual understanding by processing sequences in both forward and backward directions,
+while encoder-decoder architectures \cite{sutskever2014sequence} enabled sequence-to-sequence learning by separating the encoding 
+and decoding processes.
+In addition, stacked recurrent architectures \cite{graves2013generating} increased model capacity 
+by composing multiple recurrent layers, allowing for more expressive hierarchical representations.\\ \\ 
+%
+Despite these improvements, these variants did not remove the fundamental sequential bottleneck of recurrent 
+computation, which limited scalability on long sequences. These limitations motivated the transition toward 
+architectures that avoid recurrence entirely, most notably Transformer\cite{vaswani2017attention} models based on self-attention. 
+In this broader context, recent work has revisited recurrent memory mechanisms at scale, leading to 
+architectures such as xLSTM, which aim to combine the efficiency of structured recurrence with improved 
+scalability and expressive memory modeling. \\ \\ 
 
+\section{Extended Long-Short Term Memory}
 
+The extended LSTM (xLSTM) architecture was introduced by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
+to overcome these bottlenecks by leveraging modern techniques 
+while fundamentally modifying the LSTM memory structure. 
+
+\subsection{Addressing Classic LSTM Limitations}
+To understand the architectural shifts in the xLSTM, it is necessary to outline the 
+three main bottlenecks of the classic LSTM:
+\begin{enumerate}
+    \item \textbf{Inability to revise storage decisions:} Traditional LSTMs struggle to
+    update or revise a stored value when new, more relevant information is found. 
+    %
+    \item \textbf{Limited storage capacities:} Information in a classic LSTM is compressed 
+    into a scalar cell state, leading to poor performance when predicting rare tokens or 
+    retaining extensive context.
+    %
+    \item \textbf{Lack of parallelizability:} The recurrent memory update relies on hidden-to-hidden 
+    connections between consecutive time steps, requiring strictly sequential processing and 
+    preventing the highly parallel computation that characterizes Transformer architectures.
+\end{enumerate}
+
+\noindent To address these issues, xLSTM introduces several changes to the classical LSTM architecture.
+First, it replaces the traditional logistic gating mechanism with \textit{exponential gating}, 
+which provides a less restricted range for controlling memory updates. To ensure numerical stability 
+during training and inference, xLSTM uses normalization and 
+stabilization techniques. In addition, the architecture looks to improve the design of the memory state, 
+resulting in two distinct recurrent building blocks: the \textit{scalar LSTM (sLSTM)} and the 
+\textit{matrix LSTM (mLSTM)}. While sLSTM extends the traditional LSTM memory formulation with 
+improved gating and memory management, mLSTM introduces a matrix-based memory structure capable of 
+storing richer associations between tokens.
+
+\subsection{sLSTM}
+The sLSTM (scalar LSTM) remains structurally closer to the classic architecture but 
+introduces exponential activation functions for the input and forget gates. 
+This modification allows the model to control its storage more effectively:
+
+% Ensure you have \usepackage{amsmath} and \usepackage{bm} in your preamble
+\begin{align}
+    \mathbf{c}_t &= \mathbf{f}_t \odot \mathbf{c}_{t-1} + \mathbf{i}_t \odot \mathbf{z}_t && && \text{cell state} \\
+    \mathbf{h}_t &= \mathbf{o}_t \odot \tilde{\mathbf{h}}_t, & \tilde{\mathbf{h}}_t &= \psi(\mathbf{c}_t) && \text{hidden state} \\
+    \mathbf{z}_t &= \varphi(\tilde{\mathbf{z}}_t), & \tilde{\mathbf{z}}_t &= \boldsymbol{W}_z \boldsymbol{x}_t + \boldsymbol{R}_z \boldsymbol{h}_{t-1} + \boldsymbol{b}_z && \text{cell input} \\
+    \mathbf{i}_t &= \sigma(\tilde{\mathbf{i}}_t), & \tilde{\mathbf{i}}_t &= \boldsymbol{W}_{\mathbf{i}} \boldsymbol{x}_t + \boldsymbol{R}_{\mathbf{i}} \boldsymbol{h}_{t-1} + \boldsymbol{b}_{\mathbf{i}} && \text{input gate} \\
+    \mathbf{f}_t &= \sigma(\tilde{\mathbf{f}}_t), & \tilde{\mathbf{f}}_t &= \boldsymbol{W}_{\mathbf{f}} \boldsymbol{x}_t + \boldsymbol{R}_{\mathbf{f}} \boldsymbol{h}_{t-1} + \boldsymbol{b}_{\mathbf{f}} && \text{forget gate} \\
+    \mathbf{o}_t &= \sigma(\tilde{\mathbf{o}}_t), & \tilde{\mathbf{o}}_t &= \boldsymbol{W}_{\mathbf{o}} \boldsymbol{x}_t + \boldsymbol{R}_{\mathbf{o}} \boldsymbol{h}_{t-1} + \boldsymbol{b}_{\mathbf{o}} && \text{output gate}
+\end{align}
+
+\noindent To prevent the numerical overflows specific to the exponential function, a normalizer 
+state ($n_t$) and stabilization states are utilised:
+\begin{align}
+    m_t &= \max \left( \log(f_t) + m_{t-1}, \log(i_t) \right) && \text{stabilizer state} \\
+    i'_t &= \exp \left( \log(i_t) - m_t \right) = \exp(\tilde{\imath}_t - m_t) && \text{stabil. input gate} \\
+    f'_t &= \exp \left( \log(f_t) + m_{t-1} - m_t \right) && \text{stabil. forget gate}
+\end{align}
+
+\noindent Despite these changes, because it retains hidden-hidden recurrent connections, 
+the sLSTM doesn't improve the sequential processing 
+bottleneck of the classic LSTM. 
+
+% \subsection{mLSTM}
+% The mLSTM (matrix LSTM) fundamentally shifts the LSTM paradigm to solve both the storage capacity and parallelization bottlenecks [5]. To overcome the limited capacity of scalar states, the mLSTM expands the memory cell into a matrix $C \in \mathbb{R}^{d \times d}$ [11]. Crucially, to achieve this efficiency, the mLSTM entirely abandons memory mixing (the hidden-hidden recurrent connections), rendering the architecture fully parallelizable [5]. 
+
+% Drawing heavily on Bidirectional Associative Memory (BAM) principles and Transformer terminology, the mLSTM stores information as key-value pairs ($k_t$, $v_t$) using a covariance (outer product) update rule, and retrieves it using a query vector ($q_t$) [11]. 
+
+% \subsubsection{Forward Pass and Update Rules}
+% At any given time step $t$, the inputs are linearly projected into queries, keys, and values [12]:
+% \begin{align}
+%     q_t &= W_q x_t + b_q \\
+%     k_t &= \frac{1}{\sqrt{d}} W_k x_t + b_k \\
+%     v_t &= W_v x_t + b_v
+% \end{align}
+
+% The mLSTM retains the core gating mechanisms but uses exponential activations for the input gate and either a logistic sigmoid or exponential activation for the forget gate [12]:
+% \begin{align}
+%     i_t &= \exp(w_i^\top x_t + b_i) \\
+%     f_t &= \sigma(w_f^\top x_t + b_f) \quad \text{OR} \quad \exp(w_f^\top x_t + b_f) \\
+%     o_t &= \sigma(W_o x_t + b_o)
+% \end{align}
+
+% Instead of a scalar addition, the memory cell state $C_t$ is updated via a covariance update rule, where the forget gate acts as a decay rate and the input gate acts as a learning rate scaling the outer product of the value and key vectors [8, 12, 13]:
+% \begin{equation}
+%     C_t = f_t C_{t-1} + i_t v_t k_t^\top
+% \end{equation}
+
+% Because exponential gates can yield large values, the mLSTM maintains a normalizer state $n_t$ that tracks the weighted sum of key vectors, effectively keeping a record of the strength of the gates [8, 12]:
+% \begin{equation}
+%     n_t = f_t n_{t-1} + i_t k_t
+% \end{equation}
+
+% Finally, information retrieval is performed by multiplying the memory matrix $C_t$ with the query $q_t$ [11, 12]. To ensure stability, this result is normalized by the absolute projection of the query onto the normalizer state (bounded by 1 to prevent division by zero), and then gated by the output gate [8, 12]:
+% \begin{align}
+%     \tilde{h}_t &= \frac{C_t q_t}{\max\{|n_t^\top q_t|, 1\}} \\
+%     h_t &= o_t \odot \tilde{h}_t
+% \end{align}
+
+% % -talk about what rnns were trying to be used for(equations) \\ X 
+% % -limiations and architectural designs over time \\ X
+% % -the of the lstm(equations) as the response to the exploding/vanishing gradient \\ X
+% % -xlstm improvements(equations) 
+% % -the mlstm block(figure)
+% % -the mlstm architecture used in this work
