@@ -1,2 +1,42 @@
 \section{Method}
 \label{ch:method}
+
+This section focuses on the technical details of the experiments that are presented in this work. 
+
+\subsection{Research Objectives}
+
+This work has three clear goals that can be defined as follows: 
+\begin{enumerate}
+    \item \textbf{Baseline evaluation of the xLSTM-7B model}: asses the performance of the model by evaluating it 
+    and compare it to a comparable transformer model, the Mistral-7B
+    \item \textbf{Interpretability study}: dissect the xLSTM components and investigate the internal mechanisms 
+    responsible for memory formation, information retention, and representation development.
+    \item \textbf{Practical Usage and generation speedup}: \textbf{Efficient Inference}: evaluate whether the fixed-size memory state of 
+    xLSTM can be leveraged to reduce inference time while maintaining task performance in practical setup.
+\end{enumerate}
+
+\subsection{Models}
+\subsubsection{xLSTM-7B}
+
+In this study, we use the pretrained xLSTM-7B model available on Hugging Face. As discussed in the previous section, 
+the implementation differs slightly from the architecture described in the original xLSTM paper, primarily through a 
+modified version of the mLSTM block (Figure~\ref{fig:mLSTM-block}).
+%
+The model follows a decoder-only language modeling architecture. Input tokens are first mapped to dense vector 
+representations through an embedding layer and subsequently processed by a stack of 32 mLSTM blocks. The resulting 
+hidden representations are then normalized using Root Mean Square Normalization (RMSNorm) before being projected 
+into the vocabulary space through a linear output layer. Figure~\ref{fig:xLSTM} provides an overview of the complete model 
+architecture.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{xlstm.png}
+    \caption{xLSTM: architectural overview}
+    \label{fig:xLSTM}
+\end{figure}
+
+\noindent The model contains 6,865,424,896 parameters and uses an embedding dimension of 4096. The hidden state dimension 
+is also 4096 and is split across 8 parallel heads, each operating on a reduced subspace of dimension (4096 / 8 = 512).
+Due to the recurrent nature of the architecture, the model can in principle process sequences of arbitrary length,
+as its memory is maintained through the hidden and cell states rather than being constrained by a fixed positional context window.
+The model is used in its pretrained form, and no additional training or fine-tuning is performed in this study.

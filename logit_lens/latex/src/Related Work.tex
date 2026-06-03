@@ -223,12 +223,14 @@ update rule, and retrieves it using a query vector ($q_t$). The mLSTM cell also 
 
 \subsection{The xLSTM Block}
 
-The xLSTM block leveages the mLSTM as a multi-head sequence-mixing layer. First, the input token 
-representation $x_t$ is normalized with RMSNorm. The normalized vector is then linearly projected into several heads.
-Each head receives its own projected query, key, value, and gate information, and each head runs an independent mLSTM cell. 
-Therefore, the recurrent state is also stored separately for each head. The outputs of the heads, written as $h_1$, $h_2$, ..., 
-$h_N$, are then normalized per head, gated, concatenated, and passed through a shared output linear layer. This produces a vector 
-with the same hidden dimension as the original input, so it can be added back through a residual connection. \\ \\ 
+The xLSTM block leverages the mLSTM as a multi-head sequence-mixing mechanism. First, the input token representation 
+($x_t$) is normalized using RMSNorm. The normalized vector is then linearly projected into multiple heads. 
+Each head receives its own set of projected query, key, value, and gate vectors and processes them independently 
+through a dedicated mLSTM cell. As a result, the recurrent state is also maintained separately for each head.
+%
+The outputs of the individual heads, denoted as ($h_1$, $h_2$, \ldots, $h_N$), are then normalized per head, gated, 
+concatenated, and passed through a shared linear projection layer. This produces an output vector with the 
+same dimensionality as the input, allowing it to be added back via a residual connection.
 %
 After the mLSTM sub-layer, the block applies a second pre-RMSNorm residual sub-layer: a SwiGLU feed-forward network. 
 This layer does not mix information across time. Instead, it processes each token representation independently. 
@@ -243,5 +245,5 @@ The final output of the block is obtained by adding the FFN output back to the r
 \noindent This block structure is the one used in the available pre-trained xLSTM-7b model. It differs from the original 
 xLSTM paper, where the mLSTM block used a more specialized structure with an up-projection, causal convolution,
 block-diagonal query/key projections, and an internal skip connection. In the pre-trained model, the block is 
-simpler and closer to a standard transformer block: a multi-head mLSTM sequence-mixing layer followed by a 
-SwiGLU feed-forward layer. For the scope of this study, we'll refer to this version of the xLSTM layer.
+closer to a standard transformer block: a multi-head mLSTM sequence-mixing layer followed by a 
+SwiGLU feed-forward layer. For the scope of this study, we'll refer to this version of the mLSTM block.
