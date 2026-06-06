@@ -11,3 +11,9 @@ wikitext-103-tokenized/
 
 # Virtual environments
 .venv
+
+# Ignore build directory but track thesis.pdf
+!latex/
+!latex/build/
+latex/build/*
+!latex/build/thesis.pdf
