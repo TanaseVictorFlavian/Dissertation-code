@@ -7,7 +7,7 @@ This section focuses on the technical details of the experiments that are presen
 
 This work has three clear goals that can be defined as follows: 
 \begin{enumerate}
-    \item \textbf{Baseline evaluation of the xLSTM-7B model}: asses the performance of the model by evaluating it 
+    \item \textbf{Baseline evaluation of the xLSTM-7B model}(\ref{subsection:baseline-eval}): asses the performance of the model by evaluating it 
     and compare it to a comparable transformer model, the Mistral-7B
     \item \textbf{Interpretability study}: dissect the xLSTM components and investigate the internal mechanisms 
     responsible for memory formation, information retention, and representation development.
@@ -31,7 +31,7 @@ architecture.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{xlstm.png}
-    \caption{xLSTM: architectural overview}
+    \caption{xLSTM: architectural overview, figure after }
     \label{fig:xLSTM}
 \end{figure}
 
@@ -40,3 +40,175 @@ is also 4096 and is split across 8 parallel heads, each operating on a reduced s
 Due to the recurrent nature of the architecture, the model can in principle process sequences of arbitrary length,
 as its memory is maintained through the hidden and cell states rather than being constrained by a fixed positional context window.
 The model is used in its pretrained form, and no additional training or fine-tuning is performed in this study.
+
+\subsubsection{Mistral-7B}
+
+For comparison purposes, we use the pretrained Mistral-7B-v0.3 model as a representative Transformer-based 
+architecture. Like xLSTM, Mistral is a decoder-only language model and is used in its pretrained form 
+without additional fine-tuning. However, the mechanism by which information is processed differs 
+fundamentally between the two architectures.
+
+Mistral relies on Grouped-Query Attention (GQA)\cite{ainslie2023gqatraininggeneralizedmultiquery} as its primary sequence modeling mechanism, 
+utilizing 32 query heads and 8 key-value heads to optimize KV cache memory efficiency. The architecture uses Rotary Positional 
+Embeddings (RoPE) \cite{su2023roformerenhancedtransformerrotary} to natively sustain a 32,768-token context window. Within each Transformer 
+decoder block, the embedded tokens are processed using RMS normalization before 
+entering the GQA layer, where separate linear projections generate the query, key, and value vectors. 
+The attention outputs are combined, passed through a residual connection, and processed by a 
+subsequent RMS normalization layer. This is followed by a feed-forward network consisting of three 
+linear transformations featuring a gated SiLU activation mechanism (SwiGLU). A final residual 
+connection completes the block.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{Mistral.png}
+    \caption{Mistral-7B-v0.3: architectural overview}
+    \label{fig:Mistral Architecture}
+\end{figure}
+
+The Mistral-7B architecture consists of 32 Transformer decoder layers, each containing a multi-head self-attention
+module and a feed-forward network. The model uses a hidden dimension of 4096 and approximately 7 billion parameters, 
+making it comparable in scale to the xLSTM-7B model. This architectural similarity in size allows differences observed 
+in the experiments to be attributed primarily to the underlying sequence modeling mechanisms rather than to disparities 
+in model capacity.
+
+Throughout this study, Mistral serves as a reference model for both performance benchmarking and representation 
+analysis, enabling a comparison between attention-based and recurrent approaches to language modeling.
+
+
+\subsection{Baseline evaluation}\label{subsection:baseline-eval}
+To establish a baseline understanding of the model's capabilities, we evaluate xLSTM-7B on a collection of widely used language understanding and reasoning benchmarks. These datasets assess different aspects of language modeling, ranging from commonsense reasoning and physical intuition to reading comprehension and scientific knowledge.
+
+\begin{itemize}
+\item \textbf{HellaSwag} \cite{zellers2019hellaswag}: A commonsense reasoning benchmark consisting of 
+partially described situations followed by multiple candidate continuations. The task requires 
+selecting the most plausible ending among several alternatives. HellaSwag is designed to be 
+challenging for language models by including distractor options generated through adversarial 
+filtering, making it a strong test of contextual understanding and commonsense reasoning.
+
+\item \textbf{LAMBADA} \cite{paperno2016lambada}: A language modeling benchmark that evaluates the 
+ability to predict the final word of a passage using the broader context of the document. Success 
+on this task requires integrating information across multiple sentences and is therefore particularly 
+relevant for assessing long-range dependency modeling.
+
+\item \textbf{ARC-Challenge} \cite{clark2018arc}: The challenging subset of the AI2 Reasoning Challenge
+dataset. It consists of multiple-choice science questions that are difficult to answer using simple 
+retrieval or pattern matching techniques. The benchmark evaluates reasoning ability, scientific 
+knowledge, and the capacity to combine information from multiple sources.
+
+\item \textbf{ARC-Easy} \cite{clark2018arc}: A simpler subset of the ARC benchmark containing 
+elementary-level science questions. While less demanding than ARC-Challenge, it provides a useful
+measure of basic factual knowledge and reasoning capabilities.
+
+\item \textbf{PIQA} \cite{bisk2020piqa}: The Physical Interaction Question Answering benchmark 
+evaluates physical commonsense reasoning. Questions describe everyday situations and require selecting 
+the most plausible solution to a practical problem. The benchmark focuses on a model's understanding of 
+how objects and actions interact in the physical world.
+
+\item \textbf{WinoGrande} \cite{sakaguchi2021winogrande}: A large-scale commonsense reasoning benchmark 
+derived from the Winograd Schema Challenge. The task involves resolving ambiguous references in a sentence 
+by selecting the correct antecedent. Performance on WinoGrande is often used as a measure of a model's 
+ability to perform contextual and commonsense reasoning beyond simple pattern recognition.
+
+\end{itemize}
+
+\noindent Together, these benchmarks provide a broad evaluation of the model across several dimensions, 
+including commonsense reasoning, long-context understanding, physical reasoning, scientific knowledge, 
+and language comprehension.
+
+\subsection{Interpretability Study}
+
+The study of interpretable properties in deep neural networks has helped researchers better understand 
+the internal mechanisms of otherwise opaque models. In computer vision, Zeiler et al. 
+\cite{zeiler2013visualizingunderstandingconvolutionalnetworks} improved the understanding of 
+convolutional neural networks by using a deconvolutional framework to project intermediate feature 
+activations back into the input space. This made it possible to observe how increasingly abstract 
+visual representations emerge throughout the network layers. \\ \\ 
+%
+In recurrent and Transformer-based architectures, interpretability research has focused on understanding 
+what information is stored in hidden representations. Hewitt and Manning \cite{hewitt-manning-2019-structural} 
+showed that the hidden states of both RNNs and Transformers encode syntactic structure. 
+Using a structural probing framework, they demonstrated that syntax trees can be recovered through a 
+learned linear transformation of the representation space. Their results on models such as ELMo 
+\cite{peters2018deepcontextualizedwordrepresentations} and BERT \cite{devlin-etal-2019-bert} suggest 
+that linguistic structure is organized within the geometry of the learned representations rather than 
+being stored as unstructured information. \\ \\ 
+%
+This interpretability study follows a layered approach that moves from high-level model outputs to internal 
+mechanisms. We first analyze intermediate representations to understand what information is available at 
+different depths of the network. We then compare these representations across architectures to study 
+structural similarities and differences. Finally, we focus on the internal memory dynamics of xLSTM, 
+examining how information is stored and controlled through its recurrent state and gating mechanisms.
+This progressive design allows us to move from observable predictions to the underlying processes that 
+generate them.
+
+% \subsubsection{Hidden State Analysis}
+
+% A common characteristic of modern neural architectures is their block-based design, where the input 
+% representation is repeatedly transformed through a stack of identical or near-identical processing 
+% blocks. Each block applies a sequence of operations that progressively refine the representation, 
+% allowing the model to build increasingly abstract features as depth increases. This hierarchical structure 
+% makes the intermediate representations available after each layer, making it possible to study how information 
+% evolves throughout the network. As a result, we can analyze the outputs of individual blocks to
+% gain insights into the processing performed at different stages of the model.
+%
+\subsubsection{The Logit Lens}
+The logit lens\cite{nostalgebraist2020logitlens}\cite{belrose2023tunedlens} is an experimental framework
+which studies the evolution of the latent representations in the network. To track how predictions form as 
+text moves through the architecture, we extracted the hidden state vectors from each internal block. \\ \\ 
+%
+Under normal circumstances, word predictions are made at the very end of the network. In the logit lens setup, 
+at each intermediate block, we take the temporary hidden states, 
+apply the normalization then apply the learned linear(the language modeling head)
+projection into the vocabulary space. \\ \\ 
+%
+To evaluate how these internal guesses change and improve across depth, we analyzed the resulting word 
+distributions in three ways:
+\begin{itemize}
+    \item \textbf{Logits (Top-1 Predictions):} We evaluated the raw output scores across the entire
+    vocabulary to identify which single token was the model's top choice at each individual block. 
+    This allowed us to inspect the literal words the network considers during mid-network calculation.
+    %
+    \item \textbf{Target Ranks:} Even when an early layer does not select the final correct token as 
+    its top choice, that token may still be highly rated. We tracked the strict rank
+    order of the final true token within each block's internal probability distribution. 
+    Monitoring how this rank climbs toward the first position shows how quickly the network narrows 
+    down its uncertainty.
+    %
+    \item \textbf{Kullback-Leibler (KL) Divergence:} Computing the KL divergence, helped measuring the 
+    overall statistical difference between the token probability distribution of an intermediate block 
+    and that of the final output block. This provided a continuous metric to monitor how smoothly the 
+    network's internal beliefs converge toward its final output, and to verify how quickly the original 
+    input representation is transformed upon entering the network.
+\end{itemize}
+
+\subsubsection{Hidden State Similarity with CKA}
+
+Building on the logit lens analysis, which was originally introduced for Transformer-based architectures,
+we next investigate how the representations learned by a recurrent architecture such as xLSTM compare 
+to those of a Transformer model, specifically Mistral-7B. The transformer model choice was driven by the 
+fact that both models share the same embedding dimension and the same number of layers, which 
+allows for a more aligned layer-wise analysis. \\ \\ 
+%
+To evaluate differences in structural representations between the two architectures, we compare the 
+hidden representations of each model using Centered Kernel Alignment (CKA) 
+\cite{kornblith2019similarityneuralnetworkrepresentations},
+a metric designed for measuring similarity between neural network representations. 
+In this study, we use linear CKA computed over mean-centered hidden states across tokens, 
+which quantifies similarity through normalized Frobenius norms of cross-covariance matrices:
+
+\begin{equation}
+X_c = X - \frac{1}{B} \sum_{i=1}^{B} X_{i, \cdot}
+\end{equation}
+
+\begin{equation}
+Y_c = Y - \frac{1}{B} \sum_{i=1}^{B} Y_{i, \cdot}
+\end{equation}
+
+where $B$ represents the batch dimension
+\begin{equation}
+\text{Linear CKA}(X, Y) = \frac{\left\| Y_c^\top X_c \right\|_F^2}{\left\| X_c^\top X_c \right\|_F \left\| Y_c^\top Y_c \right\|_F}
+\label{eq:linear_cka}
+\end{equation}
+
+\noindent For this purpose, we extract hidden state activations from each block of both models using the 
+same input prompt, ensuring a consistent basis for comparison.

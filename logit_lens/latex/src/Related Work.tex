@@ -221,10 +221,10 @@ update rule, and retrieves it using a query vector ($q_t$). The mLSTM cell also 
     \mathbf{o}_t &= \sigma(\tilde{\mathbf{o}}_t), & \tilde{\mathbf{o}}_t &= \boldsymbol{W}_{\mathbf{o}} \boldsymbol{x}_t + \boldsymbol{b}_{\mathbf{o}} && \text{output gate}
 \end{align}
 
-\subsection{The xLSTM Block}
+\subsubsection{The xLSTM Block}
 
 The xLSTM block leverages the mLSTM as a multi-head sequence-mixing mechanism. First, the input token representation 
-($x_t$) is normalized using RMSNorm. The normalized vector is then linearly projected into multiple heads. 
+($x_t$) is normalized using RMSNorm \cite{zhang2019rootmeansquarelayer}. The normalized vector is then linearly projected into multiple heads. 
 Each head receives its own set of projected query, key, value, and gate vectors and processes them independently 
 through a dedicated mLSTM cell. As a result, the recurrent state is also maintained separately for each head.
 %
