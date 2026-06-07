@@ -1,0 +1,31 @@
+\section{Implementation Details}
+\label{ch:implementation}
+
+The experiments in this study are implemented in Python using PyTorch and the Hugging Face Transformers library. 
+The pretrained weights for both NX-AI/xLSTM-7B and mistralai/Mistral-7B-v0.3 are obtained directly from the Hugging
+Face model hub, ensuring a consistent and reproducible experimental setup. \\ \\
+%
+For benchmark evaluation, we use the LM Evaluation Harness <cite> framework as the primary tool for running standardized model assessments. 
+Both this benchmark and the question-answering experiments require multiple inference operations, and for this reason we employ 
+NVIDIA A100 GPUs with 40GB of memory. The computation is executed in a cloud environment using the Modal infrastructure.\\ \\
+%
+A significant part of the study relies on accessing internal model representations. For all experiments involving hidden states, 
+we employ PyTorch forward hooks to extract intermediate activations during inference. 
+This mechanism allows us to capture layer-wise representations without modifying the original model architecture.\\ \\
+%
+When analyzing the cell states and input/forget gates, these values were not directly 
+exposed by the model API. To address this limitation, we reconstruct them by intercepting the hidden states 
+before and after each mLSTM block using hooks, and computing the corresponding values using the mathematical 
+formulations provided in the xLSTM paper, as well as the reference implementation in the Hugging Face Transformers codebase. \\ \\
+%
+For the memory caching experiment, we build upon an existing xLSTM caching implementation provided in the model repository
+,adapting it to support our experimental setup. This allows us to reuse previously computed memory states during question answering,
+reducing redundant computation during inference.
+We restrict decoding to a maximum of 25 new tokens and use a temperature of 1.0 
+to ensure consistent sampling behavior across runs. The limit of 25 generated tokens is chosen because the SQuAD dataset 
+primarily requires short, span-like answers, making longer generations unnecessary for the task. 
+Inference time is measured by aggregating per-step execution intervals from the start to the end of generation. \\ \\ 
+%
+Finally, it is important to note that the xLSTM implementation benefits from optimized custom Triton kernels, 
+which provide a significant speedup compared to standard PyTorch kernels. This optimization has a direct impact 
+on overall runtime performance across all experiments.

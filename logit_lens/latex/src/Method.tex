@@ -212,3 +212,63 @@ where $B$ represents the batch dimension
 
 \noindent For this purpose, we extract hidden state activations from each block of both models using the 
 same input prompt, ensuring a consistent basis for comparison.
+
+\subsubsection{Memory Cell Tracking}
+
+The xLSTM architecture maintains information through a matrix-valued memory state, $C_{l,t}^{h}$, 
+which is updated at every processing step. To study how this memory evolves during sequence processing,
+we analyze the magnitude of the cell state throughout the network. Specifically, for each token position $t$, 
+we compute the Frobenius norm of the cell state matrix and average the result across all heads within a given layer $l$. 
+This produces a layer-wise measure, $\mathcal{N}(l,t)$ with $l=\overline{1, 32}, t=\overline{1, T}$, that reflects the magnitude of the information stored in 
+memory over time. \\ \\
+%
+By tracking this metric across layers and token positions, we can observe how memory develops throughout the processing 
+of a sequence. Increases in the norm may indicate that new information is being incorporated into memory, while stable 
+regions suggest the preservation of previously stored information. This analysis provides a simple quantitative view of 
+the memory dynamics within the xLSTM architecture.
+
+\subsubsection{Individual Token Contribution for Input/Forget Gates}
+
+The update mechanism of the cell state in the xLSTM architecture is controlled by stabilized input gate multipliers, 
+($\tilde{i}_{l,t}^{(h)}$), and forget gate multipliers, ($\tilde{f}_{l,t}^{(h)}$). To study how these gate dynamics 
+regulate memory updates, we analyze the magnitude of the gates throughout the network. Specifically, for each token 
+position $t$, we compute the stabilized input and forget gate values for all heads and layers and average the results. 
+This yields token-wise measures, $\mathcal{I}(t)$ and $\mathcal{F}(t)$, that reflect the global rates of information 
+writing and memory retention over time. \\ \\
+%
+By tracking these metrics across token positions, we can observe the direct gating control over memory modification. 
+High values of $\mathcal{I}(t)$ indicate that new information is being actively written into the cell state, while 
+high values of $\mathcal{F}(t)$ indicate the preservation of previously accumulated context. Conversely, 
+a decrease in $\mathcal{F}(t)$ shows that the model is actively forgetting outdated information. 
+This analysis provides a clear quantitative view of the gating mechanisms that drive memory modification in the xLSTM architecture.
+
+\subsection{Context Memorization with Cell State Caching}
+
+The recurrent nature of xLSTM allows contextual information to be compressed into a fixed-size memory state. 
+Unlike Transformer architectures, whose computational cost grows with the length of the input context, xLSTM 
+maintains a constant-size cell state $C_t$ of dimension $d \times d$, where $d$ denotes the embedding dimension. 
+This property motivates the exploration of memory-state caching, where the context is processed once and the 
+resulting cell state is reused for subsequent queries.
+
+The experiment requires a dataset containing long contextual passages associated with multiple independent questions.
+To satisfy these requirements, we use the SQuAD dataset \cite{rajpurkar-etal-2016-squad}, which consists of Wikipedia 
+passages grouped by title and context, each paired with several question-answer examples.\\ \\ 
+%
+To ensure that the same context can be reused across multiple queries, we sample unique title-context pairs and retain
+a single context per title. Furthermore, only contexts associated with at least two questions are considered. 
+The resulting evaluation set contains 102 question-answer pairs distributed across multiple shared contexts. \\ \\ 
+%
+The benchmark is evaluated under two different configurations. In the first configuration, referred to as the \textit{standard setup}, 
+the model receives as input the concatenation of the context and the question for every query. Consequently, the entire context must 
+be reprocessed each time a new question is asked. \\ \\
+%
+In the second configuration, referred to as the \textit{cached setup}, the context is processed only once. After the context has been consumed, 
+the resulting cell states of the xLSTM are stored. Prior to answering each question associated with that context, the cached cell states are 
+reloaded into the model, allowing inference to begin from the previously computed memory state rather than reprocessing the full context. \\ \\
+%
+To provide a reference point, we also evaluate Mistral-7B on the same task. This comparison allows us to contrast the proposed 
+cell-state caching mechanism of xLSTM with the key-value (KV) cache used by Transformer architectures. While both approaches 
+aim to preserve previously processed information and avoid unnecessary computation, they do so through fundamentally different mechanisms. 
+The objective of this experiment is therefore to evaluate the practical efficiency of these two approaches and determine how the recurrent 
+memory of xLSTM compares to the KV-cache-based processing of a Transformer in terms of inference speed.
+
