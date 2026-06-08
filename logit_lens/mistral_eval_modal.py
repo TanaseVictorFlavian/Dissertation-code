@@ -65,7 +65,7 @@ def run_squad_eval_mistral():
     print(f"Dataset loaded. Total rows: {len(dataset)}")
 
     print("Loading Mistral 7B...")
-    model_id = "mistralai/Mistral-7B-v0.1"
+    model_id = "mistralai/Mistral-7B-v0.3"
     
     # Load model and tokenizer
     tokenizer = AutoTokenizer.from_pretrained(model_id)

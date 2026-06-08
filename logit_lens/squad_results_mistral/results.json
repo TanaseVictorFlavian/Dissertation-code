@@ -1,6 +1,6 @@
 {
-    "exact_match": 0.9803921568627451,
-    "f1": 27.47361923647098,
-    "total_generation_time_sec": 111.17782033399995,
-    "avg_generation_time_sec": 1.0899786307254897
+    "exact_match": 2.9411764705882355,
+    "f1": 30.496070450918186,
+    "total_generation_time_sec": 98.67948549499994,
+    "avg_generation_time_sec": 0.9674459362254896
 }

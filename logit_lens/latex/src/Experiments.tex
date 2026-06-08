@@ -1,2 +1,66 @@
-\section{Experiments}
+\section{Results and Observations}
 \label{ch:experiments}
+
+In this section we present and discuss the results for the experiments described in 
+chapter \ref{ch:method}. 
+
+\subsection{Baseline Evaluation}
+In the original xLSTM paper evaluate smaller variants (125M, 350M, 760M, and 1.3B parameters) trained on SlimPajama (300B tokens). \\ \\
+The number of trials is not specified(no zero-shot, n-shot) for the smaller model. 
+The huggingface model is reported to be trained on high quality 
+data from the DCLM summing up to 2.3T tokens. The 7B model is not evaluated on LAMBADA and ARC-Easy.
+%
+
+
+\begin{table}[ht]
+\centering
+\label{tab:xlstm_tasks}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lccccccc}
+    \hline
+    \textbf{Model} & \textbf{LAMBADA} & \textbf{LAMBADA} & \textbf{HellaSwag} & \textbf{PIQA} & \textbf{ARC-E} & \textbf{ARC-C} & \textbf{WinoGrande} \\
+    & \textbf{ppl $\downarrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} \\
+    \hline
+    xLSTM-125M & 25.98 & 36.52 & 36.74 & 65.61 & 47.81 & 24.83 & 51.85 \\
+    xLSTM-350M & 11.49 & 49.33 & 48.06 & 69.59 & 55.72 & 26.62 & 54.38 \\
+    xLSTM-760M & 8.09  & 54.78 & 55.72 & 72.69 & 62.75 & \textbf{32.59} & 58.17 \\
+    xLSTM-1.3B & \textbf{6.86} & \textbf{57.83} & \textbf{60.91} & \textbf{74.59} & \textbf{64.31} & \textbf{32.59} & \textbf{60.62} \\
+    xLSTM-7B   & 190.18 & 23.02 & 41.28 & 68.23 & 47.43 & 25.26 & 52.64 \\
+    \hline
+\end{tabular}%
+}
+\caption{Task-Specific Performance Metrics for xLSTM at different sizes}
+\end{table}
+
+\subsection{Interpretability Study}
+\subsubsection{The logit lens}
+
+The figures presented in this experiment follow a common structure. The columns correspond to hidden state indices, starting from the initial embedding layer and ending with the final representation produced by the last xLSTM block. For each column, the token shown in the bottom row represents the input token at time step $t$, while the token displayed in the top row corresponds to the ground-truth token at time step $t+1$. \\ \\ 
+%
+In Figure~\ref{fig:Greedy prediction logit lens}, each cell contains the top prediction obtained by projecting the corresponding hidden state into the vocabulary space. The heatmap indicates the confidence assigned to the predicted token, while cells highlighted with a bold border denote predictions that match the ground-truth token.\\ \\
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{top_token_prob_per_inner.png}
+    \caption{Top token prediction per hidden state}
+    \label{fig:Greedy prediction logit lens}
+\end{figure}
+
+\noindent From this visualization, we observe the expected behavior that confidence in the final prediction generally increases with network depth. In several cases, the correct token is already identified before the final layers, suggesting that later blocks primarily refine and strengthen representations that have already emerged in earlier stages of processing.
+%
+A notable observation is the importance of the final layers in the prediction process. For many intermediate hidden states, the model assigns relatively high confidence (approximately 50--60\%) to incorrect predictions. However, within the last four to six blocks, the predictions often shift toward either the correct token or an alternative prediction with very high confidence, frequently exceeding 90\%. This behavior indicates that the final layers play a critical role in transforming intermediate representations into the model's final output distribution. \\ \\
+%
+While Figure \ref{fig:Greedy prediction logit lens} allows us to observe the evolution of hidden representation quality, 
+it's only limited to the top prediction. A question to answer is where the ground truth token ranks among the 
+predictions for each layer. Figure \ref{fig:Top prediction rank logit lens} shows exactly that. We can see that after 
+each layer the sentence representation improves the understanding of our model. Progressively, the ground-truth prediction 
+climbs the ranks and at the final layer, oftenly appears to be among the top candidates. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\textwidth]{top_token_ranking_per_hidden.png}
+    \caption{The rank of the ground truth token per hidden state}
+    \label{fig:Top prediction rank logit lens}
+\end{figure}
+
+\subsection{Context Memorization with Cell State Caching}
