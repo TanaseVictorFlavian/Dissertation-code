@@ -29,7 +29,7 @@ hf_cache_volume = modal.Volume.from_name(
 # 4. Remote function to load configuration, model weights, and run evaluation
 @app.function(
     image=image,
-    gpu="A100-40GB",
+    gpu="A100-80GB",
     timeout=18000,  # 5-hour timeout to prevent cuts on slow runs
     volumes={"/root/.cache/huggingface": hf_cache_volume}
 )
@@ -47,27 +47,15 @@ def evaluate_model(batch_size: str = "auto", tasks: str = "lambada_openai", kern
     with open(config_file, "r") as f:
         config_dict = json.load(f)
 
-    # Step 4b. Configure kernels based on parameter
-    if kernel == "native":
-        print("Configuring native kernels (as in wikitext-103.py)...")
-        config_dict["step_kernel"] = "native"
-        config_dict["chunkwise_kernel"] = "chunkwise--native_autograd"
-        config_dict["sequence_kernel"] = "native_sequence__native"
-    else:
-        print("Using default Triton optimized kernels...")
-        
-    config_dict.pop("model_type", None)
-    xlstm_config = AutoConfig.for_model("xlstm", **config_dict)
+    print("Loading xLSTM 7B...")
+    xlstm_config = AutoConfig.from_pretrained("NX-AI/xLSTM-7b")
 
-    # Step 4c. Load full pre-trained 7B weights with the custom config
-    print("Loading pre-trained xLSTM-7b weights in bfloat16...")
     xlstm = AutoModelForCausalLM.from_pretrained(
-        "NX-AI/xLSTM-7b",
-        config=xlstm_config,
-        trust_remote_code=True,
-        torch_dtype=torch.bfloat16,
-        device_map="auto"
+        "NX-AI/xLSTM-7b", config=xlstm_config, device_map="auto"
     )
+    xlstm_tokenizer = AutoTokenizer.from_pretrained("NX-AI/xLSTM-7b")
+    xlstm_tokenizer.pad_token = xlstm_tokenizer.eos_token
+    print("Model loaded successfully")
 
     # Step 4d. Load the matching tokenizer
     print("Loading tokenizer...")

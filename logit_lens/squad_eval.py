@@ -87,7 +87,7 @@ def predict(
     tokenizer,
     question: str,
     per_call_ctx,
-    max_new_tokens: int = 100,
+    max_new_tokens: int = 20,
     do_sample: bool = False,
     temperature: float = 1.0,
 ) -> str:

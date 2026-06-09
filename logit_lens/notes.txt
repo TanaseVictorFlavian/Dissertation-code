@@ -48,3 +48,10 @@ Experiments:
 
 Mistakes/notes:
 - the hidden state of the cell is different from the activations of each block. QA for every experiment
+
+
+
+Appendix: 
+
+
+speedup: get the mean number of tokens of the context for the memcache experiment

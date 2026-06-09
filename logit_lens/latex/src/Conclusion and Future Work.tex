@@ -1,2 +1,9 @@
 \section{Conclusion and Future Work}
 \label{ch:conclusion and future work}
+
+Conclusions: 
+    -stacking RNN layers exhibits similar behaviour to the transformer architectures 
+    -the xLSTM seems to understand the language in a very similar way to transformers
+    -the memory cell is very sensitive to the input tokens 
+    -we can achive a 2.7x speedup in total generation time by caching the memory cells in a QA setup 
+     after processing the context, and a speedup that grows with the context size

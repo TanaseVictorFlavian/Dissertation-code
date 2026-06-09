@@ -5,16 +5,12 @@ In this section we present and discuss the results for the experiments described
 chapter \ref{ch:method}. 
 
 \subsection{Baseline Evaluation}
-In the original xLSTM paper evaluate smaller variants (125M, 350M, 760M, and 1.3B parameters) trained on SlimPajama (300B tokens). \\ \\
-The number of trials is not specified(no zero-shot, n-shot) for the smaller model. 
-The huggingface model is reported to be trained on high quality 
-data from the DCLM summing up to 2.3T tokens. The 7B model is not evaluated on LAMBADA and ARC-Easy.
+In the original xLSTM paper evaluate smaller variants (125M, 350M, 760M, and 1.3B parameters) trained on SlimPajama (300B tokens).
+The number of trials is not specified(no zero-shot, n-shot) for the smaller models. Table \ref{tab:xlstm_tasks_vs_small_models} displays the performance 
+of different size xLSTMs against the 7B model. The metrics for the 7B model are reported on a zero-shot setting for each dataset. 
 %
-
-
 \begin{table}[ht]
 \centering
-\label{tab:xlstm_tasks}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccccc}
     \hline
@@ -27,10 +23,37 @@ data from the DCLM summing up to 2.3T tokens. The 7B model is not evaluated on L
     xLSTM-1.3B & \textbf{6.86} & \textbf{57.83} & \textbf{60.91} & \textbf{74.59} & \textbf{64.31} & \textbf{32.59} & \textbf{60.62} \\
     xLSTM-7B   & 190.18 & 23.02 & 41.28 & 68.23 & 47.43 & 25.26 & 52.64 \\
     \hline
-\end{tabular}%
+\end{tabular}
 }
 \caption{Task-Specific Performance Metrics for xLSTM at different sizes}
+\label{tab:xlstm_tasks_vs_small_models}
 \end{table}
+
+The Hugging Face model card reports that the xLSTM-7B checkpoint was trained on approximately 2.3 trillion tokens of high-quality data 
+derived from DCLM. The authors evaluate the model on a range of benchmark datasets using the LightEval framework. 
+To verify these results, we reproduce a subset of the reported benchmarks using the LM Evaluation Harness. 
+The comparison is presented in Table~\ref{tab:benchmark_results_hf-vs-local}.
+\begin{table}[ht]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\hline
+\textbf{Model} & \textbf{Arc-Challenge (25-shot)} & \textbf{Hellaswag (10-shot)} & \textbf{Winogrande (5-shot)} & \textbf{PiQA (5-shot)} \\
+\hline
+xLSTM-7B (HF)   & \textbf{0.584} & \textbf{0.710} & \textbf{0.742} & \textbf{0.817} \\
+xLSTM-7B (Reproduced) & 0.418 & 0.625 & 0.565 & 0.736 \\
+\hline
+\end{tabular}
+}
+\caption{Benchmark results: reported vs reproduced}
+\label{tab:benchmark_results_hf-vs-local}
+\end{table}
+
+\noindent The scores obtained in this evaluation are consistently lower than those reported for the original checkpoint. 
+Several factors may contribute to this discrepancy. First, the evaluations were performed 
+using different benchmarking frameworks, namely LightEval and LM Evaluation Harness, which may 
+implement task formatting and evaluation procedures differently. Second, differences in prompting 
+strategies, generation settings, or preprocessing steps can influence the final scores.
 
 \subsection{Interpretability Study}
 \subsubsection{The logit lens}
@@ -41,7 +64,7 @@ In Figure~\ref{fig:Greedy prediction logit lens}, each cell contains the top pre
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{top_token_prob_per_inner.png}
+    \includegraphics[width=0.95\textwidth]{top_token_prob_per_inner.png}
     \caption{Top token prediction per hidden state}
     \label{fig:Greedy prediction logit lens}
 \end{figure}
@@ -58,9 +81,60 @@ climbs the ranks and at the final layer, oftenly appears to be among the top can
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\textwidth]{top_token_ranking_per_hidden.png}
+    \includegraphics[width=0.95\textwidth]{top_token_ranking_per_hidden.png}
     \caption{The rank of the ground truth token per hidden state}
     \label{fig:Top prediction rank logit lens}
 \end{figure}
+\subsubsection{Hidden State Similarity with CKA}
+
+After concluding the logit lens experiment, we observe similar behaviour between the xLSTM and what a Transformer would exhibit. 
+Figure~\ref{fig:CKA xLSTM Mistral-7B} displays a similarity map between 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\textwidth]{mistral_vs_xlstm_hidden.png}
+    \caption{Representational alignment between the hidden states of xLSTM-7B and Mistral-7B}
+    \label{fig:CKA xLSTM Mistral-7B}
+\end{figure}
+
+\noindent The CKA heatmap shows that the relationship between xLSTM and Mistral-7B representations is not aligned in a simple layer-to-layer way. Instead of a clean diagonal mapping, similarity is spread across multiple layers, meaning depth in one model does not correspond directly to depth in the other. Early layers in both models are relatively close to the input representation, but the overall structure diverges because Mistral processes tokens in parallel via attention, while xLSTM builds representations sequentially, leading to different rates of abstraction and organization. \\ \\ 
+%
+Despite this mismatch in processing mechanisms, there is a strong convergence in representation at deeper stages. Early-to-middle layers show reduced and irregular similarity, reflecting the temporary divergence in how information is integrated. However, from mid-to-late layers onward, similarity increases substantially, suggesting that both models gradually settle into a shared high-level representation space. This indicates that although their internal computation differs, both architectures ultimately encode similar semantic information at depth, even if that convergence is not aligned layer-by-layer.
+
+\subsubsection{Context Memorization with Cell State Caching}
+
+For this experiment we tracked the mean norm accross all hidden states per token in order to observe how the memory fluctuates 
+after processing each token. 
 
 \subsection{Context Memorization with Cell State Caching}
+
+For this experiment we evalate the peformance of the xLSTM on a question answering task, exploring the possibility of caching the
+memory cells in order to boost the generation speed, while also keeping up the performance. We carefully picked 102 questions from the 
+SQuAD dataset, the methodology is described in chapter~\ref{subsection:speedup} and the dataset questions could be visualized in Appendix ~\ref{}.
+To add another point of reference we also run the Mistral-7B-v0.3 on the dataset. Table ~\ref{} shows the results of the experiment.
+
+\begin{table}[h]
+    \centering
+        \begin{tabular}{lcccc}
+            \hline
+            Model & Exact Match (\%) & F1 & Total Time (s) & Avg Time per Sample (s) \\
+            \hline
+            Mistral-7B & 2.94 & 30.50 & 98.68 & 0.97 \\
+            xLSTM-7B (no cache) & 0.00 & 10.94 & 237.13 & 2.32 \\
+            xLSTM-7B (with cache) & 0.00 & 10.94 & 86.93 & 0.85 \\
+            \hline
+        \end{tabular}
+    \caption{Evaluation results comparing Mistral-7B and xLSTM-7B variants.}
+    \label{tab:model_comparison}
+\end{table}
+
+The results show a clear trade-off between accuracy and efficiency, with one model clearly dominating in both dimensions depending on what you prioritize.
+
+Mistral-7B is the strongest in terms of quality. It achieves the highest exact match (2.94\%) and a substantially higher F1 score (30.50) compared to both xLSTM variants. Even though the exact match is still low in absolute terms (suggesting a hard task or strict evaluation), the gap in F1 indicates that Mistral is producing more partially correct or structurally similar outputs, not just exact answers.
+
+Both xLSTM variants collapse to the same quality level: 0\% exact match and an identical F1 of 10.94. This suggests that caching does not affect output correctness, which is expected, but more importantly that the underlying model behavior is unchanged across the two runs. The fact that both are significantly below Mistral indicates a meaningful gap in modeling capability or adaptation to the task distribution.
+
+Where xLSTM becomes interesting is efficiency. Without cache, it is the slowest by a large margin (2.32s vs 0.97s for Mistral), making it clearly less efficient in a naive inference setup. However, with cache, generation time drops to 0.85s per sample, making it faster than Mistral and representing roughly a 2.7× speedup compared to its own no-cache version. This confirms that the caching mechanism is effective in reducing computation cost.
+
+An additional observation is that the benefit of caching is expected to scale with context length. As the sequence grows, models without caching incur increasingly expensive recomputation over the full prefix, while cached inference maintains near-constant per-token cost. In practical applications—where long prompts, multi-turn histories, or retrieval-augmented contexts are the norm—this effect becomes even more significant, making caching a critical factor for low-latency deployment.
+
+The key conclusion is that caching successfully improves inference efficiency but does not influence output quality, while Mistral maintains a strong advantage in predictive performance. The results suggest that any potential benefit of xLSTM in this setup is primarily on the systems side (throughput/latency with cache), not on downstream task effectiveness.
