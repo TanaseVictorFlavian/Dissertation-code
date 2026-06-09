@@ -11,14 +11,15 @@ almost exclusively towards attention-based architectures, leaving non-transforme
 %
 Despite their success, Transformers suffer from a fundamental computational bottleneck: the 
 self-attention mechanism scales quadratically ($\mathcal{O}(N^2)$) with respect to sequence length, making long-context
-processing computationally expensive. This limitation has led to a recent resurgence of interest in recurrent architectures and 
+processing computationally expensive. This limitation has led to a recent resurgence of interest in recurrent and 
 state-based architectures that aim to achieve linear-time efficiency ($\mathcal{O}(N)$) without sacrificing performance. 
 Key contributions in this direction include: Structured State Space Models (SSMs) like Mamba \cite{gu2024mambalineartimesequencemodeling}, 
 linear transformers such as Receptance Weighted Key Value (RWKV)\cite{peng2023rwkvreinventingrnnstransformer} and 
-Extended Long-Short Term Memory(xLSTM) \cite{beck2024xlstmextendedlongshortterm}. 
+Extended Long-Short Term Memory(xLSTM) \cite{beck2024xlstmextendedlongshortterm}. \\ \\
+%
 The xLSTM architecture extends the classic LSTM cell \cite{10.5555/2998981.2999048} by 
 introducing exponential gating and matrix-valued memory states with gated updates. These changes look to address the scaling 
-problem of the Transformers and the storage bottlenecks of traditional LSTMs, achieving comparable perfromance while 
+problem of the Transformers and the storage bottlenecks of traditional LSTMs, and try to achieve comparable perfromance while 
 maintaining linear-time inference.  
 
 \subsection{Problem}
@@ -26,14 +27,25 @@ maintaining linear-time inference.
 Deep architectures have produced tremendous advancements in the field of machine learning over the past decade. 
 Their pattern recognition and information representation capabilities are yet to be completely understood even to this day.
 Post-hoc interpretability in deep neural networks is a challenging problem due to several intrinsic mathematical 
-and structural properties of these models. First, modern architectures operate in high-dimensional representation spaces, 
-where features are typically distributed across multiple dimensions rather than localized to individual neurons. 
-Moreover, multiple concepts may be encoded within overlapping directions of the representation space. 
+and structural properties of these models. \\ \\
+%
+First, modern architectures operate in high-dimensional representation spaces, 
+where features are distributed across multiple dimensions. Moreover, multiple concepts may be encoded within 
+overlapping directions of the representation space. \\ \\
+%
 Second, neural networks apply a sequence of non-linear transformations, making the relationship between input tokens 
-and internal representations difficult to describe using simple analytical tools. As network depth increases, interactions 
-between representations become progressively more complex. Finally, although the computation of hidden states is fully 
+and internal representations difficult to describe. As network depth increases, interactions 
+between representations become progressively more complex. \\ \\ 
+%
+Finally, although the computation of hidden states is fully 
 specified by the model parameters and architecture, the resulting computation graph is generally too complex to provide 
-specific human-interpretable explanations of how particular representations or predictions are produced.
+specific human-interpretable explanations of how particular representations or predictions are produced. \\ \\
+%
+Beyond interpretability challenges, recurrent-based architectures such as xLSTM also introduce important systems-level 
+considerations. In contrast to purely attention-based models, recurrent models maintain an evolving internal state that 
+can, in principle, reduce the computational overhead associated with processing long contexts. However, in practice, 
+the models suffer from significant generation latency due to the sequential nature of the RNNs. 
+This makes efficient inference an important bottleneck to be addressed, particularly when dealing with long sequences or real-time constraints. 
 
 \subsection{Motivation}
 
@@ -47,39 +59,35 @@ alternatives to self-attention. \\ \\
 While the performance of Transformer-based language models has been extensively studied, a substantial body of 
 interpretability research has also emerged to investigate their internal mechanisms. In contrast, the behavior 
 of modern recurrent architectures such as xLSTM remains comparatively underexplored. This observation motivated 
-the present work, which seeks to apply and adapt interpretability techniques inspired by previous studies of 
-neural language models, including the Logit Lens methodology and analyses of recurrent network dynamics. \\ \\
+the present work, which applies and adapt interpretability techniques inspired by previous studies of 
+neural language models. \\ \\
 %
 By investigating how information is represented, stored, and updated within xLSTM, this thesis aims to contribute 
 to a better understanding of the model's memory mechanisms and internal representations. Such insights may help 
 validate architectural design choices, identify limitations, and inform future developments of memory-based language models.\\ \\
 %
-Another question to be answered is if an alternative option to the transformer models like the xLSTM architecture
-can operate in a practical environment. In parallel, it remains to be understood how competing architectures 
-can displace Transformers, which are widely adopted in modern infrastructure through highly optimized hardware
-acceleration, making them exceptionally difficult to replace in production workflows.
+At the same time, it is important to evaluate how alternative architectures perform in practice compared to Transformers, 
+which are widely used and benefit from highly optimized inference systems. This motivates the study of xLSTM under realistic 
+inference conditions.
 \subsection{Contribution}
 
-To address the lack of interpretability data on scalable recurrent architectures, the primary objective of this thesis 
-is to execute a post-hoc evaluation framework on the internal representations and state dynamics of the xLSTM-7B 
-architecture. This work maps the internal mechanics of the model by moving systematically from macro-level validation 
-down to micro-level gating operations. \\ \\ 
+To address the lack of interpretability analyses for scalable recurrent architectures, the main objective of this thesis is 
+to perform a post-hoc evaluation of the internal representations and state dynamics of the xLSTM-7B architecture. 
+This work analyzes the internal mechanisms of the model by first studying the hidden states and then examining the individual components
+of the xLSTM cells that contribute to the hiden state values.\\ \\ 
 %
-The first phase of the research establishes an empirical baseline by evaluating the pretrained xLSTM-7B model across standard 
-downstream zero-shot datasets utilized in the foundational literature, specifically LAMBADA (OpenAI)\cite{paperno2016lambada}, 
+The first phase of this work establishes an empirical baseline by evaluating the pretrained xLSTM-7B model across standard 
+datasets, specifically LAMBADA (OpenAI)\cite{paperno2016lambada}, 
 PIQA\cite{bisk2020piqa}, Winogrande\cite{sakaguchi2021winogrande}, ARC-Challenge\cite{clark2018arc}, ARC-Easy\cite{clark2018arc}, 
-and Hellaswag\cite{zellers2019hellaswag}. This behavioral evaluation serves to validate the functional performance limits of 
-the model prior to any internal analysis. Following this initial baseline, the second phase adapts the logit lens\cite{nostalgebraist2020logitlens}
-\cite{belrose2023tunedlens}
-technique to project intermediate hidden states from the recurrent layers directly onto the vocabulary space. 
-Initial observations from this tracking indicate that vocabulary prediction convergence across intermediate layers 
-follows a trajectory structurally similar to that observed in standard Transformer models. \\ \\
+and Hellaswag\cite{zellers2019hellaswag}. This evaluation represents an assessment of the model's capablities before 
+analyzing its internal structure. Following this initial evaluation, the second phase adapts the logit lens\cite{nostalgebraist2020logitlens}
+\cite{belrose2023tunedlens} to project intermediate hidden states from the recurrent layers directly onto the vocabulary space. \\ \\
 %
-The third phase compares how hidden representations evolve across the layers of a recurrent network compared to a Transformer, 
-using xLSTM-7B and Mistral-7B. The final two phases of the interpretability study focus on the temporal dynamics of the architecture. 
-Specifically, they examine the evolution of the memory state over time and the contribution of individual 
-tokens to long-term memory through the input and forget gates. To analyze these mechanisms, we process long token
-sequences and track the Frobenius norm of the cell state, together with the activations of the input and forget gates. 
+Next, we compare how hidden representations evolve across the layers of a recurrent network compared to a Transformer, 
+using xLSTM-7B and Mistral-7B. The final two phases of the interpretability study focus on the sequential processing of the architecture. 
+Specifically, we examine the evolution of the memory state over time and the contribution of individual 
+tokens to long-term memory through the input and forget gates. To analyze these mechanisms, we process
+sequences and track the norm of the cell state, together with the activations of the input and forget gates. 
 This allows us to observe how information is stored, retained, and updated throughout the sequence. \\ \\ 
 %
 On top of the interpretability experiments, we evaluate the practical utility of the xLSTM model in a 
