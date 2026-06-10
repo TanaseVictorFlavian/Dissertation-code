@@ -100,17 +100,20 @@ Figure~\ref{fig:CKA xLSTM Mistral-7B} displays a similarity map between
 %
 Despite this mismatch in processing mechanisms, there is a strong convergence in representation at deeper stages. Early-to-middle layers show reduced and irregular similarity, reflecting the temporary divergence in how information is integrated. However, from mid-to-late layers onward, similarity increases substantially, suggesting that both models gradually settle into a shared high-level representation space. This indicates that although their internal computation differs, both architectures ultimately encode similar semantic information at depth, even if that convergence is not aligned layer-by-layer.
 
-\subsubsection{Context Memorization with Cell State Caching}
+\subsubsection{Gate Dynamics and Memory Formation}
 
 For this experiment we tracked the mean norm accross all hidden states per token in order to observe how the memory fluctuates 
 after processing each token. 
+As a complementary analysis, we also monitor the magnitude of the matrix-valued cell state 
+$C_{l,t}^{(h)}$ by computing its Frobenius norm. The resulting plots are included in 
+Appendix~\ref{appendix} and are used to relate gate activations to the overall evolution of the memory state.
 
 \subsection{Context Memorization with Cell State Caching}
 
 For this experiment we evalate the peformance of the xLSTM on a question answering task, exploring the possibility of caching the
 memory cells in order to boost the generation speed, while also keeping up the performance. We carefully picked 102 questions from the 
 SQuAD dataset, the methodology is described in chapter~\ref{subsection:speedup} and the dataset questions could be visualized in Appendix ~\ref{}.
-To add another point of reference we also run the Mistral-7B-v0.3 on the dataset. Table ~\ref{} shows the results of the experiment.
+To add another point of reference we also run the Mistral-7B-v0.3 on the dataset. Table ~\ref{tab:mem-caching} shows the results of the experiment.
 
 \begin{table}[h]
     \centering
@@ -124,7 +127,7 @@ To add another point of reference we also run the Mistral-7B-v0.3 on the dataset
             \hline
         \end{tabular}
     \caption{Evaluation results comparing Mistral-7B and xLSTM-7B variants.}
-    \label{tab:model_comparison}
+    \label{tab:mem-caching}
 \end{table}
 
 The results show a clear trade-off between accuracy and efficiency, with one model clearly dominating in both dimensions depending on what you prioritize.

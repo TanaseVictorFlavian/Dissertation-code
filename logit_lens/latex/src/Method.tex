@@ -86,14 +86,10 @@ To establish a baseline understanding of the model's capabilities, we evaluate x
 \begin{itemize}
 \item \textbf{HellaSwag} \cite{zellers2019hellaswag}: A commonsense reasoning benchmark consisting of 
 partially described situations followed by multiple candidate continuations. The task requires 
-selecting the most plausible ending among several alternatives. HellaSwag is designed to be 
-challenging for language models by including distractor options generated through adversarial 
-filtering, making it a strong test of contextual understanding and commonsense reasoning.
+selecting the most plausible ending among several alternatives.
 
 \item \textbf{LAMBADA} \cite{paperno2016lambada}: A language modeling benchmark that evaluates the 
-ability to predict the final word of a passage using the broader context of the document. Success 
-on this task requires integrating information across multiple sentences and is therefore particularly 
-relevant for assessing long-range dependency modeling.
+ability to predict the final word of a passage using the broader context of the document.
 
 \item \textbf{ARC-Challenge} \cite{clark2018arc}: The challenging subset of the AI2 Reasoning Challenge
 dataset. It consists of multiple-choice science questions that are difficult to answer using simple 
@@ -101,30 +97,23 @@ retrieval or pattern matching techniques. The benchmark evaluates reasoning abil
 knowledge, and the capacity to combine information from multiple sources.
 
 \item \textbf{ARC-Easy} \cite{clark2018arc}: A simpler subset of the ARC benchmark containing 
-elementary-level science questions. While less demanding than ARC-Challenge, it provides a useful
-measure of basic factual knowledge and reasoning capabilities.
+elementary-level science questions.
 
 \item \textbf{PIQA} \cite{bisk2020piqa}: The Physical Interaction Question Answering benchmark 
 evaluates physical commonsense reasoning. Questions describe everyday situations and require selecting 
-the most plausible solution to a practical problem. The benchmark focuses on a model's understanding of 
-how objects and actions interact in the physical world.
+the most plausible solution to a practical problem.
 
 \item \textbf{WinoGrande} \cite{sakaguchi2021winogrande}: A large-scale commonsense reasoning benchmark 
 derived from the Winograd Schema Challenge. The task involves resolving ambiguous references in a sentence 
-by selecting the correct antecedent. Performance on WinoGrande is often used as a measure of a model's 
-ability to perform contextual and commonsense reasoning beyond simple pattern recognition.
+by selecting the correct antecedent.
 
 \end{itemize}
-
-\noindent Together, these benchmarks provide a broad evaluation of the model across several dimensions, 
-including commonsense reasoning, long-context understanding, physical reasoning, scientific knowledge, 
-and language comprehension.
 
 \subsection{Interpretability Study}
 \label{subs:interpretability}
 
 The study of interpretable properties in deep neural networks has helped researchers better understand 
-the internal mechanisms of otherwise opaque models. In computer vision, Zeiler et al. 
+the internal mechanisms of blackbox models In computer vision, Zeiler et al. 
 \cite{zeiler2013visualizingunderstandingconvolutionalnetworks} improved the understanding of 
 convolutional neural networks by using a deconvolutional framework to project intermediate feature 
 activations back into the input space. This made it possible to observe how increasingly abstract 
@@ -136,71 +125,57 @@ showed that the hidden states of both RNNs and Transformers encode syntactic str
 Using a structural probing framework, they demonstrated that syntax trees can be recovered through a 
 learned linear transformation of the representation space. Their results on models such as ELMo 
 \cite{peters2018deepcontextualizedwordrepresentations} and BERT \cite{devlin-etal-2019-bert} suggest 
-that linguistic structure is organized within the geometry of the learned representations rather than 
-being stored as unstructured information. \\ \\ 
+that the model captures linguistic structure through its representations rather than storing it in an explicit form. \\ \\ 
 %
 This interpretability study follows a layered approach that moves from high-level model outputs to internal 
 mechanisms. We first analyze intermediate representations to understand what information is available at 
 different depths of the network. We then compare these representations across architectures to study 
 structural similarities and differences. Finally, we focus on the internal memory dynamics of xLSTM, 
 examining how information is stored and controlled through its recurrent state and gating mechanisms.
-This progressive design allows us to move from observable predictions to the underlying processes that 
-generate them.
 
-% \subsubsection{Hidden State Analysis}
-
-% A common characteristic of modern neural architectures is their block-based design, where the input 
-% representation is repeatedly transformed through a stack of identical or near-identical processing 
-% blocks. Each block applies a sequence of operations that progressively refine the representation, 
-% allowing the model to build increasingly abstract features as depth increases. This hierarchical structure 
-% makes the intermediate representations available after each layer, making it possible to study how information 
-% evolves throughout the network. As a result, we can analyze the outputs of individual blocks to
-% gain insights into the processing performed at different stages of the model.
-%
 \subsubsection{The Logit Lens}
 The logit lens\cite{nostalgebraist2020logitlens}\cite{belrose2023tunedlens} is an experimental framework
 which studies the evolution of the latent representations in the network. To track how predictions form as 
-text moves through the architecture, we extracted the hidden state vectors from each internal block. \\ \\ 
+text moves through the architecture, we extracted the hidden state vectors after each xLSTM block. \\ \\ 
 %
 Under normal circumstances, word predictions are made at the very end of the network. In the logit lens setup, 
-at each intermediate block, we take the temporary hidden states, 
-apply the normalization then apply the learned linear(the language modeling head)
-projection into the vocabulary space. \\ \\ 
+we take the extracted hidden states, normalize the values and use the language modeling head(learned linear layer) 
+to project the output into the vocabulary space. \\ \\ 
 %
 To evaluate how these internal guesses change and improve across depth, we analyzed the resulting word 
-distributions in three ways:
+distributions in two ways:
 \begin{itemize}
     \item \textbf{Logits (Top-1 Predictions):} We evaluated the raw output scores across the entire
     vocabulary to identify which single token was the model's top choice at each individual block. 
-    This allowed us to inspect the literal words the network considers during mid-network calculation.
+    This helps us visualize how the top choice token changes during the internal transformations within the network.
     %
     \item \textbf{Target Ranks:} Even when an early layer does not select the final correct token as 
     its top choice, that token may still be highly rated. We tracked the strict rank
-    order of the final true token within each block's internal probability distribution. 
+    order of the ground truth prediction within each block's internal probability distribution. 
     Monitoring how this rank climbs toward the first position shows how quickly the network narrows 
     down its uncertainty.
     %
-    \item \textbf{Kullback-Leibler (KL) Divergence:} Computing the KL divergence, helped measuring the 
-    overall statistical difference between the token probability distribution of an intermediate block 
-    and that of the final output block. This provided a continuous metric to monitor how smoothly the 
-    network's internal beliefs converge toward its final output, and to verify how quickly the original 
-    input representation is transformed upon entering the network.
+    % \item \textbf{Kullback-Leibler (KL) Divergence:} Computing the KL divergence, helped measuring the 
+    % overall statistical difference between the token probability distribution of an intermediate block 
+    % and that of the final output block. This provided a continuous metric to monitor how smoothly the 
+    % network's internal beliefs converge toward its final output, and to verify how quickly the original 
+    % input representation is transformed upon entering the network.
 \end{itemize}
 
 \subsubsection{Hidden State Similarity with CKA}
 
-Building on the logit lens analysis, which was originally introduced for Transformer-based architectures,
+Building on the logit lens analysis, which was originally tested on Transformer-based architectures,
 we next investigate how the representations learned by a recurrent architecture such as xLSTM compare 
-to those of a Transformer model, specifically Mistral-7B. The transformer model choice was driven by the 
-fact that both models share the same embedding dimension and the same number of layers, which 
-allows for a more aligned layer-wise analysis. \\ \\ 
+to those of a Transformer model, specifically Mistral-7B. The reference model choice was made given that
+both models share the same embedding dimension and the same number of layers, which 
+allows for a more aligned layer-wise analysis. \\ \\
 %
 To evaluate differences in structural representations between the two architectures, we compare the 
 hidden representations of each model using Centered Kernel Alignment (CKA) 
 \cite{kornblith2019similarityneuralnetworkrepresentations},
 a metric designed for measuring similarity between neural network representations. 
 In this study, we use linear CKA computed over mean-centered hidden states across tokens, 
-which quantifies similarity through normalized Frobenius norms of cross-covariance matrices:
+which computes the similarity using normalized Frobenius norms of cross-covariance matrices:
 
 \begin{equation}
 X_c = X - \frac{1}{B} \sum_{i=1}^{B} X_{i, \cdot}
@@ -216,37 +191,22 @@ where $B$ represents the batch dimension
 \label{eq:linear_cka}
 \end{equation}
 
-\noindent For this purpose, we extract hidden state activations from each block of both models using the 
+\noindent For this purpose, we capture hidden state activations from each block of both models using the 
 same input prompt, ensuring a consistent basis for comparison.
 
-\subsubsection{Memory Cell Tracking}
+\subsubsection{Gate Dynamics and Memory Formation}
 
-The xLSTM architecture maintains information through a matrix-valued memory state, $C_{l,t}^{h}$, 
-which is updated at every processing step. To study how this memory evolves during sequence processing,
-we analyze the magnitude of the cell state throughout the network. Specifically, for each token position $t$, 
-we compute the Frobenius norm of the cell state matrix and average the result across all heads within a given layer $l$. 
-This produces a layer-wise measure, $\mathcal{N}(l,t)$ with $l=\overline{1, 32}, t=\overline{1, T}$, that reflects the magnitude of the information stored in 
-memory over time. \\ \\
+The update mechanism of the xLSTM memory state is controlled by the stabilized input and forget gates, $\tilde{i}{l,t}^{(h)}$ and $\tilde{f}{l,t}^{(h)}$,
+which determine how information is written to and retained in memory. To study these dynamics, 
+we analyze the gate activations throughout the network. For each token position $t$, we compute
+the stabilized input and forget gate values across all heads and layers and average the results, 
+yielding token-wise measures $I_t$ and $F_t$. These quantities provide a global 
+view of the rates of information writing and memory retention during sequence processing. \\ \\
 %
-By tracking this metric across layers and token positions, we can observe how memory develops throughout the processing 
-of a sequence. Increases in the norm may indicate that new information is being incorporated into memory, while stable 
-regions suggest the preservation of previously stored information. This analysis provides a simple quantitative view of 
-the memory dynamics within the xLSTM architecture.
-
-\subsubsection{Individual Token Contribution for Input/Forget Gates}
-
-The update mechanism of the cell state in the xLSTM architecture is controlled by stabilized input gate multipliers, 
-($\tilde{i}_{l,t}^{(h)}$), and forget gate multipliers, ($\tilde{f}_{l,t}^{(h)}$). To study how these gate dynamics 
-regulate memory updates, we analyze the magnitude of the gates throughout the network. Specifically, for each token 
-position $t$, we compute the stabilized input and forget gate values for all heads and layers and average the results. 
-This yields token-wise measures, $\mathcal{I}(t)$ and $\mathcal{F}(t)$, that reflect the global rates of information 
-writing and memory retention over time. \\ \\
-%
-By tracking these metrics across token positions, we can observe the direct gating control over memory modification. 
-High values of $\mathcal{I}(t)$ indicate that new information is being actively written into the cell state, while 
-high values of $\mathcal{F}(t)$ indicate the preservation of previously accumulated context. Conversely, 
-a decrease in $\mathcal{F}(t)$ shows that the model is actively forgetting outdated information. 
-This analysis provides a clear quantitative view of the gating mechanisms that drive memory modification in the xLSTM architecture.
+By tracking these metrics across tokens, we can identify which parts of a sequence trigger 
+strong memory updates and which parts primarily preserve previously accumulated context.
+High values of $I_t$ indicate active incorporation of new information into memory, 
+while high values of $F_t$ indicate the retention of previously stored information.
 
 \subsection{Context Memorization with Cell State Caching}
 \label{subsection:speedup}
@@ -255,27 +215,28 @@ The recurrent nature of xLSTM allows contextual information to be compressed int
 Unlike Transformer architectures, whose computational cost grows with the length of the input context, xLSTM 
 maintains a constant-size cell state $C_t$ of dimension $d \times d$, where $d$ denotes the embedding dimension. 
 This property motivates the exploration of memory-state caching, where the context is processed once and the 
-resulting cell state is reused for subsequent queries.
-
-The experiment requires a dataset containing long contextual passages associated with multiple independent questions.
+resulting cell state is reused for subsequent queries. \\ \\ 
+%
+The experiment requires a dataset containing contextual passages associated with multiple independent questions.
 To satisfy these requirements, we use the SQuAD dataset \cite{rajpurkar-etal-2016-squad}, which consists of Wikipedia 
-passages grouped by title and context, each paired with several question-answer examples.\\ \\ 
+passages grouped by title and context, each paired with several question-answer examples. On average the context
+consists of around 150-180 tokens per set of questions.\\ \\ 
 %
 To ensure that the same context can be reused across multiple queries, we sample unique title-context pairs and retain
 a single context per title. Furthermore, only contexts associated with at least two questions are considered. 
 The resulting evaluation set contains 102 question-answer pairs distributed across multiple shared contexts. \\ \\ 
 %
-The benchmark is evaluated under two different configurations. In the first configuration, referred to as the \textit{standard setup}, 
+The benchmark is evaluated under two different configurations. In the first configuration,
 the model receives as input the concatenation of the context and the question for every query. Consequently, the entire context must 
 be reprocessed each time a new question is asked. \\ \\
 %
-In the second configuration, referred to as the \textit{cached setup}, the context is processed only once. After the context has been consumed, 
+In the second configuration, the context is processed only once. After the context has been consumed, 
 the resulting cell states of the xLSTM are stored. Prior to answering each question associated with that context, the cached cell states are 
 reloaded into the model, allowing inference to begin from the previously computed memory state rather than reprocessing the full context. \\ \\
 %
 To provide a reference point, we also evaluate Mistral-7B on the same task. This comparison allows us to contrast the proposed 
 cell-state caching mechanism of xLSTM with the key-value (KV) cache used by Transformer architectures. While both approaches 
-aim to preserve previously processed information and avoid unnecessary computation, they do so through fundamentally different mechanisms. 
+aim to preserve previously processed information and avoid unnecessary computation, they use fundamentally different mechanisms. 
 The objective of this experiment is therefore to evaluate the practical efficiency of these two approaches and determine how the recurrent 
 memory of xLSTM compares to the KV-cache-based processing of a Transformer in terms of inference speed.
 
