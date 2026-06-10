@@ -4,7 +4,7 @@
 In this section we present and discuss the results for the experiments described in 
 chapter \ref{ch:method}. 
 
-\subsection{Baseline Evaluation}
+\subsection{Initial Benchmarking}
 In the original xLSTM paper, the authors evaluate smaller variants of the architecture 
 namely 125M, 350M, 760M, and 1.3B parameters respectively, trained on SlimPajama (300B tokens). 
 However, the prompting setup (e.g., zero-shot or few-shot) is not specified 
@@ -98,7 +98,7 @@ climbs the ranks and at the final layer, oftenly appears to be among the top can
     \caption{The rank of the ground truth token per hidden state}
     \label{fig:Top prediction rank logit lens}
 \end{figure}
-\subsubsection{Hidden State Similarity with CKA}
+\subsubsection{Hidden State Comparison with Mistral-7B}
 
 After concluding the logit lens experiment, we observe similar behaviour between the xLSTM and what a Transformer would exhibit. 
 Figure~\ref{fig:CKA xLSTM Mistral-7B} displays a similarity map between the hidden representations of xLSTM-7B and Mistral-7B.

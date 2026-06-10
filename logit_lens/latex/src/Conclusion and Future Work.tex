@@ -1,9 +1,38 @@
 \section{Conclusion and Future Work}
 \label{ch:conclusion and future work}
+\subsection{General Observations}
 
-Conclusions: 
-    -stacking RNN layers exhibits similar behaviour to the transformer architectures 
-    -the xLSTM seems to understand the language in a very similar way to transformers
-    -the memory cell is very sensitive to the input tokens 
-    -we can achive a 2.7x speedup in total generation time by caching the memory cells in a QA setup 
-     after processing the context, and a speedup that grows with the context size
+Overall, the model demonstrates promising learning behavior and efficient long-context processing.
+While it does not yet match transformer performance in accuracy, it exhibits clear advantages in 
+latency and scalability for long-context inference scenarios.\\ \\
+%
+The reproduced benchmark results did not fully match the reported performance, 
+likely due to missing implementation details or differences in evaluation frameworks.
+This highlights the sensitivity of reported results to evaluation setup and preprocessing choices.\\ \\
+%
+Logit lens analysis across stacked recurrent layers reveals behavior similar to transformer 
+architectures, where intermediate representations progressively align with final predictions. 
+Hidden state comparisons with Mistral-7B show strong convergence in learned representations, 
+suggesting that xLSTM develops internal structures closely aligned with transformer-style 
+language representations despite architectural differences. Additionally, The model effectively identifies 
+and prioritizes important tokens within the sequence, attributing stronger updates to meaningful elements 
+such as entities and key contextual markers. The input and forget gates work in a coordinated way to 
+preserve relevant information while selectively integrating new content into the memory state. \\ \\
+%
+Memory caching in a question-answering setup yields up to a 2.7$\times$ speedup in generation 
+time by reusing precomputed memory states and avoiding redundant computation over long contexts.
+The speedup increases with context length, making the approach particularly effective for
+long-sequence inference. However, performance still remains below a comparable transformer 
+baseline (Mistral-7B) in terms of quality metrics.
+%
+\subsection{Limitations}
+Despite the promising results, the model underperforms compared to 
+strong transformer baselines across several benchmarks. In addition, experimental work was constrained 
+by engineering limitations, including difficulties in deploying Triton kernels across different operating systems.
+
+\subsection{Future Work}
+This study represents an initial exploration of the model's capabilities. Future work should extend
+evaluation to longer sequences and include benchmarks that explicitly test long-range memory and 
+contextual retention. This would provide a more comprehensive assessment of the model's strengths 
+and limitations in long-context reasoning settings.
+\newpage
