@@ -201,12 +201,7 @@ which determine how information is written to and retained in memory. To study t
 we analyze the gate activations throughout the network. For each token position $t$, we compute
 the stabilized input and forget gate values across all heads and layers and average the results, 
 yielding token-wise measures $I_t$ and $F_t$. These quantities provide a global 
-view of the rates of information writing and memory retention during sequence processing. \\ \\
-%
-By tracking these metrics across tokens, we can identify which parts of a sequence trigger 
-strong memory updates and which parts primarily preserve previously accumulated context.
-High values of $I_t$ indicate active incorporation of new information into memory, 
-while high values of $F_t$ indicate the retention of previously stored information.
+view of the rates of information writing and memory retention during sequence processing.
 
 \subsection{Context Memorization with Cell State Caching}
 \label{subsection:speedup}
