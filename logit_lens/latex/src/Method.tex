@@ -1,76 +1,81 @@
-\section{Experimental Methodology}
+\section{Methodology}
 \label{ch:method}
 
 This section focuses on the technical details of the experiments that are presented in this work. 
 
 \subsection{Research Objectives}
 
-This work has three clear goals that can be defined as follows: 
 \begin{enumerate}
-    \item \textbf{Baseline evaluation of the xLSTM-7B model}(\ref{subsection:baseline-eval}): asses the performance of the model by evaluating it 
-    and compare it to a comparable transformer model, the Mistral-7B
-    \item \textbf{Interpretability study}: dissect the xLSTM components and investigate the internal mechanisms 
+    \item \textbf{Baseline evaluation of the xLSTM-7B model}(Subsection~\ref{subsection:baseline-eval}): Reproduce the reported performance of 
+    xLSTM-7B and compare the obtained results with the reported performance of smaller xLSTM variants.
+    \item \textbf{Interpretability study}(Subsection~\ref{subs:interpretability}): Dissect the xLSTM components and investigate the internal mechanisms 
     responsible for memory formation, information retention, and representation development.
-    \item \textbf{Practical Usage and generation speedup}: \textbf{Efficient Inference}: evaluate whether the fixed-size memory state of 
-    xLSTM can be leveraged to reduce inference time while maintaining task performance in practical setup.
+    \item \textbf{Efficient Inference}(Subsection~\ref{subsection:speedup}): evaluate whether the fixed-size memory state of 
+    xLSTM can be leveraged to reduce latency while maintaining task performance in a practical setup.
 \end{enumerate}
 
 \subsection{Models}
 \subsubsection{xLSTM-7B}
 
-In this study, we use the pretrained xLSTM-7B model available on Hugging Face. As discussed in the previous section, 
-the implementation differs slightly from the architecture described in the original xLSTM paper, primarily through a 
-modified version of the mLSTM block (Figure~\ref{fig:mLSTM-block}).
-%
-The model follows a decoder-only language modeling architecture. Input tokens are first mapped to dense vector 
-representations through an embedding layer and subsequently processed by a stack of 32 mLSTM blocks. The resulting 
-hidden representations are then normalized using Root Mean Square Normalization (RMSNorm) before being projected 
-into the vocabulary space through a linear output layer. Figure~\ref{fig:xLSTM} provides an overview of the complete model 
-architecture.
+In this study, we use the pre-trained xLSTM-7B model available on Hugging Face. 
+This implementation differs from the original xLSTM paper and uses a more transformer-like block structure. 
+The main recurrent component is a multi-head mLSTM layer, shown in Figure~\ref{fig:mlstm-layer}. 
+For each input representation $x_t$, the model applies Root Mean Square Normalization(RMSNorm)\cite{zhang2019rootmeansquarelayer} and computes projections for the query, key, value, input gate, 
+forget gate, and output gate. The query, key, value, input-gate, and forget-gate projections are reshaped into 8 heads, 
+and each head is processed by an independent mLSTM cell with its own recurrent state. 
+Each head produces an output of dimension 512 , giving a concatenated dimension of 4096 . 
+The head outputs are normalized with MultiHead LayerNorm~\cite{ba2016layernormalization}, 
+concatenated, multiplied by the output gate, and linearly projected back to the model dimension before a residual addition at the xlstm block level.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{xlstm.png}
-    \caption{xLSTM: architectural overview, figure after }
-    \label{fig:xLSTM}
+    \includegraphics[width=0.49\textwidth]{mlstm.png}
+    \caption{mLSTM layer - used in the xLSTM model}
+    \label{fig:mlstm}
 \end{figure}
-
-\noindent The model contains 6,865,424,896 parameters and uses an embedding dimension of 4096. The hidden state dimension 
-is also 4096 and is split across 8 parallel heads, each operating on a reduced subspace of dimension (4096 / 8 = 512).
-Due to the recurrent nature of the architecture, the model can in principle process sequences of arbitrary length,
-as its memory is maintained through the hidden and cell states rather than being constrained by a fixed positional context window.
-The model is used in its pretrained form, and no additional training or fine-tuning is performed in this study.
+%
+\noindent At the model level, these mLSTM blocks are arranged in a decoder-only language modeling architecture. 
+Input tokens are first mapped to dense vector representations by an embedding layer. 
+These representations are then processed by a stack of 32 xLSTM blocks, each containing 
+the multi-head mLSTM sub-layer described above and a SwiGLU feed-forward sub-layer\cite{shazeer2020gluvariantsimprovetransformer}. 
+After the final block, the hidden representations are normalized with RMSNorm 
+and projected into the vocabulary space using a linear output layer. Figure~\ref{fig:xlstm-mistral}(Left) provides 
+an overview of the complete model architecture. \\ \\
+%
+The model has 6,865,424,896 parameters and uses an embedding dimension of 4096. Because the architecture is recurrent, 
+it can in principle process sequences of arbitrary length. Instead of storing all previous token representations in a 
+fixed attention window, the model carries information forward through the recurrent mLSTM states $(C, n, m)$. 
+In this study, the model is used in its pre-trained form, and no additional training or fine-tuning is performed.
 
 \subsubsection{Mistral-7B}
 
 For comparison purposes, we use the pretrained Mistral-7B-v0.3 model as a representative Transformer-based 
 architecture. Like xLSTM, Mistral is a decoder-only language model and is used in its pretrained form 
 without additional fine-tuning. However, the mechanism by which information is processed differs 
-fundamentally between the two architectures.
-
+fundamentally between the two architectures. \\ \\
+%
 Mistral relies on Grouped-Query Attention (GQA)\cite{ainslie2023gqatraininggeneralizedmultiquery} as its primary sequence modeling mechanism, 
 utilizing 32 query heads and 8 key-value heads to optimize KV cache memory efficiency. The architecture uses Rotary Positional 
-Embeddings (RoPE) \cite{su2023roformerenhancedtransformerrotary} to natively sustain a 32,768-token context window. Within each Transformer 
+Embeddings (RoPE) \cite{su2023roformerenhancedtransformerrotary} to sustain a 32,768-token context window. Within each Transformer 
 decoder block, the embedded tokens are processed using RMS normalization before 
 entering the GQA layer, where separate linear projections generate the query, key, and value vectors. 
-The attention outputs are combined, passed through a residual connection, and processed by a 
-subsequent RMS normalization layer. This is followed by a feed-forward network consisting of three 
-linear transformations featuring a gated SiLU activation mechanism (SwiGLU). A final residual 
-connection completes the block.
-
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{Mistral.png}
-    \caption{Mistral-7B-v0.3: architectural overview}
-    \label{fig:Mistral Architecture}
+    \includegraphics[width=\textwidth]{xlstm-mistral.png}
+    \caption{xLSTM and Mistral architectures. Left: xLSTM-7B. Right: Mistral-7B-v0.3. Adaptation after \cite{raschka2026llmarchitecturegallery}}
+    \label{fig:xlstm-mistral}
 \end{figure}
 
-The Mistral-7B architecture consists of 32 Transformer decoder layers, each containing a multi-head self-attention
+\noindent The attention outputs are combined, passed through a residual connection, and processed by a 
+another RMS normalization layer. This is followed by a feed-forward network SwiGLU layer. A final residual 
+connection completes the block. \\ \\ 
+%
+The Mistral-7B architecture\ref{fig:xlstm-mistral}(Right) consists of 32 Transformer decoder layers, each containing a multi-head self-attention
 module and a feed-forward network. The model uses a hidden dimension of 4096 and approximately 7 billion parameters, 
 making it comparable in scale to the xLSTM-7B model. This architectural similarity in size allows differences observed 
 in the experiments to be attributed primarily to the underlying sequence modeling mechanisms rather than to disparities 
-in model capacity.
-
+in model capacity. \\ \\
+%
 Throughout this study, Mistral serves as a reference model for both performance benchmarking and representation 
 analysis, enabling a comparison between attention-based and recurrent approaches to language modeling.
 
@@ -116,6 +121,7 @@ including commonsense reasoning, long-context understanding, physical reasoning,
 and language comprehension.
 
 \subsection{Interpretability Study}
+\label{subs:interpretability}
 
 The study of interpretable properties in deep neural networks has helped researchers better understand 
 the internal mechanisms of otherwise opaque models. In computer vision, Zeiler et al. 

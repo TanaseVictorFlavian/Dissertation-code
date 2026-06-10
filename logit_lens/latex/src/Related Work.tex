@@ -2,14 +2,11 @@
 \label{ch:related-work}
 
 To provide the necessary background for the evaluation of the xLSTM-7B architecture,
-this chapter presents the theoretical concepts and related work relevant to this study.
-The first section reviews the evolution of recurrent neural networks, from classical RNNs
-to the modern architecture proposed by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
-that incorporate gating mechanisms and matrix-based memory structures. \\ \\
+this section covers the theoretical concepts and related work relevant to this study.
 %
 \subsection{Recurrent Neural Networks}
 Recurrent Neural Networks (RNNs) represent one of the earliest neural architectures specifically 
-designed for sequence modeling tasks. Their foundations can be traced to the work of Rumelhart et al. 
+designed for sequence modeling tasks. Their history can be traced to the work of Rumelhart et al. 
 \cite{rumelhart1986learning}, who introduced the backpropagation algorithm and discussed neural networks 
 with recurrent connections. Unlike feedforward neural networks, which process each input independently, 
 RNNs maintain a hidden state that evolves over time, allowing information from previous inputs to influence 
@@ -21,13 +18,13 @@ previous hidden state, enabling the network to capture temporal dependencies wit
 made RNNs a natural choice for tasks involving sequential information, such as language modeling, speech 
 recognition, machine translation, and time-series forecasting. \\ \\ 
 %
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{RNN.png}
     \caption{RNN: compressed (left) and unfolded(right), diagram inspired by \cite{olah2015lstm}}
     \label{fig:RNN-diagram}
 \end{figure}
-\noindent The operation of a standard RNN can be formally described through its hidden state update (equation \ref{eq:vanilla-rnn-equation}).
+\noindent The operation of a standard RNN can be formally described through its hidden state updat in equation~(\ref{eq:vanilla-rnn-equation}).
 At a given timestamp $t = \overline{1, T}$, for an input $x_t$, the hidden state $h_t$ is computed as: 
 \begin{equation}
 h_t = \phi(W_{xh}x_t + W_{hh}h_{t-1} + b_h),
@@ -43,53 +40,43 @@ y_t = W_{hy}h_t + b_y,
 \label{eq:y_t RNN}
 \end{equation}
 
-where $W_{hy}$ and $b_y$ are the output weight matrix and bias, respectively. Through the recurrent 
+where $W_{hy}$ and $b_y$ are the output weight matrix and bias, respectively. \\ \\
+Through the recurrent 
 connection involving $h_{t-1}$, the network is able to propagate information across time steps, 
 allowing previous inputs to influence future predictions.\\ \\ 
 %
 Training recurrent neural networks requires propagating gradients not only through the layers of the network but also 
 through time. This is typically achieved using \textit{Backpropagation Through Time} (BPTT), 
-introduced by Werbos et al.\cite{werbos1990backpropagation}. BPTT unfolds the recurrent network across the input sequence, 
-transforming it into an equivalent deep feedforward network with shared parameters at each time step. Gradients
-are then computed by applying the backpropagation algorithm to the unfolded computational graph and accumulated 
-across all time steps before updating the model parameters. \\ \\ 
-%
-While this training procedure allows RNNs to learn temporal dependencies, it also exposes a major limitation of the 
-architecture. During BPTT, gradients are propagated backward through all previous time steps of the sequence. 
-At each step, the gradient is repeatedly multiplied by the same recurrent transformation, as it is passed through the 
-unfolded network in time. As a result, the gradient magnitude may gradually decrease or increase with each multiplication.
-When it becomes too small, the network struggles to learn from earlier time steps, a phenomenon known as the \textit{vanishing gradient problem}. 
-Conversely, when it grows too large, training becomes unstable, leading to the \textit{exploding gradient problem} \cite{bengio1994learning}.\\ \\ 
-%
-These issues significantly limit the ability of standard RNNs to capture long-range dependencies in sequential data. 
-To address the exploding gradient problem, Pascanu et al. \cite{pascanu2013difficulty} introduced \textit{gradient clipping}, 
-a technique that limits the magnitude of gradients during training and improves optimization stability. Nevertheless, 
-the difficulty of preserving information over long sequences remained a fundamental challenge, motivating the development 
-of more advanced recurrent architectures such as Long Short-Term Memory (LSTM)\cite{10.5555/2998981.2999048} networks 
-and Gated Recurrent Units (GRUs)\cite{cho2014learningphraserepresentationsusing}\cite{chung2014empiricalevaluationgatedrecurrent}.
+introduced by Werbos et al.~\cite{werbos1990backpropagation}. However, this training procedure 
+suffers from instability issues, namely \textit{vanishing} and \textit{exploding} gradients~\cite{bengio1994learning}.
+\\ \\ 
+To mitigate the exploding gradient problem, Pascanu et al.~\cite{pascanu2013difficulty} introduced 
+\textit{gradient clipping}, a technique that limits the magnitude of gradients during training and improves optimization stability.
+Despite such improvements, preserving information over long sequences remained a fundamental challenge,
+which motivated the development of more advanced recurrent architectures such as Long Short-Term Memory 
+(LSTM)~\cite{10.5555/2998981.2999048} networks and Gated Recurrent Units 
+(GRUs)~\cite{cho2014learningphraserepresentationsusing,chung2014empiricalevaluationgatedrecurrent}.
 
 \subsection{Long-Short Term Memory}
 
 The \textbf{Long Short-Term Memory (LSTM)} architecture, introduced by Hochreiter and Schmidhuber \cite{10.5555/2998981.2999048} in the 1990s,
 was proposed to address the limitations of standard RNNs when learning long-range dependencies. The key innovation of the architecture is the 
 introduction of a dedicated memory state that can preserve information across many time steps. Instead of relying solely on the hidden state, 
-the LSTM uses a set of gating mechanisms to control how information is written to, stored in, and retrieved from memory. 
-This allows the model to memorize relevant information over longer sequences while reducing the impact of the vanishing gradient problem 
-encountered in traditional recurrent networks. \\ \\
+the LSTM uses a set of gating mechanisms to control how information is written to, stored in, and retrieved from memory.
 %
-\begin{figure}[h!]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{LSTM.png}
+    \includegraphics[width=0.9\textwidth]{LSTM.png}
     \caption{The LSTM cell, figure inspired by \cite{olah2015lstm}}
     \label{fig:LSTM}
 \end{figure}
 
-\noindent The standard LSTM cell maintains an internal cell state, $c_t$(\ref{eq:lstm_cell_state}), which acts as a long-term memory buffer, 
-and a hidden state, $h_t$(\ref{eq:lstm_hidden_state}), 
+\noindent The standard LSTM cell maintains an internal cell state, $c_t$(Eq:~\ref{eq:lstm_cell_state}), which acts as a long-term memory buffer, 
+and a hidden state, $h_t$ (Eq:~\ref{eq:lstm_hidden_state}), 
 which serves as the short-term working memory routed to subsequent layers. The flow of information inside the cell is controlled by 
-three gates with different scopes. The forget gate(\ref{eq:lstm_forget_gate}) manages what proportion of the historical cell state to discard by analyzing the 
-current input and the previous hidden state. The input gate(\ref{eq:lstm_input_gate}) controls how much new information, computed from the current input and 
-previous hidden state, is incorporated into the cell state. Finally, the output gate(\ref{eq:lstm_output_gate}) determines which information stored in the 
+three gates with different purposes. The forget gate(Eq:~\ref{eq:lstm_forget_gate}) manages what proportion of the cell state to discard by analyzing the 
+current input and the previous hidden state. The input gate(Eq:~\ref{eq:lstm_input_gate}) controls how much new information, computed from the current input and 
+previous hidden state, is incorporated into the cell state. Finally, the output gate(Eq:~\ref{eq:lstm_output_gate}) determines which information stored in the 
 updated cell state is propagated as the next hidden state.
 
 \begin{equation}
@@ -138,8 +125,8 @@ computation, which limited scalability on long sequences. These limitations moti
 architectures that avoid recurrence entirely, most notably Transformer\cite{vaswani2017attention} models based on self-attention. 
 In this broader context, recent work has revisited recurrent memory mechanisms at scale, leading to 
 architectures such as xLSTM, which aim to combine the efficiency of structured recurrence with improved 
-scalability and expressive memory modeling. \\ \\ 
-
+scalability and expressive memory modeling.
+%
 \subsection{Extended Long-Short Term Memory}
 
 The extended LSTM (xLSTM) architecture was introduced by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
@@ -203,11 +190,7 @@ For the scope of this work, the architecture used in the experiments solely reli
 The mLSTM fundamentally shifts the LSTM paradigm to solve both the storage capacity 
 and parallelization bottlenecks. To overcome the limited capacity of scalar states, the mLSTM 
 expands the memory cell into a matrix $C \in \mathbb{R}^{d \times d}$ where $d$ represents the embedding dimension of $x_{t}$. Crucially, to achieve 
-this efficiency, the mLSTM entirely abandons memory mixing (the hidden-hidden recurrent connections) allowing parallelization. \\ \\ 
-%
-Relying on Bidirectional Associative Memory (BAM)\cite{kosko1987adaptive} principles and Transformer terminology,
-the mLSTM stores information as key-value pairs ($k_t$, $v_t$) using a covariance (outer product) 
-update rule, and retrieves it using a query vector ($q_t$). The mLSTM cell also uses the stabilizer state introduced in the sLSTM equations(\ref{eq:stabilizer-state})
+this efficiency, the mLSTM entirely abandons memory mixing (the hidden-hidden recurrent connections) allowing parallelization.
 %
 \begin{align}
     \boldsymbol{C}_t &= \mathrm{f}_t \boldsymbol{C}_{t-1} + \mathrm{i}_t \boldsymbol{v}_t \boldsymbol{k}_t^\top && && \text{cell state} \\
@@ -221,29 +204,8 @@ update rule, and retrieves it using a query vector ($q_t$). The mLSTM cell also 
     \mathbf{o}_t &= \sigma(\tilde{\mathbf{o}}_t), & \tilde{\mathbf{o}}_t &= \boldsymbol{W}_{\mathbf{o}} \boldsymbol{x}_t + \boldsymbol{b}_{\mathbf{o}} && \text{output gate}
 \end{align}
 
-\subsubsection{The xLSTM Block}
-
-The xLSTM block leverages the mLSTM as a multi-head sequence-mixing mechanism. First, the input token representation 
-($x_t$) is normalized using RMSNorm \cite{zhang2019rootmeansquarelayer}. The normalized vector is then linearly projected into multiple heads. 
-Each head receives its own set of projected query, key, value, and gate vectors and processes them independently 
-through a dedicated mLSTM cell. As a result, the recurrent state is also maintained separately for each head.
+\noindent Relying on Bidirectional Associative Memory (BAM)\cite{kosko1987adaptive} principles and Transformer terminology,
+the mLSTM stores information as key-value pairs ($k_t$, $v_t$) using a covariance (outer product) 
+update rule, and retrieves it using a query vector ($q_t$).
+The mLSTM cell also uses the stabilizer state introduced in the sLSTM equations(Eq:~\ref{eq:stabilizer-state})
 %
-The outputs of the individual heads, denoted as ($h_1$, $h_2$, \ldots, $h_N$), are then normalized per head, gated, 
-concatenated, and passed through a shared linear projection layer. This produces an output vector with the 
-same dimensionality as the input, allowing it to be added back via a residual connection.
-%
-After the mLSTM sub-layer, the block applies a second pre-RMSNorm residual sub-layer: a SwiGLU feed-forward network. 
-This layer does not mix information across time. Instead, it processes each token representation independently. 
-The final output of the block is obtained by adding the FFN output back to the result of the mLSTM residual branch. \\ \\
-%
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\textwidth]{mlstm-block.drawio.png}
-    \caption{mLSTM Block}
-    \label{fig:mLSTM-block}
-\end{figure}
-\noindent This block structure is the one used in the available pre-trained xLSTM-7b model. It differs from the original 
-xLSTM paper, where the mLSTM block used a more specialized structure with an up-projection, causal convolution,
-block-diagonal query/key projections, and an internal skip connection. In the pre-trained model, the block is 
-closer to a standard transformer block: a multi-head mLSTM sequence-mixing layer followed by a 
-SwiGLU feed-forward layer. For the scope of this study, we'll refer to this version of the mLSTM block.
