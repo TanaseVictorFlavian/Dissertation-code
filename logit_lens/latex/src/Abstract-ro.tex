@@ -1,45 +1,33 @@
 \begin{center}
 {\Large \textbf{Sinopsis}}
 \end{center}
-Progresul recent in prelucrarea limbajului natural a fost accelerată de 
+Progresul recent in prelucrarea limbajului natural a fost accelerat de 
 dezvoltarea modelelor lingvistice de mari dimensiuni(LLM). Acest tip de arhitectura 
 are ca scop învățarea unor reprezentări ale limbajului care pot captura proprietăți 
-sintactice, semantice și să modele dependențe între cuvinte îndepărtate într-un mod efficient
-și scalabil. În ciuda îmbunătățirii performanței acestor modele, modul in care ele 
+sintactice, semantice și să învețe relații între cuvinte îndepărtate într-un mod efficient
+și scalabil. În ciuda progresului acestor modele, modul in care ele 
 învață și manipulează informația este doar parțial înțeles. \\ \\
 %
-Această limitare este cu atât mai relevantă în arhitecturile moderne care se bazează pe 
-abordări fundamental diferite de a reprezenta informația. Modelele de tip transformer procesează
+Această limitare este cu atât mai relevantă în arhitecturile profunde care se bazează pe 
+abordări diferite de a înmagazina informația. Modelele de tip transformer procesează
 secvențe de text cu ajutorul mecanismului de atenție, care folosește informația din tokeni în fiecare
-strat intern, fără o structură definită pentru memorie. Pe de altă parte, xLSTM o arhitectură de tip 
-recurentă\cite{beck2024xlstmextendedlongshortterm} reprezintă o alternativă la modelele de tip transformer, 
-folosind o structură pentru memorie explicită, care este actualizată incremental pe parcursul procesării
-textului. Acest mecanism are ca avantaj înmagazinarea si rafinarea informației de fiecare dată când un nou 
-token este procesat. \\ \\
+strat intern, fără o structură definită pentru memorie. Pe de altă parte, xLSTM o arhitectură 
+recurentă a fost propusă recent de către Beck et al.\cite{beck2024xlstmextendedlongshortterm} ca o 
+alternativă la modelele transformer, extinzând versiunea clasică a celulei LSTM. \\ \\
 %
-Această lucrare investighează comportamentul arhitecturilor xLSTM printr-o 
-serie de experimente care au ca scop să îmbunătățească modul în care sunt interpretate
-reprezentarea, înmagazinarea și transformările datelor în interiorul 
-modelului. Analiza se desfășoară
-pe mai multe nivele de abstractizare, începând de la analiza la nivel 
-de token, ca mai apoi să fie observate reprezentările 
-la nivel de strat. Mai specific, sunt utilizate tehnici de tip logit lens\cite{nostalgebraist2020logitlens}
-\cite{belrose2023tunedlens} pentru a remarca evoluția relației dintre reprezentările intermediare 
-în spațiul de embeddings și spațiul vocabularului. De asemenea, 
-comparăm reprezentările interne ale modelului xLSTM 
-cu cele ale unei arhitecturi comparabile de tip transformer, 
-anume Mistral-7B\cite{jiang2023mistral7b}. Scopul comparației este de a 
-observa similaritatea evoluției reprezentărilor semantice dintre două arhitecturi diferite. 
-Totodată, analizăm  modificarea memoriei pe parcursul
-procesării tokenilor, urmărind evoluția memoriei pe parcursul parcurgerii unui text. 
-și urmărim activările porților
-input și forget la nivel de token pentru a înțelege cum modelul alege sa rețină și să elimine selectiv
-conext. Împreună aceste experimente oferă o perspectivă nuanțată
-a interpretării mecanismelor din interiorul arhitecturii xLSTM.\\ \\
+Această lucrare propune o analiză a arhitecturii xLSTM printr-un set de experimente menite să 
+ajute la înțelegerea felului in care informația este reprezentată, stocată si transformată in cadrul modelului. 
+Mai mult, evaluăm practicalittea acestei arhitecturi într-un scenariu de tip
+intrebare-raspuns, o utilizare foarte frecventă a modelelor LLM. \\ \\
 %
-În final, explorăm o utilizare practică a stării de memorie de dimensiune fixă din xLSTM prin memorarea 
-informației contextuale în scenarii care testează abilitatea modelului de a răspunde la întrebări. Această abordare permite 
-îmbunătățirea vitezei de răspuns pe măsură ce dimensiunea contextului crește, deoarece starea de memorie stocată poate fi 
-reutilizată fără a procesa întreaga secvență de intrararăm această metodă cu modelul Mistral 7B 
-și analizăm avantajele și dezavantajele arhitecturilor recurente și celor bazate pe Transformere din perspectiva 
-vitezei și a performanței de fiecare dată. 
+Se propune observarea evoluției reprezentărilor latente intermediare, precum și comparația cu cele produse de 
+un model Transformer pentru a evalua similiaritatea dintre ele. 
+Mai mult, analizăm comportamentul stării de memorie pe parcursul procesării textului pentru a 
+înțelege felul în care tokeni individuali influențează adăugarea 
+și eliminarea de informație în memorie. \\ \\ 
+%
+Concluzionând, evaluăm stocarea în cache a stării de memorie a modelului, exploatând dimensiunea
+fixă a acesteia. Prin reutilizarea stării de memorie după procesarea contextului, modelul evită reprocesarea contextului
+și îmbunătățește viteza de generare a răspunurilor direct proporțional cu lungimea contextului. 
+Această metodă este evaluată în comparație cu utilizarea în aceleași condiții a unui model Mistal-7B cu scopul de a examina
+avantajele și dezavantajele privind eficiența inferenței și performanța modelului în cadrul experimentului.

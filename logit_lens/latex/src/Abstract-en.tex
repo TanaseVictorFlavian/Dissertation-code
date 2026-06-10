@@ -7,7 +7,7 @@ semantics, and long-range dependencies in an efficient and scalable way.
 Despite significant advances in performance, the internal mechanisms by which these models store and manipulate information 
 remain only partially understood. \\ \\
 % 
-This limitation becomes especially relevant in deep models that rely on fundamentally 
+This limitation becomes especially relevant in deep models that rely on
 different approaches to information storage. Transformer-based models process sequences using 
 self-attention, where information is mixed across tokens at each layer without an explicit notion 
 of persistent memory. In contrast, the xLSTM, a recently developed architecture was proposed 
@@ -25,7 +25,7 @@ Furthermore, we inspect memory behavior during the processing of sequences to un
 the retention and discarding information. \\ \\
 %
 Finally, we evaluate memory caching as a practical use of xLSTM's fixed-size memory state. By reusing the memory 
-state after processing the context, the model avoids recomputing the input sequence and achieves inference 
+state after processing the context, the model avoids recomputing the context and achieves inference 
 speedups that increase with context length. We compare this approach against Mistral-7B and examine the 
 trade-off between inference efficiency and task performance.
 
