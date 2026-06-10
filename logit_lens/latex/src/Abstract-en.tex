@@ -1,37 +1,32 @@
 \begin{center}
 {\Large \textbf{Abstract}}
 \end{center}
-Recent progress in natural language processing has been largely driven by large-scale neural 
-networks. These architectures aim to learn representations of text that capture syntax, 
+Recent progress in natural language processing has been largely driven by large language models(LLMs).
+These architectures aim to learn representations of text that capture syntax, 
 semantics, and long-range dependencies in an efficient and scalable way. 
 Despite significant advances in performance, the internal mechanisms by which these models store and manipulate information 
 remain only partially understood. \\ \\
 % 
-This limitation becomes especially relevant in modern architectures that rely on fundamentally 
+This limitation becomes especially relevant in deep models that rely on fundamentally 
 different approaches to information storage. Transformer-based models process sequences using 
 self-attention, where information is mixed across tokens at each layer without an explicit notion 
-of persistent state. In contrast, xLSTM introduced by Beck et al. \cite{beck2024xlstmextendedlongshortterm} 
-a modern recurrent neural network architecture represents an alternative to the transformer based architectures 
-by incorporating explicit memory that is updated incrementally over time. This allows information to be stored 
-and refined accross consecutive time steps. \\ \\ 
+of persistent memory. In contrast, the xLSTM, a recently developed architecture was proposed 
+by Beck et al. \cite{beck2024xlstmextendedlongshortterm} as an alternative to the transformer architectures 
+by extending the classic LSTM cell and reviving the interest in Recurrent Neural Networks \\ \\ 
 %
-This work investigates the internal behavior of the xLSTM architecture through a set of interpretability 
+This work performs an analysis of the xLSTM architecture through a set of interpretability 
 experiments aimed at understanding how information is represented, stored, and transformed inside the 
-model. The analysis explores multiple levels of abstraction, from token-level dynamics to layer-wise 
-representation structure. Specifically, we apply logit lens\cite{nostalgebraist2020logitlens} 
-\cite{belrose2023tunedlens} to observe the relationship between the internal representations in the embedding 
-space and their mapping into the vocabulary space. Moreover, we compare the hidden states of xLSTM and a comparable 
-Transformer-based model (Mistral 7B) \cite{jiang2023mistral7b} to assess how similarly semantic representations evolve 
-in the two models. Furthermore, we quantify memory behavior by tracking the 
-evolution of the cell state over time and tracking input and forget gate activations at the 
-token level to understand how the model selectively retains or discards information. 
-Together, these experiments provide a multi-perspective view into the internal mechanisms of modern recurrent 
-neural networks, offering interpretable details about how structured memory evolves in large-scale recurrent architectures.\\ \\
+model. Moreover, the practicality of this architecture is assessed by evaluating it in a question answering 
+setup, a very common application of LLMs. \\ \\ 
 %
-Finally, we investigate a practical application of xLSTM's fixed-size memory state by caching contextual 
-information for question-answering tasks. This approach enables inference speedups that increase with context
-length, as the cached memory can be reused without reprocessing the entire input sequence. 
-We evaluate the method against Mistral 7B and analyze the trade-offs between recurrent and Transformer-based 
-architectures with respect to inference speed and task performance.
+We track how the model's intermediate hidden states evolve and compare them to those produced by a Transformer model
+to assess the similarity of their internal representations. 
+Furthermore, we inspect memory behavior during the processing of sequences to understand how individual tokens influence 
+the retention and discarding information. \\ \\
+%
+Finally, we evaluate memory caching as a practical use of xLSTM's fixed-size memory state. By reusing the memory 
+state after processing the context, the model avoids recomputing the input sequence and achieves inference 
+speedups that increase with context length. We compare this approach against Mistral-7B and examine the 
+trade-off between inference efficiency and task performance.
 
 
