@@ -49,56 +49,60 @@ This makes efficient inference an important bottleneck to be addressed, particul
 
 \subsection{Motivation}
 
-The motivation for this work originates from the recent resurgece of recurrent architectures in large-scale sequence 
+The motivation for this work originates from the recent resurgence of recurrent architectures in large-scale sequence 
 modelling. While analyizing the current state of research on recurrent neural networks, the xLSTM architecture, which 
-Beck et al.\cite{beck2024xlstmextendedlongshortterm} proposed in 2024, became a personal point of interest. As one of the 
-first recurrent architectures in recent years to demonstrate competitive performance at scales traditionally 
-dominated by Transformer-based models, xLSTM represents an important development in the ongoing search for efficient 
-alternatives to self-attention. \\ \\ 
+Beck et al.\cite{beck2024xlstmextendedlongshortterm} proposed in 2024, became a personal point of interest. 
+As a notable recurrent architecture to demonstrate competitive performance at scales traditionally dominated by 
+Transformer-based models, xLSTM represents an important development in the ongoing search for efficient alternatives 
+to self-attention. \\ \\ 
 %
 While the performance of Transformer-based language models has been extensively studied, a substantial body of 
 interpretability research has also emerged to investigate their internal mechanisms. In contrast, the behavior 
 of modern recurrent architectures such as xLSTM remains comparatively underexplored. This observation motivated 
-the present work, which applies and adapt interpretability techniques inspired by previous studies of 
+the present work, which applies and adapts interpretability techniques inspired by previous studies of 
 neural language models. \\ \\
 %
 By investigating how information is represented, stored, and updated within xLSTM, this thesis aims to contribute 
 to a better understanding of the model's memory mechanisms and internal representations. Such insights may help 
 validate architectural design choices, identify limitations, and inform future developments of memory-based language models.\\ \\
 %
-At the same time, it is important to evaluate how alternative architectures perform in practice compared to Transformers, 
-which are widely used and benefit from highly optimized inference systems. This motivates the study of xLSTM under realistic 
-inference conditions.
+At the same time, it is important to evaluate how alternative architectures perform in practical scenarios compared to Transformers, 
+which are widely used and benefit from highly optimized inference systems.
 \subsection{Contribution}
 
-To address the lack of interpretability analyses for scalable recurrent architectures, the main objective of this thesis is 
+To address the lack of interpretability studies for scalable recurrent architectures, the main objective of this thesis is 
 to perform a post-hoc evaluation of the internal representations and state dynamics of the xLSTM-7B architecture. 
 This work analyzes the internal mechanisms of the model by first studying the hidden states and then examining the individual components
 of the xLSTM cells that contribute to the hiden state values.\\ \\ 
 %
-The first phase of this work establishes an empirical baseline by evaluating the pretrained xLSTM-7B model across standard 
+We establish an empirical baseline by evaluating the pretrained xLSTM-7B model across standard 
 datasets, specifically LAMBADA (OpenAI)\cite{paperno2016lambada}, 
 PIQA\cite{bisk2020piqa}, Winogrande\cite{sakaguchi2021winogrande}, ARC-Challenge\cite{clark2018arc}, ARC-Easy\cite{clark2018arc}, 
-and Hellaswag\cite{zellers2019hellaswag}. This evaluation represents an assessment of the model's capablities before 
-analyzing its internal structure. Following this initial evaluation, the second phase adapts the logit lens\cite{nostalgebraist2020logitlens}
+and Hellaswag\cite{zellers2019hellaswag} with both zero-shot and n-shot prompting. This evaluation  attempts to reproduce the reported performance of the model
+and represents an assessment of the its capablities before 
+analyzing the internal structure of it. Following this initial evaluation, the second phase adapts the logit lens\cite{nostalgebraist2020logitlens}
 \cite{belrose2023tunedlens} to project intermediate hidden states from the recurrent layers directly onto the vocabulary space. \\ \\
 %
-Next, we compare how hidden representations evolve across the layers of a recurrent network compared to a Transformer, 
-using xLSTM-7B and Mistral-7B. The final two phases of the interpretability study focus on the sequential processing of the architecture. 
-Specifically, we examine the evolution of the memory state over time and the contribution of individual 
-tokens to long-term memory through the input and forget gates. To analyze these mechanisms, we process
-sequences and track the norm of the cell state, together with the activations of the input and forget gates. 
-This allows us to observe how information is stored, retained, and updated throughout the sequence. \\ \\ 
+As part of the interpretability study, we adapt the logit lens\cite{nostalgebraist2020logitlens}
+\cite{belrose2023tunedlens} to project intermediate hidden states from the recurrent layers directly onto the vocabulary space.
+Using the same hidden states we compare how they evolve after each transformation compared to a Transformer model, namely Mistral-7B \cite{jiang2023mistral7b}.
+Moreover, we further analyze the model's storing capacity
+by examining how individual tokens contribute to long-term memory, 
+tracking the behavior of the input and forget gates during sequence processing. \\ \\
 %
-On top of the interpretability experiments, we evaluate the practical utility of the xLSTM model in a 
-question answering setting. We leverage the constant-size memory state of the model and explore caching 
-it when processing context that is later reused for answering questions. This approach enables an inference 
-speedup that increases with the size of the context, as the stored memory can be reused without recomputing 
-the full sequence.
+We conclude our analysis by evaluating the practical utility of the xLSTM model in a 
+question answering setting. We leverage the mode's fixed-size memory state to enable 
+caching of context for subsequent question answering. This avoids recomputing the full 
+input sequence and yields inference speedups that increase with context length, as the 
+cached memory state can be reused directly.
 \subsection{Outline}
 
-This thesis is structured as follows. Section~\ref{ch:related-work} presents the theoretical background underlying the work. It introduces Recurrent Neural Networks, Long Short-Term Memory cells, and the Extended Long Short-Term Memory architecture.
+This thesis is structured as follows. Section~\ref{ch:related-work} presents the theoretical background underlying the work. 
+It introduces Recurrent Neural Networks, Long Short-Term Memory cells, and the Extended Long Short-Term Memory.
 \\ \\ 
-Section~\ref{ch:method} describes the methodology used in the experiments. More specifically, it outlines the research objectives, the models considered, and the experimental setup, including the theoretical formulation of the conducted experiments. The technologies and implementation details are presented in Section~\ref{ch:implementation}.
+Section~\ref{ch:method} describes the methodology used in the experiments. More specifically, it outlines the research objectives, 
+the models considered, and the experimental setup, including the theoretical formulation of the conducted experiments.
+The technologies and implementation details are presented in Section~\ref{ch:implementation}.
 \\ \\
-Section~\ref{ch:experiments} presents and discusses the experimental results. Finally, conclusions, limitations, and directions for future work are provided in Section~\ref{ch:conclusion-and-future-work}.
+Section~\ref{ch:experiments} provides and discusses the results of our experiments. Finally, conclusions, 
+limitations, and directions for future work are all discussed in Section~\ref{ch:conclusion-and-future-work}.
