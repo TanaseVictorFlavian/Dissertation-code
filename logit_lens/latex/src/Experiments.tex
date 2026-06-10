@@ -151,7 +151,7 @@ embedding factual entities into its long-term memory state.
 \end{figure}
 
 \noindent Figure~\ref{fig:mean-input-gate-value-per-token} we observe how the forget gate is strognly biased
-toward long-term memory retention. The gate values remain consistently high (mostly 0.7-0.9+), showing minimal 
+toward long-term memory retention. The gate values remain consistently high (mostly 0.7-0.9), showing minimal 
 forgetting compared to classical LSTMs, where memory is frequently reset. This suggests the model is optimized to 
 preserve historical context across long token sequences, enabling stable retention of early information over extended spans.\\ \\
 %
@@ -171,11 +171,11 @@ For this experiment we evalate the peformance of the xLSTM on a question answeri
 memory cells in order to boost the generation speed, while also keeping up the performance. To provide an additional reference point,
 we also evaluate Mistral-7B on the same dataset. Table~\ref{tab:mem-caching} reports the corresponding results.
 
-\begin{table}[H]
+\begin{table}[h]
     \centering
         \begin{tabular}{lcccc}
             \hline
-            Model & Exact Match (\%) & F1 & Total Time (s) & Avg Time per Sample (s) \\
+            Model & Exact Match (\%) & F1 & Total Time (s) & Time/Sample (s) \\
             \hline
             Mistral-7B & \textbf{2.94} & \textbf{30.50} & 98.68 & 0.97 \\
             xLSTM-7B (no cache) & 0.00 & 10.94 & 237.13 & 2.32 \\
@@ -197,7 +197,7 @@ the two runs. The fact that both are significantly below Mistral indicates a mea
 %
 Where xLSTM becomes interesting is efficiency. Without cache, it is the slowest by a large margin (2.32s vs 0.97s for Mistral), 
 making it clearly less efficient in a naive inference setup. However, with cache, generation time drops to 0.85s per sample, making 
-it faster than Mistral and representing roughly a 2.7$\times$ speedup compared to the no-cache version. 
+it faster than Mistral and representing roughly a \textbf{2.7$\times$ speedup} compared to the no-cache version. 
 This confirms that the caching mechanism is effective in reducing computation cost without trading off performance. \\ \\
 %
 An additional observation is that the benefit of caching is expected to scale with context length. As the sequence grows, 
