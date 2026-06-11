@@ -90,7 +90,8 @@ While Figure \ref{fig:Greedy prediction logit lens} allows us to observe the evo
 it's only limited to the top prediction. A question to answer is where the ground truth token ranks among the 
 predictions for each layer. Figure \ref{fig:Top prediction rank logit lens} shows exactly that. We can see that after 
 each layer the sentence representation improves the understanding of our model. Progressively, the ground-truth prediction 
-climbs the ranks and at the final layer, oftenly appears to be among the top candidates. 
+climbs the ranks and at the final layer, oftenly appears to be among the top candidates. Another experiment that studies the
+KL divergence between layers is presented in Appendix~\ref{appA-subsection:kl-divergence}.
 
 \begin{figure}[H]
     \centering
@@ -125,7 +126,7 @@ both architectures ultimately encode similar semantic information at depth, even
 is not aligned layer-by-layer. 
 
 \subsubsection{Gate Dynamics and Memory Formation}
-
+\label{subsub: gate-dynamics}
 In order to get a better understanding of the memory structure, namely the cell state $C_t$ inside the mLSTM cell, in this 
 experiment we test the sensibility of the input and forget gate values when processing a token at time $t$. The model was fed
 a passage from War and Peace by Tolostoy, which consists of 173 tokens. \\ \\
@@ -163,7 +164,7 @@ between clauses or sentences.\\ \\
 %
 As a complementary analysis, we also monitor the magnitude of the matrix-valued cell state 
 $C_{l,t}^{(h)}$ by computing its Frobenius norm. The resulting plots are included in 
-Appendix~\ref{appendix} and are used to relate gate activations to the overall evolution of the memory state.
+Appendix~\ref{appA:memory-norm} and are used to relate gate activations to the overall evolution of the memory state.
 
 \subsection{Context Memorization with Cell State Caching}
 
@@ -198,8 +199,12 @@ the two runs. The fact that both are significantly below Mistral indicates a mea
 Where xLSTM becomes interesting is efficiency. Without cache, it is the slowest by a large margin (2.32s vs 0.97s for Mistral), 
 making it clearly less efficient in a naive inference setup. However, with cache, generation time drops to 0.85s per sample, making 
 it faster than Mistral and representing roughly a \textbf{2.7$\times$ speedup} compared to the no-cache version. 
-This confirms that the caching mechanism is effective in reducing computation cost without trading off performance. \\ \\
+This confirms that the caching mechanism is effective in reducing computation cost without trading off performance. More details about 
+the evaluation can be found in Appendix~\ref{app-sec:squad-details}.\\ \\
 %
 An additional observation is that the benefit of caching is expected to scale with context length. As the sequence grows, 
 models without caching have to process increasingly expensive recomputation of the whole context. This is especially useful in practical 
-applications involving long prompts, multi-turn interaction histories, or retrieval-augmented contexts.\\ \\
+applications involving long prompts, multi-turn interaction histories, or retrieval-augmented contexts. \\ \\
+%
+A very important mention is that these inference times would not be possible for the xLSTM without the custom Triton 
+kernels implemented by Beck et al. \cite{beck2024xlstmextendedlongshortterm}. 
