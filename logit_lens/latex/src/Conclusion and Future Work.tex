@@ -2,33 +2,37 @@
 \label{ch:conclusion-and-future-work}
 \subsection{General Observations}
 
-Overall, the model demonstrates promising learning behavior and efficient long-context processing.
-While it does not yet match transformer performance in accuracy, it exhibits clear advantages in 
-latency and scalability for long-context inference scenarios.\\ \\
+Overall, the model shows encouraging learning behavior and seems to be able to process
+long contexts efficiently. While its accuracy remains below that of transformer-based
+models, it shows a possible advantage in terms to latency and scales well in 
+long-context inference scenarios.\\ \\
 %
 The reproduced benchmark results did not fully match the reported performance, 
 likely due to missing implementation details or differences in evaluation frameworks.
-This highlights the sensitivity of reported results to evaluation setup and preprocessing choices.\\ \\
+This points to a possible sensitivity of reported results to evaluation setup and 
+preprocessing choices.
 %
 Logit lens analysis across stacked recurrent layers reveals behavior similar to transformer 
 architectures, where intermediate representations progressively align with final predictions. 
-Hidden state comparisons with Mistral-7B show strong convergence in learned representations, 
-suggesting that xLSTM develops internal structures closely aligned with transformer-style 
-language representations despite architectural differences. Additionally, The model effectively identifies 
-and prioritizes important tokens within the sequence, attributing stronger updates to meaningful elements 
-such as entities and key contextual markers. The input and forget gates work in a coordinated way to 
+Hidden state comparisons with Mistral-7B showed approximately 95\% CKA similarity in 
+the final layers, suggesting that xLSTM develops internal representations closely aligned with those of transformer-based language models. Additionally, the model was able to identify 
+and prioritize important tokens within a given sequence, attributing stronger updates to meaningful elements 
+such as entities and key contextual markers. The input and forget gates seem to work in a coordinated way to 
 preserve relevant information while selectively integrating new content into the memory state. \\ \\
 %
 Memory caching in a question-answering setup yields up to a 2.7$\times$ speedup in generation 
-time by reusing precomputed memory states and avoiding redundant computation over long contexts.
-The speedup increases with context length, making the approach particularly effective for
-long-sequence inference. However, performance still remains below a comparable transformer 
-baseline (Mistral-7B) in terms of quality metrics.
+time by reusing precomputed memory states and avoiding redundant computation over long contexts 
+accross 102 question answer pairs.
+The speedup increases with context length, making the approach particularly beneficial 
+for long-sequence inference. Notably, in our experiments, this improvement was achieved 
+\textbf{without any observed degradation in accuracy}. However, performance still remains below 
+a comparable transformer baseline (Mistral-7B).
 %
 \subsection{Limitations}
-Despite the promising results, the model underperforms compared to 
-strong transformer baselines across several benchmarks. In addition, experimental work was constrained 
-by engineering limitations, including difficulties in deploying Triton kernels across different operating systems.
+Despite the promising results, the model underperforms compared to a tranformer similar in size
+across several benchmarks. In addition, experimental work was constrained 
+by engineering limitations, including difficulties in deploying Triton kernels across 
+different operating systems.
 
 \subsection{Future Work}
 This study represents an initial exploration of the model's capabilities. Future work should extend

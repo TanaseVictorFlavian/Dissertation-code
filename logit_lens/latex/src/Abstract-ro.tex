@@ -1,11 +1,11 @@
 \begin{center}
 {\Large \textbf{Sinopsis}}
 \end{center}
-Progresul recent in prelucrarea limbajului natural a fost accelerat de 
+Progresul recent în prelucrarea limbajului natural a fost accelerat de 
 dezvoltarea modelelor lingvistice de mari dimensiuni(LLM). Acest tip de arhitectura 
 are ca scop învățarea unor reprezentări ale limbajului care pot captura proprietăți 
 sintactice, semantice și să învețe relații între cuvinte îndepărtate într-un mod efficient
-și scalabil. În ciuda progresului acestor modele, modul in care ele 
+și scalabil. În ciuda progresului acestor modele, modul în care ele 
 învață și manipulează informația este doar parțial înțeles. \\ \\
 %
 Această limitare este cu atât mai relevantă în arhitecturile profunde care se bazează pe 
@@ -16,18 +16,18 @@ recurentă a fost propusă recent de către Beck et al.\cite{beck2024xlstmextend
 alternativă la modelele transformer, extinzând versiunea clasică a celulei LSTM. \\ \\
 %
 Această lucrare propune o analiză a arhitecturii xLSTM printr-un set de experimente menite să 
-ajute la înțelegerea felului in care informația este reprezentată, stocată si transformată in cadrul modelului. 
+ajute la înțelegerea felului în care informația este reprezentată, stocată si transformată în cadrul modelului. 
 Mai mult, evaluăm practicalittea acestei arhitecturi într-un scenariu de tip
 intrebare-raspuns, o utilizare foarte frecventă a modelelor LLM. \\ \\
 %
 Se propune observarea evoluției reprezentărilor latente intermediare, precum și comparația cu cele produse de 
-un model Transformer pentru a evalua similiaritatea dintre ele. 
+un model Transformer pentru a evalua similaritatea dintre ele. 
 Mai mult, analizăm comportamentul stării de memorie pe parcursul procesării textului pentru a 
 înțelege felul în care tokeni individuali influențează adăugarea 
 și eliminarea de informație în memorie. \\ \\ 
 %
 Concluzionând, evaluăm stocarea în cache a stării de memorie a modelului, exploatând dimensiunea
 fixă a acesteia. Prin reutilizarea stării de memorie după procesarea contextului, modelul evită reprocesarea contextului
-și îmbunătățește viteza de generare a răspunurilor direct proporțional cu lungimea contextului. 
+și îmbunătățește viteza de generare a răspunsurilor direct proporțional cu lungimea contextului. 
 Această metodă este evaluată în comparație cu utilizarea în aceleași condiții a unui model Mistal-7B cu scopul de a examina
 avantajele și dezavantajele privind eficiența inferenței și performanța modelului în cadrul experimentului.

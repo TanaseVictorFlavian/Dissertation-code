@@ -8,15 +8,14 @@ this section covers the theoretical concepts and related work relevant to this s
 Recurrent Neural Networks (RNNs) represent one of the earliest neural architectures specifically 
 designed for sequence modeling tasks. Their history can be traced to the work of Rumelhart et al. 
 \cite{rumelhart1986learning}, who introduced the backpropagation algorithm and discussed neural networks 
-with recurrent connections. Unlike feedforward neural networks, which process each input independently, 
-RNNs maintain a hidden state that evolves over time, allowing information from previous inputs to influence 
+with recurrent connections. Unlike traditional feedforward neural networks, which process each input without a 
+concept of order,  
+RNNs re-use a hidden state that gets updated after each time step, allowing information from past inputs to influence 
 future predictions. \\ \\
 %
-The key idea behind recurrent architectures is the reuse of the same set of parameters at every time step. 
-Given an input sequence, the hidden state is updated recursively based on both the current input and the 
-previous hidden state, enabling the network to capture temporal dependencies within the data. This property 
-made RNNs a natural choice for tasks involving sequential information, such as language modeling, speech 
-recognition, machine translation, and time-series forecasting. \\ \\ 
+The key idea behind recurrent architectures is the reuse of the same parameters at every time step. 
+Given an input sequence, the recurrent state is updated recursively using the current input to update 
+the previous hidden state, capturing temporal dependencies within the data.\\ \\ 
 %
 \begin{figure}[H]
     \centering
@@ -50,19 +49,23 @@ through time. This is typically achieved using \textit{Backpropagation Through T
 introduced by Werbos et al.~\cite{werbos1990backpropagation}. However, this training procedure 
 suffers from instability issues, namely \textit{vanishing} and \textit{exploding} gradients~\cite{bengio1994learning}.
 \\ \\ 
-To mitigate the exploding gradient problem, Pascanu et al.~\cite{pascanu2013difficulty} introduced 
-\textit{gradient clipping}, a technique that limits the magnitude of gradients during training and improves optimization stability.
+To handle the exploding gradient problem, Pascanu et al.~\cite{pascanu2013difficulty} introduced 
+\textit{gradient clipping}, a procedure used during training that doesn't allow gradients to go past a certain threshold
+improving optimization stability.
 Despite such improvements, preserving information over long sequences remained a fundamental challenge,
-which motivated the development of more advanced recurrent architectures such as Long Short-Term Memory 
+which led to the development of Long Short-Term Memory 
 (LSTM)~\cite{10.5555/2998981.2999048} networks and Gated Recurrent Units 
 (GRUs)~\cite{cho2014learningphraserepresentationsusing,chung2014empiricalevaluationgatedrecurrent}.
 
 \subsection{Long-Short Term Memory}
 
-The \textbf{Long Short-Term Memory (LSTM)} architecture, introduced by Hochreiter and Schmidhuber \cite{10.5555/2998981.2999048} in the 1990s,
-was proposed to address the limitations of standard RNNs when learning long-range dependencies. The key innovation of the architecture is the 
-introduction of a dedicated memory state that can preserve information across many time steps. Instead of relying solely on the hidden state, 
-the LSTM uses a set of gating mechanisms to control how information is written to, stored in, and retrieved from memory.
+The \textbf{Long Short-Term Memory (LSTM)}(Hochreiter and Schmidhuber \cite{10.5555/2998981.2999048}) architecture, 
+introduced in the 1990s,
+was developed to improve on the limitations of standard RNNs which failed to maintain a long-term memory. 
+The key innovation of the architecture is the 
+introduction of a dedicated memory state that can preserve information across many time steps. 
+Instead of relying solely on the hidden state, 
+the LSTM uses a set of gating structures that control how information is retrieved, stored, and written to memory. 
 %
 \begin{figure}[H]
     \centering
@@ -76,8 +79,8 @@ and a hidden state, $h_t$ (Eq:~\ref{eq:lstm_hidden_state}),
 which serves as the short-term working memory routed to subsequent layers. The flow of information inside the cell is controlled by 
 three gates with different purposes. The forget gate(Eq:~\ref{eq:lstm_forget_gate}) manages what proportion of the cell state to discard by analyzing the 
 current input and the previous hidden state. The input gate(Eq:~\ref{eq:lstm_input_gate}) controls how much new information, computed from the current input and 
-previous hidden state, is incorporated into the cell state. Finally, the output gate(Eq:~\ref{eq:lstm_output_gate}) determines which information stored in the 
-updated cell state is propagated as the next hidden state.
+previous hidden state, is incorporated into the cell state. The output gate(Eq:~\ref{eq:lstm_output_gate}) what information from the
+updated cell state is transmitted as the next hidden state.
 
 \begin{equation}
 f_t = \sigma(W_f x_t + R_f h_{t-1} + b_f)
@@ -109,8 +112,8 @@ h_t = o_t \odot \tanh(c_t)
 \label{eq:lstm_hidden_state}
 \end{equation}
 
-\noindent Overall, the introduction of a dedicated memory cell and gating mechanisms 
-allows LSTMs to address the limitations of standard RNNs in capturing long-range dependencies. 
+\noindent Overall, the introduction of a dedicated memory state and gating 
+improve the standard RNN by being able to capture longer contexts. 
 However, the sequential processing over the time dimension still limits parallelization and makes them 
 computationally expensive for long sequences. Several architectural extensions were later 
 proposed to improve their effectiveness in different settings. Bidirectional recurrent networks \cite{schuster1997bidirectional} 
@@ -190,7 +193,7 @@ For the scope of this work, the architecture used in the experiments solely reli
 The mLSTM fundamentally shifts the LSTM paradigm to solve both the storage capacity 
 and parallelization bottlenecks. To overcome the limited capacity of scalar states, the mLSTM 
 expands the memory cell into a matrix $C \in \mathbb{R}^{d \times d}$ where $d$ represents the embedding dimension of $x_{t}$. Crucially, to achieve 
-this efficiency, the mLSTM entirely abandons memory mixing (the hidden-hidden recurrent connections) allowing parallelization.
+this efficiency, the mLSTM entirely abandons hidden-hidden recurrent connections allowing parallelization.
 %
 \begin{align}
     \boldsymbol{C}_t &= \mathrm{f}_t \boldsymbol{C}_{t-1} + \mathrm{i}_t \boldsymbol{v}_t \boldsymbol{k}_t^\top && && \text{cell state} \\

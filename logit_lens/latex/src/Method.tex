@@ -19,7 +19,7 @@ This section focuses on the technical details of the experiments that are presen
 
 In this study, we use the pre-trained xLSTM-7B model available on Hugging Face. 
 This implementation differs from the original xLSTM paper and uses a more transformer-like block structure. 
-The main recurrent component is a multi-head mLSTM layer, shown in Figure~\ref{fig:mlstm-layer}. 
+The main recurrent component is a multi-head mLSTM layer, shown in Figure~\ref{fig:mlstm}. 
 For each input representation $x_t$, the model applies Root Mean Square Normalization(RMSNorm)\cite{zhang2019rootmeansquarelayer} and computes projections for the query, key, value, input gate, 
 forget gate, and output gate. The query, key, value, input-gate, and forget-gate projections are reshaped into 8 heads, 
 and each head is processed by an independent mLSTM cell with its own recurrent state. 
@@ -35,11 +35,11 @@ concatenated, multiplied by the output gate, and linearly projected back to the 
 \end{figure}
 %
 \noindent At the model level, these mLSTM blocks are arranged in a decoder-only language modeling architecture. 
-Input tokens are first mapped to dense vector representations by an embedding layer. 
-These representations are then processed by a stack of 32 xLSTM blocks, each containing 
-the multi-head mLSTM sub-layer described above and a SwiGLU feed-forward sub-layer\cite{shazeer2020gluvariantsimprovetransformer}. 
-After the final block, the hidden representations are normalized with RMSNorm 
-and projected into the vocabulary space using a linear output layer. Figure~\ref{fig:xlstm-mistral}(Left) provides 
+Input tokens are first mapped to numeric representations in the form of high dimensional vectors by the embedding layer. 
+These vectors are then processed by a stack of 32 xLSTM blocks, each containing 
+the multi-head mLSTM sub-layer from Figure~\ref{fig:mlstm} and a SwiGLU feed-forward netowrk\cite{shazeer2020gluvariantsimprovetransformer}. 
+After the final block, the output hidden representation is normalized with RMSNorm 
+and projected to the vocabulary space using a linear output layer. Figure~\ref{fig:xlstm-mistral}(Left) provides 
 an overview of the complete model architecture. \\ \\
 %
 The model has 6,865,424,896 parameters and uses an embedding dimension of 4096. Because the architecture is recurrent, 
@@ -55,7 +55,7 @@ without additional fine-tuning. However, the mechanism by which information is p
 fundamentally between the two architectures. \\ \\
 %
 Mistral relies on Grouped-Query Attention (GQA)\cite{ainslie2023gqatraininggeneralizedmultiquery} as its primary sequence modeling mechanism, 
-utilizing 32 query heads and 8 key-value heads to optimize KV cache memory efficiency. The architecture uses Rotary Positional 
+utilizing 32 query heads and 8 key-value heads. The architecture uses Rotary Positional 
 Embeddings (RoPE) \cite{su2023roformerenhancedtransformerrotary} to sustain a 32,768-token context window. Within each Transformer 
 decoder block, the embedded tokens are processed using RMS normalization before 
 entering the GQA layer, where separate linear projections generate the query, key, and value vectors. 
@@ -71,7 +71,7 @@ another RMS normalization layer. This is followed by a feed-forward network SwiG
 connection completes the block. \\ \\ 
 %
 The Mistral-7B architecture\ref{fig:xlstm-mistral}(Right) consists of 32 Transformer decoder layers, each containing a multi-head self-attention
-module and a feed-forward network. The model uses a hidden dimension of 4096 and approximately 7 billion parameters, 
+structure and a feed-forward network. The model uses a hidden dimension of 4096 and approximately 7 billion parameters, 
 making it comparable in scale to the xLSTM-7B model. This architectural similarity in size allows differences observed 
 in the experiments to be attributed primarily to the underlying sequence modeling mechanisms rather than to disparities 
 in model capacity. \\ \\
@@ -90,11 +90,8 @@ reasoning and physical intuition to reading comprehension and scientific knowled
 partially described situations followed by multiple candidate continuations. The task requires 
 selecting the most plausible ending among several alternatives.
 
-\item \textbf{LAMBADA} \cite{paperno2016lambada}: A language modeling benchmark that evaluates the 
-ability to predict the final word of a passage using the broader context of the document.
-
 \item \textbf{ARC-Challenge} \cite{clark2018arc}: The challenging subset of the AI2 Reasoning Challenge
-dataset. It consists of multiple-choice science questions that are difficult to answer using simple 
+dataset. It consists of science questions with multiple answers that are difficult to answer using simple 
 retrieval or pattern matching techniques. The benchmark evaluates reasoning ability, scientific 
 knowledge, and the capacity to combine information from multiple sources.
 

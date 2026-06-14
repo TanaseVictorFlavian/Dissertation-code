@@ -17,14 +17,14 @@ zero-shot setting across all datasets.
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lccccccc}
     \hline
-    \textbf{Model} & \textbf{LAMBADA} & \textbf{LAMBADA} & \textbf{HellaSwag} & \textbf{PIQA} & \textbf{ARC-E} & \textbf{ARC-C} & \textbf{WinoGrande} \\
-    & \textbf{ppl $\downarrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} \\
+    \textbf{Model} & \textbf{HellaSwag} & \textbf{PIQA} & \textbf{ARC-E} & \textbf{ARC-C} & \textbf{WinoGrande} \\
+    & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} & \textbf{acc $\uparrow$} \\
     \hline
-    xLSTM-125M & 25.98 & 36.52 & 36.74 & 65.61 & 47.81 & 24.83 & 51.85 \\
-    xLSTM-350M & 11.49 & 49.33 & 48.06 & 69.59 & 55.72 & 26.62 & 54.38 \\
-    xLSTM-760M & 8.09  & 54.78 & 55.72 & 72.69 & 62.75 & \textbf{32.59} & 58.17 \\
-    xLSTM-1.3B & \textbf{6.86} & \textbf{57.83} & \textbf{60.91} & \textbf{74.59} & \textbf{64.31} & \textbf{32.59} & \textbf{60.62} \\
-    xLSTM-7B   & 190.18 & 23.02 & 41.28 & 68.23 & 47.43 & 25.26 & 52.64 \\
+    xLSTM-125M & 36.74 & 65.61 & 47.81 & 24.83 & 51.85 \\
+    xLSTM-350M & 48.06 & 69.59 & 55.72 & 26.62 & 54.38 \\
+    xLSTM-760M & 55.72 & 72.69 & 62.75 & \textbf{32.59} & 58.17 \\
+    xLSTM-1.3B & \textbf{60.91} & \textbf{74.59} & \textbf{64.31} & \textbf{32.59} & \textbf{60.62} \\
+    xLSTM-7B   & 41.28 & 68.23 & 47.43 & 25.26 & 52.64 \\
     \hline
 \end{tabular}
 }
@@ -111,11 +111,13 @@ Figure~\ref{fig:CKA xLSTM Mistral-7B} displays a similarity map between the hidd
 \end{figure}
 
 \noindent The CKA heatmap shows that the relationship between xLSTM and Mistral-7B representations 
-is not aligned in a simple layer-to-layer way. Instead of a clean diagonal mapping, similarity is 
-spread across multiple layers, meaning depth in one model does not correspond directly to depth in 
+don't seem to be aligned in a simple layer-to-layer way. Instead of a clean diagonal mapping, similarity is 
+spread across multiple layers, possibly meaning that depth in one model does not correspond 
+directly to depth in 
 the other. Early layers in both models are relatively close to the input representation, but the 
-overall structure diverges because Mistral processes tokens in parallel via attention, while xLSTM 
-builds representations sequentially, leading to different rates of abstraction and organization. \\ \\ 
+overall structure diverges possibly because Mistral processes tokens in parallel via attention, 
+while xLSTM 
+builds representations sequentially. \\ \\ 
 %
 Despite this mismatch in processing mechanisms, there is a strong convergence in representation at 
 deeper stages. Early-to-middle layers show reduced and irregular similarity, reflecting the 
@@ -134,8 +136,9 @@ a passage from War and Peace by Tolostoy, which consists of 173 tokens. \\ \\
 Figure~\ref{fig:mean-input-gate-value-per-token} highlights
 how much each token contributes to the model's memory. We can observe a progressive accumulation of context, with inital tokens
 triggering very low write activations, which steadilty ramp up as the details accumulate. Another observation is that 
-identifiers such as proper nouns, or dates(e.g "Vasili", "1805") trigger the highest write values, showing that the model explicitly prioritizes 
-embedding factual entities into its long-term memory state.
+identifiers such as proper nouns, or dates(e.g "Vasili", "1805") trigger the highest write values, 
+showing that the model is able to prioritize
+factual information into its long-term memory state.
 
 \begin{figure}[H]
     \centering
@@ -151,15 +154,17 @@ embedding factual entities into its long-term memory state.
     \label{fig:mean-forget-gate-value-per-token}
 \end{figure}
 
-\noindent Figure~\ref{fig:mean-input-gate-value-per-token} we observe how the forget gate is strognly biased
+\noindent In Figure~\ref{fig:mean-input-gate-value-per-token} we observe how the forget gate seems to be strognly biased
 toward long-term memory retention. The gate values remain consistently high (mostly 0.7-0.9), showing minimal 
-forgetting compared to classical LSTMs, where memory is frequently reset. This suggests the model is optimized to 
-preserve historical context across long token sequences, enabling stable retention of early information over extended spans.\\ \\
+forgetting compared to classical LSTMs, where we'd expect the memory to be reset. This suggests that it's possible that 
+the model learned to
+optimize historical context across long sequences, while still being able to retain early information in a stable way. \\ \\
 %
 A common observation for both figures is that gating activations remain consistent
-accross the tokens of individual token(e.g "Bu", "on", "ap", "art", "es"), indicating the architecture succsesfully
-treats these sub-word chunks as unified semantic blocks. Local variations appear at syntactic boundaries: punctuation tokens 
-(commas, periods, etc.) indicating soft segmentation points where the model partially relaxes its memory state to transition 
+accross the tokens of individual token(e.g "Bu", "on", "ap", "art", "es"), indicating the model succsesfully
+identified that these sub-word chunks are part of the same semantic block. Local variations appear at syntactic boundaries: 
+punctuation tokens 
+(commas, periods, etc.) potentially indicating soft segmentation points where the model partially relaxes its memory state to transition 
 between clauses or sentences.\\ \\
 %
 As a complementary analysis, we also monitor the magnitude of the matrix-valued cell state 
