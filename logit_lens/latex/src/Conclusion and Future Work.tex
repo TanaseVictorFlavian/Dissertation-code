@@ -20,16 +20,16 @@ and prioritize important tokens within a given sequence, attributing stronger up
 such as entities and key contextual markers. The input and forget gates seem to work in a coordinated way to 
 preserve relevant information while selectively integrating new content into the memory state. \\ \\
 %
-Memory caching in a question-answering setup yields up to a 2.7$\times$ speedup in generation 
+Memory caching in a question-answering setup yields up to a \textbf{2.7$\times$ speedup} in generation 
 time by reusing precomputed memory states and avoiding redundant computation over long contexts 
-accross 102 question answer pairs.
+across 102 question answer pairs.
 The speedup increases with context length, making the approach particularly beneficial 
 for long-sequence inference. Notably, in our experiments, this improvement was achieved 
 \textbf{without any observed degradation in accuracy}. However, performance still remains below 
 a comparable transformer baseline (Mistral-7B).
 %
 \subsection{Limitations}
-Despite the promising results, the model underperforms compared to a tranformer similar in size
+Despite the promising results, the model underperforms compared to a transformer similar in size
 across several benchmarks. In addition, experimental work was constrained 
 by engineering limitations, including difficulties in deploying Triton kernels across 
 different operating systems.

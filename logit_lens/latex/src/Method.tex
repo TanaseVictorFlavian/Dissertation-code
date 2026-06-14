@@ -25,7 +25,7 @@ forget gate, and output gate. The query, key, value, input-gate, and forget-gate
 and each head is processed by an independent mLSTM cell with its own recurrent state. 
 Each head produces an output of dimension 512 , giving a concatenated dimension of 4096 . 
 The head outputs are normalized with MultiHead LayerNorm~\cite{ba2016layernormalization}, 
-concatenated, multiplied by the output gate, and linearly projected back to the model dimension before a residual addition at the xlstm block level.
+concatenated, multiplied by the output gate, and linearly projected back to the model dimension before a residual addition at the xLSTM block level.
 
 \begin{figure}[H]
     \centering
@@ -37,7 +37,7 @@ concatenated, multiplied by the output gate, and linearly projected back to the 
 \noindent At the model level, these mLSTM blocks are arranged in a decoder-only language modeling architecture. 
 Input tokens are first mapped to numeric representations in the form of high dimensional vectors by the embedding layer. 
 These vectors are then processed by a stack of 32 xLSTM blocks, each containing 
-the multi-head mLSTM sub-layer from Figure~\ref{fig:mlstm} and a SwiGLU feed-forward netowrk\cite{shazeer2020gluvariantsimprovetransformer}. 
+the multi-head mLSTM sub-layer from Figure~\ref{fig:mlstm} and a SwiGLU feed-forward network\cite{shazeer2020gluvariantsimprovetransformer}. 
 After the final block, the output hidden representation is normalized with RMSNorm 
 and projected to the vocabulary space using a linear output layer. Figure~\ref{fig:xlstm-mistral}(Left) provides 
 an overview of the complete model architecture. \\ \\
@@ -49,14 +49,14 @@ In this study, the model is used in its pre-trained form, and no additional trai
 
 \subsubsection{Mistral-7B}
 
-For comparison purposes, we use the pretrained Mistral-7B-v0.3 model as a representative Transformer-based 
+For comparison purposes, we use the pretrained Mistral-7B-v0.3 model as a representative transformer-based 
 architecture. Like xLSTM, Mistral is a decoder-only language model and is used in its pretrained form 
 without additional fine-tuning. However, the mechanism by which information is processed differs 
 fundamentally between the two architectures. \\ \\
 %
 Mistral relies on Grouped-Query Attention (GQA)\cite{ainslie2023gqatraininggeneralizedmultiquery} as its primary sequence modeling mechanism, 
 utilizing 32 query heads and 8 key-value heads. The architecture uses Rotary Positional 
-Embeddings (RoPE) \cite{su2023roformerenhancedtransformerrotary} to sustain a 32,768-token context window. Within each Transformer 
+Embeddings (RoPE) \cite{su2023roformerenhancedtransformerrotary} to sustain a 32,768-token context window. Within each transformer 
 decoder block, the embedded tokens are processed using RMS normalization before 
 entering the GQA layer, where separate linear projections generate the query, key, and value vectors. 
 \begin{figure}[H]
@@ -70,7 +70,7 @@ entering the GQA layer, where separate linear projections generate the query, ke
 another RMS normalization layer. This is followed by a feed-forward network SwiGLU layer. A final residual 
 connection completes the block. \\ \\ 
 %
-The Mistral-7B architecture\ref{fig:xlstm-mistral}(Right) consists of 32 Transformer decoder layers, each containing a multi-head self-attention
+The Mistral-7B architecture\ref{fig:xlstm-mistral}(Right) consists of 32 transformer decoder layers, each containing a multi-head self-attention
 structure and a feed-forward network. The model uses a hidden dimension of 4096 and approximately 7 billion parameters, 
 making it comparable in scale to the xLSTM-7B model. This architectural similarity in size allows differences observed 
 in the experiments to be attributed primarily to the underlying sequence modeling mechanisms rather than to disparities 
@@ -112,15 +112,15 @@ by selecting the correct antecedent.
 \label{subs:interpretability}
 
 The study of interpretable properties in deep neural networks has helped researchers better understand 
-the internal mechanisms of blackbox models In computer vision, Zeiler et al. 
+the internal mechanisms of black box models In computer vision, Zeiler et al. 
 \cite{zeiler2013visualizingunderstandingconvolutionalnetworks} improved the understanding of 
 convolutional neural networks by using a deconvolutional framework to project intermediate feature 
 activations back into the input space. This made it possible to observe how increasingly abstract 
 visual representations emerge throughout the network layers. \\ \\ 
 %
-In recurrent and Transformer-based architectures, interpretability research has focused on understanding 
+In recurrent and transformer-based architectures, interpretability research has focused on understanding 
 what information is stored in hidden representations. Hewitt and Manning \cite{hewitt-manning-2019-structural} 
-showed that the hidden states of both RNNs and Transformers encode syntactic structure. 
+showed that the hidden states of both RNNs and transformers encode syntactic structure. 
 Using a structural probing framework, they demonstrated that syntax trees can be recovered through a 
 learned linear transformation of the representation space. Their results on models such as ELMo 
 \cite{peters2018deepcontextualizedwordrepresentations} and BERT \cite{devlin-etal-2019-bert} suggest 
@@ -163,9 +163,9 @@ distributions in two ways:
 
 \subsubsection{Hidden State Similarity with CKA}
 
-Building on the logit lens analysis, which was originally tested on Transformer-based architectures,
+Building on the logit lens analysis, which was originally tested on transformer-based architectures,
 we next investigate how the representations learned by a recurrent architecture such as xLSTM compare 
-to those of a Transformer model, specifically Mistral-7B. The reference model choice was made given that
+to those of a transformer model, specifically Mistral-7B. The reference model choice was made given that
 both models share the same embedding dimension and the same number of layers, which 
 allows for a more aligned layer-wise analysis. \\ \\
 %
@@ -206,7 +206,7 @@ view of the rates of information writing and memory retention during sequence pr
 \label{subsection:speedup}
 
 The recurrent nature of xLSTM allows contextual information to be compressed into a fixed-size memory state. 
-Unlike Transformer architectures, whose computational cost grows with the length of the input context, xLSTM 
+Unlike transformer architectures, whose computational cost grows with the length of the input context, xLSTM 
 maintains a constant-size cell state $C_t$ of dimension $d \times d$, where $d$ denotes the embedding dimension. 
 This property motivates the exploration of memory-state caching, where the context is processed once and the 
 resulting cell state is reused for subsequent queries. \\ \\ 
@@ -229,8 +229,8 @@ the resulting cell states of the xLSTM are stored. Prior to answering each quest
 reloaded into the model, allowing inference to begin from the previously computed memory state rather than reprocessing the full context. \\ \\
 %
 To provide a reference point, we also evaluate Mistral-7B on the same task. This comparison allows us to contrast the proposed 
-cell-state caching mechanism of xLSTM with the key-value (KV) cache used by Transformer architectures. While both approaches 
+cell-state caching mechanism of xLSTM with the key-value (KV) cache used by transformer architectures. While both approaches 
 aim to preserve previously processed information and avoid unnecessary computation, they use fundamentally different mechanisms. 
 The objective of this experiment is therefore to evaluate the practical efficiency of these two approaches and determine how the recurrent 
-memory of xLSTM compares to the KV-cache-based processing of a Transformer in terms of inference speed.
+memory of xLSTM compares to the KV-cache-based processing of a transformer in terms of inference speed.
 

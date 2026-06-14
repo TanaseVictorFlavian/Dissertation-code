@@ -23,7 +23,7 @@ the previous hidden state, capturing temporal dependencies within the data.\\ \\
     \caption{RNN: compressed (left) and unfolded(right), diagram inspired by \cite{olah2015lstm}}
     \label{fig:RNN-diagram}
 \end{figure}
-\noindent The operation of a standard RNN can be formally described through its hidden state updat in equation~(\ref{eq:vanilla-rnn-equation}).
+\noindent The operation of a standard RNN can be formally described through its hidden state update in equation~(\ref{eq:vanilla-rnn-equation}).
 At a given timestamp $t = \overline{1, T}$, for an input $x_t$, the hidden state $h_t$ is computed as: 
 \begin{equation}
 h_t = \phi(W_{xh}x_t + W_{hh}h_{t-1} + b_h),
@@ -77,9 +77,9 @@ the LSTM uses a set of gating structures that control how information is retriev
 \noindent The standard LSTM cell maintains an internal cell state, $c_t$(Eq:~\ref{eq:lstm_cell_state}), which acts as a long-term memory buffer, 
 and a hidden state, $h_t$ (Eq:~\ref{eq:lstm_hidden_state}), 
 which serves as the short-term working memory routed to subsequent layers. The flow of information inside the cell is controlled by 
-three gates with different purposes. The forget gate(Eq:~\ref{eq:lstm_forget_gate}) manages what proportion of the cell state to discard by analyzing the 
-current input and the previous hidden state. The input gate(Eq:~\ref{eq:lstm_input_gate}) controls how much new information, computed from the current input and 
-previous hidden state, is incorporated into the cell state. The output gate(Eq:~\ref{eq:lstm_output_gate}) what information from the
+three gates with different purposes. The forget gate (Eq:~\ref{eq:lstm_forget_gate}) manages what proportion of the cell state to discard by analyzing the 
+current input and the previous hidden state. The input gate (Eq:~\ref{eq:lstm_input_gate}) controls how much new information, computed from the current input and 
+previous hidden state, is incorporated into the cell state. The output gate (Eq:~\ref{eq:lstm_output_gate}) what information from the
 updated cell state is transmitted as the next hidden state.
 
 \begin{equation}
@@ -125,7 +125,7 @@ by composing multiple recurrent layers, allowing for more expressive hierarchica
 %
 Despite these improvements, these variants did not remove the fundamental sequential bottleneck of recurrent 
 computation, which limited scalability on long sequences. These limitations motivated the transition toward 
-architectures that avoid recurrence entirely, most notably Transformer\cite{vaswani2017attention} models based on self-attention. 
+architectures that avoid recurrence entirely, most notably transformer\cite{vaswani2017attention} models based on self-attention. 
 In this broader context, recent work has revisited recurrent memory mechanisms at scale, leading to 
 architectures such as xLSTM, which aim to combine the efficiency of structured recurrence with improved 
 scalability and expressive memory modeling.
@@ -149,7 +149,7 @@ three main bottlenecks of the classic LSTM:
     %
     \item \textbf{Lack of parallelizability:} The recurrent memory update relies on hidden-to-hidden 
     connections between consecutive time steps, requiring strictly sequential processing and 
-    preventing the highly parallel computation that characterizes Transformer architectures.
+    preventing the highly parallel computation that characterizes transformer architectures.
 \end{enumerate}
 
 \noindent To address these issues, xLSTM introduces several changes to the classical LSTM architecture.

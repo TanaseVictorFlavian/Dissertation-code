@@ -101,7 +101,7 @@ KL divergence between layers is presented in Appendix~\ref{appA-subsection:kl-di
 \end{figure}
 \subsubsection{Hidden State Comparison with Mistral-7B}
 
-After concluding the logit lens experiment, we observe similar behaviour between the xLSTM and what a Transformer would exhibit. 
+After concluding the logit lens experiment, we observe similar behaviour between the xLSTM and what a transformer would exhibit. 
 Figure~\ref{fig:CKA xLSTM Mistral-7B} displays a similarity map between the hidden representations of xLSTM-7B and Mistral-7B.
 \begin{figure}[H]
     \centering
@@ -131,12 +131,12 @@ is not aligned layer-by-layer.
 \label{subsub: gate-dynamics}
 In order to get a better understanding of the memory structure, namely the cell state $C_t$ inside the mLSTM cell, in this 
 experiment we test the sensibility of the input and forget gate values when processing a token at time $t$. The model was fed
-a passage from War and Peace by Tolostoy, which consists of 173 tokens. \\ \\
+a passage from War and Peace by Tolstoy, which consists of 173 tokens. \\ \\
 %
 Figure~\ref{fig:mean-input-gate-value-per-token} highlights
-how much each token contributes to the model's memory. We can observe a progressive accumulation of context, with inital tokens
-triggering very low write activations, which steadilty ramp up as the details accumulate. Another observation is that 
-identifiers such as proper nouns, or dates(e.g "Vasili", "1805") trigger the highest write values, 
+how much each token contributes to the model's memory. We can observe a progressive accumulation of context, with initial tokens
+triggering very low write activations, which steadily ramp up as the details accumulate. Another observation is that 
+identifiers such as proper nouns, or dates(e.g. "Vasili", "1805") trigger the highest write values, 
 showing that the model is able to prioritize
 factual information into its long-term memory state.
 
@@ -154,14 +154,14 @@ factual information into its long-term memory state.
     \label{fig:mean-forget-gate-value-per-token}
 \end{figure}
 
-\noindent In Figure~\ref{fig:mean-input-gate-value-per-token} we observe how the forget gate seems to be strognly biased
+\noindent In Figure~\ref{fig:mean-input-gate-value-per-token} we observe how the forget gate seems to be strongly biased
 toward long-term memory retention. The gate values remain consistently high (mostly 0.7-0.9), showing minimal 
 forgetting compared to classical LSTMs, where we'd expect the memory to be reset. This suggests that it's possible that 
 the model learned to
 optimize historical context across long sequences, while still being able to retain early information in a stable way. \\ \\
 %
 A common observation for both figures is that gating activations remain consistent
-accross the tokens of individual token(e.g "Bu", "on", "ap", "art", "es"), indicating the model succsesfully
+across the tokens of individual token(e.g. "Bu", "on", "ap", "art", "es"), indicating the model successfully
 identified that these sub-word chunks are part of the same semantic block. Local variations appear at syntactic boundaries: 
 punctuation tokens 
 (commas, periods, etc.) potentially indicating soft segmentation points where the model partially relaxes its memory state to transition 
@@ -173,7 +173,7 @@ Appendix~\ref{appA:memory-norm} and are used to relate gate activations to the o
 
 \subsection{Context Memorization with Cell State Caching}
 
-For this experiment we evalate the peformance of the xLSTM on a question answering task, exploring the possibility of caching the
+For this experiment we evaluate the performance of the xLSTM on a question answering task, exploring the possibility of caching the
 memory cells in order to boost the generation speed, while also keeping up the performance. To provide an additional reference point,
 we also evaluate Mistral-7B on the same dataset. Table~\ref{tab:mem-caching} reports the corresponding results.
 

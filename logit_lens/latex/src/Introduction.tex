@@ -9,7 +9,7 @@ with this scaling trend, a significant part of the scientific community focused 
 the internal mechanisms of these models. However, this intense scientific work has focused
 almost exclusively towards attention-based architectures, leaving non-transformer based models comparatively less explored. \\ \\
 %
-Despite their success, Transformers suffer from a fundamental computational bottleneck:
+Despite their success, transformers suffer from a fundamental computational bottleneck:
 self-attention scales quadratically ($\mathcal{O}(N^2)$) relative to the sequence length, making long-context
 processing computationally expensive. This limitation has led to a recent resurgence of interest in recurrent and 
 state-based architectures that aim to achieve linear-time efficiency ($\mathcal{O}(N)$) without sacrificing performance. 
@@ -19,7 +19,7 @@ Extended Long-Short Term Memory(xLSTM) \cite{beck2024xlstmextendedlongshortterm}
 %
 The xLSTM architecture extends the classic LSTM cell \cite{10.5555/2998981.2999048} by 
 introducing exponential gating and matrix-valued memory states with gated updates. These changes look to address the scaling 
-problem of the Transformers and the storage bottlenecks of traditional LSTMs, and try to achieve comparable performance while 
+problem of the transformers and the storage bottlenecks of traditional LSTMs, and try to achieve comparable performance while 
 maintaining linear-time inference.  
 
 \subsection{Problem}
@@ -53,10 +53,10 @@ The motivation for this work originates from the recent resurgence of recurrent 
 modelling. While analyzing the current state of research on recurrent neural networks, the xLSTM architecture, which 
 Beck et al.\cite{beck2024xlstmextendedlongshortterm} proposed in 2024, became a personal point of interest. 
 As a notable recurrent architecture to demonstrate competitive performance at scales traditionally dominated by 
-Transformer-based models, xLSTM represents an important development in the ongoing search for efficient alternatives 
+transformer-based models, xLSTM represents an important development in the ongoing search for efficient alternatives 
 to self-attention. \\ \\ 
 %
-While the performance of Transformer-based language models has been extensively studied, a substantial body of 
+While the performance of transformer language models has been extensively studied, a substantial body of 
 interpretability research has also emerged to investigate their internal mechanisms. In contrast, the behavior 
 of modern recurrent architectures such as xLSTM remains comparatively underexplored. This observation motivated 
 the present work, which applies and adapts interpretability techniques inspired by previous studies of 
@@ -66,7 +66,7 @@ By investigating how information is represented, stored, and updated within xLST
 to a better understanding of the model's memory mechanisms and internal representations. Such insights may help 
 validate architectural design choices, identify limitations, and inform future developments of memory-based language models.\\ \\
 %
-At the same time, it is important to evaluate how alternative architectures perform in practical scenarios compared to Transformers, 
+At the same time, it is important to evaluate how alternative architectures perform in practical scenarios compared to transformers, 
 which are widely used and benefit from highly optimized inference systems.
 \subsection{Contribution}
 
@@ -84,7 +84,7 @@ analyzing the internal structure of it. Following this initial evaluation, the s
 %
 As part of the interpretability study, we adapt the logit lens\cite{nostalgebraist2020logitlens}
 \cite{belrose2023tunedlens} to project intermediate hidden states from the recurrent layers directly onto the vocabulary space.
-Using the same hidden states we compare how they evolve after each transformation compared to a Transformer model, namely Mistral-7B \cite{jiang2023mistral7b}.
+Using the same hidden states we compare how they evolve after each transformation compared to a transformer model, namely Mistral-7B \cite{jiang2023mistral7b}.
 Moreover, we further analyze the model's storing capacity
 by examining how individual tokens contribute to long-term memory, 
 tracking the behavior of the input and forget gates during sequence processing. \\ \\

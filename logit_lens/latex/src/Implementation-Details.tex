@@ -19,7 +19,7 @@ before and after each xLSTM block using hooks, and computing the corresponding v
 formulations provided in the xLSTM paper, as well as the reference implementation in the Hugging Face Transformers codebase. \\ \\
 %
 In the experimental setup involving memory caching, we build upon an existing xLSTM caching implementation provided in the model repository, 
-adapting it to support our usecase. This allows us to reuse previously computed memory states during question answering,
+adapting it to support our use case. This allows us to reuse previously computed memory states during question answering,
 reducing redundant computation during inference. We restrict decoding to a maximum of 25 new tokens and use a temperature of 1.0 
 to ensure consistent sampling behavior across runs. The limit of 25 generated tokens is chosen because the SQuAD dataset 
 primarily requires short, span-like answers, making longer generations unnecessary for the task. 
